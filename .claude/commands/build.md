@@ -14,9 +14,9 @@ Execute the implementation plan task by task, with commits at each checkpoint. Y
 
 An implementation plan must exist in `docs/implementation-plans/`.
 
-First, list available implementation plans and ask which one to build (or confirm if there's only one recent one).
+If the user does not provide an implementation plan path, ask them for the file path.
 
-Also locate the corresponding design document in `docs/design-plans/` for the Build Log.
+A design document must also exist in `docs/design-plans/` for the Build Log. If the user does not provide a design doc path, ask them for the file path.
 
 ---
 
