@@ -226,6 +226,7 @@ Feature complete! The workflow cycle is finished.
 |------|------|-------|-------|
 | 2026-01-15 | Task 1 | .claude/commands/design.md | Added Prerequisite section, updated Rule 6 to "Limited git", added commit checkpoint |
 | 2026-01-15 | Task 2 | .claude/commands/plan.md | Added commit checkpoint to Phase Complete |
+| 2026-01-15 | Task 3 | .claude/commands/build.md | Added "Anything to note?" prompt to step 7, added commit checkpoint |
 
 ---
 

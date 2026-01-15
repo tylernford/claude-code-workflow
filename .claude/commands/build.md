@@ -39,7 +39,7 @@ Every response must begin with:
 4. **Report** - Show what was created/modified
 5. **Commit** - Use the commit message from the plan (user handles git)
 6. **Log** - Add entry to Build Log in design doc
-7. **Pause** - Wait for user to confirm before next task
+7. **Pause** - Ask user: "Anything to note? (discoveries, surprises, context for later)" Then wait for confirmation before next task.
 
 ---
 
@@ -68,6 +68,8 @@ When all tasks are done, announce:
 
 All [N] tasks completed.
 Build Log updated in: docs/design-plans/YYYY-MM-DD-feature-name.md
+
+**Commit checkpoint:** Ensure all tasks have been committed before ending this session.
 
 Next: End this session and start a new Claude Code session.
 Run `/document` to begin Phase 4: Document.
