@@ -12,10 +12,11 @@ Complete project documentation and update developer-facing docs. This is the fin
 
 ## Prerequisite
 
-Build phase must be complete. Locate:
-- The design document in `docs/design-plans/`
-- The implementation plan in `docs/implementation-plans/`
-- The changelog at `docs/changelog.md`
+Build phase must be complete.
+
+If the user does not provide a design doc path, ask them for the file path.
+
+Then locate the corresponding implementation plan in `docs/implementation-plans/` and the changelog at `docs/changelog.md`.
 
 ---
 
@@ -30,7 +31,15 @@ Every response must begin with:
 
 ## Steps
 
-### Step 1: Complete Design Document
+### Step 1: Load and Summarize
+
+- Read the design document
+- Locate the corresponding implementation plan
+- Review the Build Log entries
+- Summarize what was built and any deviations noted
+- Confirm this is the correct feature to document
+
+### Step 2: Complete Design Document
 
 Update the design document:
 
@@ -44,7 +53,7 @@ Update the design document:
 
 3. **Review Build Log** - Ensure it captures the full build history
 
-### Step 2: Update Changelog
+### Step 3: Update Changelog
 
 Append an entry to `docs/changelog.md`:
 
@@ -58,7 +67,7 @@ Brief description of what was built.
 **Key files:** list of main files created/modified
 ```
 
-### Step 3: Update README (if applicable)
+### Step 4: Update README (if applicable)
 
 If the feature adds user-facing functionality:
 - Add or update relevant README sections
@@ -66,6 +75,12 @@ If the feature adds user-facing functionality:
 - Do not mention this Claude workflow (that's internal tooling)
 
 Skip this step if the feature doesn't affect the README.
+
+### Step 5: Final Notes
+
+Ask user: "Anything to note? (discoveries, surprises, or context not captured in the Build Log)"
+
+Incorporate any final notes into the design document's Completion section.
 
 ---
 
@@ -80,6 +95,8 @@ Documentation updated:
 - Design doc completed: docs/design-plans/YYYY-MM-DD-feature-name.md
 - Changelog updated: docs/changelog.md
 - README: [updated | no changes needed]
+
+**Commit checkpoint:** Commit the documentation updates before ending this session.
 
 Feature complete! The workflow cycle is finished.
 ```

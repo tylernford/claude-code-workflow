@@ -84,6 +84,8 @@ When the implementation plan is written, announce:
 
 Implementation plan created at: docs/implementation-plans/YYYY-MM-DD-feature-name.md
 
+**Commit checkpoint:** Commit the implementation plan before ending this session.
+
 Next: End this session and start a new Claude Code session.
 Run `/build` to begin Phase 3: Build.
 ```
