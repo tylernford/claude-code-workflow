@@ -1,7 +1,7 @@
 # Workflow Phase Improvements
 
 **Created:** 2026-01-15
-**Status:** Design
+**Status:** Complete
 
 ---
 
@@ -18,15 +18,15 @@
 ## Requirements
 
 ### Must Have
-- [ ] `/document` asks for design doc path if not provided (matches `/plan` and `/build` pattern)
-- [ ] `/document` has a "Load and Summarize" step before documentation work
-- [ ] `/build` prompts "Anything to note?" after each task
-- [ ] `/document` prompts "Anything to note?" before finalizing
-- [ ] All four phases have commit checkpoint reminders in "Phase Complete" section
-- [ ] `/design` checks branch name and warns if not a feature branch
+- [x] `/document` asks for design doc path if not provided (matches `/plan` and `/build` pattern)
+- [x] `/document` has a "Load and Summarize" step before documentation work
+- [x] `/build` prompts "Anything to note?" after each task
+- [x] `/document` prompts "Anything to note?" before finalizing
+- [x] All four phases have commit checkpoint reminders in "Phase Complete" section
+- [x] `/design` checks branch name and warns if not a feature branch
 
 ### Nice to Have
-- [ ] Consistent rule numbering across files
+- [x] Consistent rule numbering across files
 
 ### Out of Scope
 - Changes to design doc template (`docs/templates/design-doc.md`)
@@ -73,17 +73,17 @@
 
 ## Acceptance Criteria
 
-- [ ] `/design` runs `git branch --show-current` and warns if `feat`/`feature` not in branch name
-- [ ] `/design` Phase Complete includes commit checkpoint reminder
-- [ ] `/plan` Phase Complete includes commit checkpoint reminder
-- [ ] `/build` step 7 asks "Anything to note?" before continuing
-- [ ] `/build` Phase Complete includes commit checkpoint reminder
-- [ ] `/document` Prerequisite asks for design doc path if not provided
-- [ ] `/document` has Step 1: Load and Summarize
-- [ ] `/document` has Step 5: Final Notes with "Anything to note?" prompt
-- [ ] `/document` Phase Complete includes commit checkpoint reminder
-- [ ] `/design` Rule 5 updated to "Limited git" whitelist
-- [ ] `/plan`, `/build`, `/document` git rules unchanged
+- [x] `/design` runs `git branch --show-current` and warns if `feat`/`feature` not in branch name
+- [x] `/design` Phase Complete includes commit checkpoint reminder
+- [x] `/plan` Phase Complete includes commit checkpoint reminder
+- [x] `/build` step 7 asks "Anything to note?" before continuing
+- [x] `/build` Phase Complete includes commit checkpoint reminder
+- [x] `/document` Prerequisite asks for design doc path if not provided
+- [x] `/document` has Step 1: Load and Summarize
+- [x] `/document` has Step 5: Final Notes with "Anything to note?" prompt
+- [x] `/document` Phase Complete includes commit checkpoint reminder
+- [x] `/design` Rule 6 updated to "Limited git" whitelist
+- [x] `/plan`, `/build`, `/document` git rules unchanged
 
 ---
 
@@ -233,9 +233,11 @@ Feature complete! The workflow cycle is finished.
 
 ## Completion
 
-**Completed:** [Date]
-**Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-01-15
+**Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Improved the Claude Development Workflow with better structure and guidance. Added branch checking to `/design` phase, commit checkpoint reminders to all four phases, note-taking prompts to `/build` (after each task) and `/document` (final sweep), and restructured `/document` with a Load and Summarize step and explicit design doc path request.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:** Minor correction — design doc referenced "Rule 5" but the git rule was actually Rule 6 in the codebase. Corrected during planning phase.
+
+**Future Improvement:** `/plan` and `/build` still search the `docs/design-plans/` directory and list available files instead of simply asking for the design doc path. The intent was to match `/document`'s simpler "ask for the path" approach. Consider updating `/plan` and `/build` prerequisites to explicitly instruct: "Ask for the design doc path if not provided" without proactive directory searching.
