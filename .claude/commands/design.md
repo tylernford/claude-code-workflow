@@ -10,6 +10,16 @@ Transform a raw idea into a structured, validated design document. You propose, 
 
 ---
 
+## Prerequisite
+
+Run `git branch --show-current` to check the current branch.
+
+If the branch name does not contain `feat` or `feature`, warn: "Your branch doesn't appear to be a feature branch — consider creating one before proceeding."
+
+Continue regardless of branch.
+
+---
+
 ## Announce Your Location
 
 Every response must begin with:
@@ -83,6 +93,8 @@ When the design document is written, announce:
 
 Design document created at: docs/design-plans/YYYY-MM-DD-feature-name.md
 
+**Commit checkpoint:** Commit the design document before ending this session.
+
 Next: End this session and start a new Claude Code session.
 Run `/plan` to begin Phase 2: Planning.
 ```
@@ -96,6 +108,6 @@ Run `/plan` to begin Phase 2: Planning.
 3. **User drives** - Wait for explicit approval to proceed
 4. **No implementation** - This phase is design only, no code writing
 5. **Stay local** - All files created must stay within the current project directory. No system-level or global configuration changes.
-6. **No git operations** - Never run git commands (commit, add, push, etc.). User handles all version control manually.
+6. **Limited git** - Only `git branch --show-current` is allowed. All other git operations (commit, add, push, etc.) are user-only.
 7. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never auto-advance based on natural language like "let's start building."
 8. **One phase per session** - Complete this phase, then end the session. Next phase starts fresh with docs as the handoff.
