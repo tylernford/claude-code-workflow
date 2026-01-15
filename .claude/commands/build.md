@@ -84,3 +84,5 @@ Run `/document` to begin Phase 4: Document.
 5. **Update Build Log** - Keep design doc current as you go
 6. **Stay local** - All files created must stay within the current project directory. No system-level or global configuration changes.
 7. **No git operations** - Never run git commands (commit, add, push, etc.). User handles all version control manually.
+8. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never auto-advance based on natural language like "let's move to documentation."
+9. **One phase per session** - Complete this phase, then end the session. Next phase starts fresh with docs as the handoff.

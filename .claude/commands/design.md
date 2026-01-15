@@ -97,3 +97,5 @@ Run `/plan` to begin Phase 2: Planning.
 4. **No implementation** - This phase is design only, no code writing
 5. **Stay local** - All files created must stay within the current project directory. No system-level or global configuration changes.
 6. **No git operations** - Never run git commands (commit, add, push, etc.). User handles all version control manually.
+7. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never auto-advance based on natural language like "let's start building."
+8. **One phase per session** - Complete this phase, then end the session. Next phase starts fresh with docs as the handoff.

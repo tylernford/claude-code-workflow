@@ -93,3 +93,5 @@ Feature complete! The workflow cycle is finished.
 3. **Complete the loop** - Don't skip this phase; documentation is part of done
 4. **Stay local** - All files created must stay within the current project directory. No system-level or global configuration changes.
 5. **No git operations** - Never run git commands (commit, add, push, etc.). User handles all version control manually.
+6. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. This is the final phase, but the rule applies if restarting the workflow.
+7. **One phase per session** - Complete this phase, then end the session. The workflow cycle is complete.
