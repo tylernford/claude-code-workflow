@@ -1,7 +1,7 @@
 # Simplify Doc Path Input for /plan and /build
 
 **Created:** 2026-01-15
-**Status:** Design
+**Status:** Complete
 
 ---
 
@@ -74,9 +74,9 @@
 
 ## Completion
 
-**Completed:** [Date]
-**Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-01-15
+**Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Updated `/plan` and `/build` commands to ask users for document paths instead of searching directories and listing files. Both commands now match the existing `/document` pattern, reducing token usage when users already know which document they want to work with.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:** None. Implementation matched the original design exactly.
