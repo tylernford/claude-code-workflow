@@ -14,7 +14,7 @@ Break the design into atomic, executable tasks with clear commit points. You pro
 
 A design document must exist in `docs/design-plans/`.
 
-First, list available design docs and ask which one to plan for (or confirm if there's only one recent one).
+If the user does not provide a design doc path, ask them for the file path.
 
 ---
 
