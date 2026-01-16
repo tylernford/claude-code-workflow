@@ -1,6 +1,8 @@
 # /plan
 
-You are starting **Phase 2: Plan**
+You are starting an **Implementation Session** — Phase 1: Plan
+
+This session will take you through Plan → Build → Document.
 
 ---
 
@@ -36,6 +38,8 @@ Every response must begin with:
 - Confirm this is the correct feature to plan
 
 ### Step 2: Codebase Verification
+
+**Note:** The design document may have been written days or weeks ago. The codebase may have changed since then.
 
 - Verify assumptions in the design doc match the actual codebase
 - Check for existing patterns, utilities, or components to leverage
