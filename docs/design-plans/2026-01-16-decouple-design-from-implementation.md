@@ -1,7 +1,7 @@
 # Decouple Design from Implementation Session
 
 **Created:** 2026-01-16
-**Status:** Design
+**Status:** Complete
 
 ---
 
@@ -121,9 +121,9 @@ Note: The design document may have been written days or weeks ago. The codebase 
 
 ## Completion
 
-**Completed:** [Date]
-**Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-01-16
+**Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Updated `/design` closing message to communicate that Design is standalone (removing the "Next: Run `/plan`" language), and updated `/plan` opening to frame it as the start of an "Implementation Session (Plan → Build → Document)" with a time-gap awareness note in Step 2.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:** None. Both tasks completed exactly as specified in the design.
