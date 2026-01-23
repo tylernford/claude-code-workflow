@@ -4,6 +4,20 @@ Ideas and improvements for the Claude Development Workflow.
 
 ---
 
+## Design Doc Status Field
+
+**Idea:** Add a status field to design doc template:
+
+```markdown
+**Status:** Draft | Ready | In Progress | Complete
+```
+
+**Why:** When multiple design docs exist, this helps identify which ones are ready to be picked up for implementation vs. still being refined.
+
+**Noted:** Noted 2026-01-16 in docs/design-plans/2026-01-16-decouple-design-from-implementation.md
+
+---
+
 ## /document: Mark checkboxes as complete
 
 **Context:** During the 2026-01-16 documentation session for "Decouple Design from Implementation," the Requirements/Acceptance Criteria checkboxes in the design doc and the Verification Checklist in the implementation plan were left unchecked — even though the work was complete.
@@ -13,13 +27,3 @@ Ideas and improvements for the Claude Development Workflow.
 **Proposed fix:** Add to `/document` Step 2:
 - Mark all Requirements and Acceptance Criteria checkboxes in the design doc
 - Mark all Verification Checklist items in the implementation plan
-
----
-
-## Design doc status field
-
-**Idea:** Add a status field to design docs with states like Draft / Ready / In Progress / Complete.
-
-**Why:** Would make it clearer which designs are ready for implementation vs. still being refined.
-
-*Noted in: docs/design-plans/2026-01-16-decouple-design-from-implementation.md*
