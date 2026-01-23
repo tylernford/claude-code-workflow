@@ -95,8 +95,10 @@ Design document created at: docs/design-plans/YYYY-MM-DD-feature-name.md
 
 **Commit checkpoint:** Commit the design document before ending this session.
 
-Next: End this session and start a new Claude Code session.
-Run `/plan` to begin Phase 2: Planning.
+Design is complete.
+
+When ready to implement, start a new Claude Code session and run `/plan` to begin
+an Implementation Session (Plan → Build → Document).
 ```
 
 ---

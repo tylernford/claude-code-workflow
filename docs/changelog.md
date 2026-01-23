@@ -4,6 +4,18 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-01-16: Decouple Design from Implementation
+
+Reframed the workflow so Design is standalone while Plan/Build/Document form a tightly coupled "Implementation Session." Updated `/design` closing message to remove immediate progression language, and updated `/plan` opening to frame it as the start of an Implementation Session with time-gap awareness.
+
+**Design:** [docs/design-plans/2026-01-16-decouple-design-from-implementation.md](design-plans/2026-01-16-decouple-design-from-implementation.md)
+**Plan:** [docs/implementation-plans/2026-01-16-decouple-design-from-implementation.md](implementation-plans/2026-01-16-decouple-design-from-implementation.md)
+**Key files:**
+- `.claude/commands/design.md`
+- `.claude/commands/plan.md`
+
+---
+
 ## 2026-01-15: Simplify Doc Path Input
 
 Updated `/plan` and `/build` commands to ask for document paths instead of searching directories and listing files. Matches the existing `/document` pattern and reduces token usage.
