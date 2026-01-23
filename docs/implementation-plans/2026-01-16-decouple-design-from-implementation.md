@@ -86,10 +86,10 @@ This session will take you through Plan → Build → Document.
 
 ## Verification Checklist
 
-- [ ] `/design` closing message no longer implies immediate progression to `/plan`
-- [ ] `/plan` opening clearly states "Implementation Session (Plan → Build → Document)"
-- [ ] `/plan` Step 2 includes note about potential time gap since design was written
-- [ ] Both files still render correctly as markdown
+- [x] `/design` closing message no longer implies immediate progression to `/plan`
+- [x] `/plan` opening clearly states "Implementation Session (Plan → Build → Document)"
+- [x] `/plan` Step 2 includes note about potential time gap since design was written
+- [x] Both files still render correctly as markdown
 
 ---
 

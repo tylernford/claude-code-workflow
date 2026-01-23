@@ -18,9 +18,9 @@
 ## Requirements
 
 ### Must Have
-- [ ] Update `/design` closing message to reflect standalone nature
-- [ ] Update `/plan` to frame itself as the start of an "Implementation Session"
-- [ ] Add time-gap awareness to `/plan` Step 2 (Codebase Verification)
+- [x] Update `/design` closing message to reflect standalone nature
+- [x] Update `/plan` to frame itself as the start of an "Implementation Session"
+- [x] Add time-gap awareness to `/plan` Step 2 (Codebase Verification)
 
 ### Nice to Have
 - None for this iteration
@@ -52,9 +52,9 @@
 
 ## Acceptance Criteria
 
-- [ ] `/design` closing message no longer implies immediate progression to `/plan`
-- [ ] `/plan` opening clearly states this is an "Implementation Session (Plan → Build → Document)"
-- [ ] `/plan` Step 2 includes a note about potential time gap since design was written
+- [x] `/design` closing message no longer implies immediate progression to `/plan`
+- [x] `/plan` opening clearly states this is an "Implementation Session (Plan → Build → Document)"
+- [x] `/plan` Step 2 includes a note about potential time gap since design was written
 
 ---
 
