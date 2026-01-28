@@ -4,6 +4,18 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-01-28: Add Time to Filename Dates
+
+Added HHMM time component to design doc and implementation plan filename formats, changing from `YYYY-MM-DD-feature-name.md` to `YYYY-MM-DD-HHMM-feature-name.md`. This enables chronological sorting when multiple documents are created on the same date.
+
+**Design:** [docs/design-plans/2026-01-28-1129-add-time-to-filename-dates.md](design-plans/2026-01-28-1129-add-time-to-filename-dates.md)
+**Plan:** [docs/implementation-plans/2026-01-28-1138-add-time-to-filename-dates.md](implementation-plans/2026-01-28-1138-add-time-to-filename-dates.md)
+**Key files:**
+- `.claude/commands/design.md`
+- `.claude/commands/plan.md`
+
+---
+
 ## 2026-01-28: Add PR Draft to Document Phase
 
 Added PR draft generation to the `/document` phase. The PR draft appears in Phase Complete output with a conventional commit-style title, summary, key changes, and documentation links—giving users copy/paste-ready content for PR creation.
