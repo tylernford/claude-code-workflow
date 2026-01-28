@@ -4,6 +4,17 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-01-28: Build Verification Checklist
+
+Added a verification checklist step to the `/build` phase that runs after all tasks complete but before Phase Complete. This ensures features are actually verified during Build rather than retroactively assumed during Document.
+
+**Design:** [docs/design-plans/2026-01-28-build-verification-checklist.md](design-plans/2026-01-28-build-verification-checklist.md)
+**Plan:** [docs/implementation-plans/2026-01-28-build-verification-checklist.md](implementation-plans/2026-01-28-build-verification-checklist.md)
+**Key files:**
+- `.claude/commands/build.md`
+
+---
+
 ## 2026-01-16: Decouple Design from Implementation
 
 Reframed the workflow so Design is standalone while Plan/Build/Document form a tightly coupled "Implementation Session." Updated `/design` closing message to remove immediate progression language, and updated `/plan` opening to frame it as the start of an Implementation Session with time-gap awareness.
