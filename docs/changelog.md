@@ -4,6 +4,17 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-01-28: Add PR Draft to Document Phase
+
+Added PR draft generation to the `/document` phase. The PR draft appears in Phase Complete output with a conventional commit-style title, summary, key changes, and documentation links—giving users copy/paste-ready content for PR creation.
+
+**Design:** [docs/design-plans/2026-01-28-add-pr-draft-to-document-phase.md](design-plans/2026-01-28-add-pr-draft-to-document-phase.md)
+**Plan:** [docs/implementation-plans/2026-01-28-add-pr-draft-to-document-phase.md](implementation-plans/2026-01-28-add-pr-draft-to-document-phase.md)
+**Key files:**
+- `.claude/commands/document.md`
+
+---
+
 ## 2026-01-28: Build Verification Checklist
 
 Added a verification checklist step to the `/build` phase that runs after all tasks complete but before Phase Complete. This ensures features are actually verified during Build rather than retroactively assumed during Document.
