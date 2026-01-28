@@ -75,10 +75,10 @@ After creating the implementation plan, update the design doc's header:
 
 ## Verification Checklist
 
-- [ ] Design doc template has `**Implementation Plan Doc:** [link to implementation plan doc]` on line 5
-- [ ] /plan command includes step to update design doc with actual plan path
-- [ ] /document command reads plan path from design doc header
-- [ ] /document command asks user for path if placeholder text is still present
+- [x] Design doc template has `**Implementation Plan Doc:** [link to implementation plan doc]` on line 5
+- [x] /plan command includes step to update design doc with actual plan path
+- [x] /document command reads plan path from design doc header
+- [x] /document command asks user for path if placeholder text is still present
 
 ---
 

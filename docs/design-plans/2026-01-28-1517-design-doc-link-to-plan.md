@@ -1,8 +1,8 @@
 # Design Doc Link to Implementation Plan
 
 **Created:** 2026-01-28
-**Status:** Design
-**Implementation Plan Doc:** [link to implementation plan doc]
+**Status:** Complete
+**Implementation Plan Doc:** docs/implementation-plans/2026-01-28-1520-design-doc-link-to-plan.md
 
 ---
 
@@ -19,9 +19,9 @@
 ## Requirements
 
 ### Must Have
-- [ ] Design doc template includes `**Implementation Plan Doc:** [link to implementation plan doc]` placeholder
-- [ ] /plan phase updates the design doc's placeholder with the actual implementation plan path after creating the plan
-- [ ] /document phase reads the link from the design doc header instead of searching `docs/implementation-plans/`
+- [x] Design doc template includes `**Implementation Plan Doc:** [link to implementation plan doc]` placeholder
+- [x] /plan phase updates the design doc's placeholder with the actual implementation plan path after creating the plan
+- [x] /document phase reads the link from the design doc header instead of searching `docs/implementation-plans/`
 
 ### Nice to Have
 - None
@@ -52,9 +52,9 @@
 
 ## Acceptance Criteria
 
-- [ ] Design doc template has `**Implementation Plan Doc:** [link to implementation plan doc]` on line 5
-- [ ] /plan command instructions include a step to update the design doc with the actual plan path
-- [ ] /document command reads the plan path from the design doc header instead of searching
+- [x] Design doc template has `**Implementation Plan Doc:** [link to implementation plan doc]` on line 5
+- [x] /plan command instructions include a step to update the design doc with the actual plan path
+- [x] /document command reads the plan path from the design doc header instead of searching
 
 ---
 
@@ -82,9 +82,9 @@ docs/templates/design-doc.md          # Add Implementation Plan Doc field to hea
 
 ## Completion
 
-**Completed:** [Date]
-**Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-01-28
+**Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Added bidirectional linking between design docs and implementation plans. The design doc template now includes an `Implementation Plan Doc` field, `/plan` writes the actual path back into the design doc after creating the plan, and `/document` reads the link from the design doc header instead of searching.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:** None. All three tasks implemented as designed.
