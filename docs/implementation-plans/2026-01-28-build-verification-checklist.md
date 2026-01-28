@@ -83,12 +83,12 @@ After all tasks are complete, run the verification checklist from the implementa
 
 ## Verification Checklist
 
-- [ ] After completing all tasks, `/build` prompts to run verification
-- [ ] Verification workflow requires user confirmation before starting
-- [ ] Each checklist item can be verified pass/fail with user
-- [ ] Failed items require fix → log → re-verify before continuing
-- [ ] Phase Complete only announces after verification passes
-- [ ] Phase Complete message includes "Verification checklist passed."
+- [x] After completing all tasks, `/build` prompts to run verification
+- [x] Verification workflow requires user confirmation before starting
+- [x] Each checklist item can be verified pass/fail with user
+- [x] Failed items require fix → log → re-verify before continuing
+- [x] Phase Complete only announces after verification passes
+- [x] Phase Complete message includes "Verification checklist passed."
 
 ---
 
