@@ -89,13 +89,13 @@ Feature complete! The workflow cycle is finished.
 
 ## Verification Checklist
 
-- [ ] PR draft appears in Phase Complete output (after commit checkpoint, before "Feature complete!")
-- [ ] PR title prefix correctly maps from design doc Type field
-- [ ] PR description Summary section contains 2-3 sentences from Overview
-- [ ] PR description Changes section lists files/areas from Files to Create/Modify
-- [ ] PR description Documentation section links to design doc and implementation plan
-- [ ] Steps 1-5 of document.md are unchanged
-- [ ] PR draft is displayed only, not written to a file
+- [x] PR draft appears in Phase Complete output (after commit checkpoint, before "Feature complete!")
+- [x] PR title prefix correctly maps from design doc Type field
+- [x] PR description Summary section contains 2-3 sentences from Overview
+- [x] PR description Changes section lists files/areas from Files to Create/Modify
+- [x] PR description Documentation section links to design doc and implementation plan
+- [x] Steps 1-5 of document.md are unchanged
+- [x] PR draft is displayed only, not written to a file
 
 ---
 

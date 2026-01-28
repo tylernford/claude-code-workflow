@@ -78,7 +78,7 @@
 
 | Date | Task | Files | Notes |
 |------|------|-------|-------|
-| | | | |
+| 2026-01-28 | Task 1 | .claude/commands/document.md | Added explicit PR Draft Generation section + updated Phase Complete template |
 
 ---
 

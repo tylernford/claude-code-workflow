@@ -84,6 +84,28 @@ Incorporate any final notes into the design document's Completion section.
 
 ---
 
+## PR Draft Generation
+
+Generate a PR draft from the design doc and implementation plan:
+
+**Title format:** `[type-prefix]: [feature name from design doc title]`
+
+**Type → Prefix mapping:**
+- Enhancement → `feat:`
+- Bug Fix → `fix:`
+- Refactor → `refactor:`
+- Documentation → `docs:`
+- Chore → `chore:`
+
+If the design doc Type doesn't match these, use best judgment or default to `feat:`.
+
+**Description content:**
+- Summary: 2-3 sentences from design doc Overview
+- Changes: Key files/areas from design doc's Files to Create/Modify section
+- Documentation: Paths to design doc and implementation plan
+
+---
+
 ## Phase Complete
 
 When documentation is complete, announce:
@@ -97,6 +119,25 @@ Documentation updated:
 - README: [updated | no changes needed]
 
 **Commit checkpoint:** Commit the documentation updates before ending this session.
+
+---
+
+**PR Draft** (copy/paste when creating PR):
+
+**Title:** [type-prefix]: [feature name]
+
+**Description:**
+## Summary
+[2-3 sentences from design doc Overview]
+
+## Changes
+- [key files/areas changed from Files to Create/Modify]
+
+## Documentation
+- Design: [path to design doc]
+- Plan: [path to implementation plan]
+
+---
 
 Feature complete! The workflow cycle is finished.
 ```
