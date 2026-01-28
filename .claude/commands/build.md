@@ -76,12 +76,13 @@ After all tasks are complete, run the verification checklist from the implementa
 
 ## Phase Complete
 
-When all tasks are done, announce:
+When all tasks are done and verification checklist passes, announce:
 
 ```
 **Phase 3: Build** | Complete
 
 All [N] tasks completed.
+Verification checklist passed.
 Build Log updated in: docs/design-plans/YYYY-MM-DD-feature-name.md
 
 **Commit checkpoint:** Ensure all tasks have been committed before ending this session.

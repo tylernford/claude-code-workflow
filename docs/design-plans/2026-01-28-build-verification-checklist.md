@@ -86,6 +86,7 @@
 | Date | Task | Files | Notes |
 |------|------|-------|-------|
 | 2026-01-28 | Task 1 | .claude/commands/build.md | Added Verification Checklist section between Handling Deviations and Phase Complete |
+| 2026-01-28 | Task 2 | .claude/commands/build.md | Updated Phase Complete intro and announcement to require verification |
 
 ---
 
