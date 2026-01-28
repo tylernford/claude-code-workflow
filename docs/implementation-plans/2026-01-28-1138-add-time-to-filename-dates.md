@@ -56,9 +56,9 @@ Add HHMM time component to design doc and implementation plan filename formats, 
 
 ## Verification Checklist
 
-- [ ] Grep confirms no instances of old format in `.claude/commands/`
-- [ ] Grep confirms 4 instances of new format in `.claude/commands/`
-- [ ] `build.md` and `document.md` remain unchanged (out of scope)
+- [x] Grep confirms no instances of old format in `.claude/commands/`
+- [x] Grep confirms 4 instances of new format in `.claude/commands/`
+- [x] `build.md` and `document.md` remain unchanged (out of scope)
 
 ---
 
