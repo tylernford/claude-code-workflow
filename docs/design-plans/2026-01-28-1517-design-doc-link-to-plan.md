@@ -76,6 +76,7 @@ docs/templates/design-doc.md          # Add Implementation Plan Doc field to hea
 |------|------|-------|-------|
 | 2026-01-28 | Task 1 | docs/templates/design-doc.md | Added Implementation Plan Doc field to header |
 | 2026-01-28 | Task 2 | .claude/commands/plan.md | Added Update Design Doc section after Write Implementation Plan |
+| 2026-01-28 | Task 3 | .claude/commands/document.md | Updated Prerequisite and Step 1 to read plan link from design doc header |
 
 ---
 
