@@ -16,7 +16,9 @@ Build phase must be complete.
 
 If the user does not provide a design doc path, ask them for the file path.
 
-Then locate the corresponding implementation plan in `docs/implementation-plans/` and the changelog at `docs/changelog.md`.
+Then read the `**Implementation Plan Doc:**` field from the design doc header to locate the implementation plan. If the field still contains the placeholder text `[link to implementation plan doc]`, ask the user for the path to the implementation plan.
+
+Also locate the changelog at `docs/changelog.md`.
 
 ---
 
@@ -34,7 +36,8 @@ Every response must begin with:
 ### Step 1: Load and Summarize
 
 - Read the design document
-- Locate the corresponding implementation plan
+- Read the implementation plan path from the design doc's `**Implementation Plan Doc:**` header field
+- If the field contains the placeholder `[link to implementation plan doc]`, ask the user for the path
 - Review the Build Log entries
 - Summarize what was built and any deviations noted
 - Confirm this is the correct feature to document

@@ -4,6 +4,19 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-01-28: Design Doc Link to Implementation Plan
+
+Added bidirectional linking between design docs and implementation plans. The design doc template now includes an `Implementation Plan Doc` field, `/plan` writes the plan path back into the design doc, and `/document` reads the link from the header instead of searching.
+
+**Design:** [docs/design-plans/2026-01-28-1517-design-doc-link-to-plan.md](design-plans/2026-01-28-1517-design-doc-link-to-plan.md)
+**Plan:** [docs/implementation-plans/2026-01-28-1520-design-doc-link-to-plan.md](implementation-plans/2026-01-28-1520-design-doc-link-to-plan.md)
+**Key files:**
+- `docs/templates/design-doc.md`
+- `.claude/commands/plan.md`
+- `.claude/commands/document.md`
+
+---
+
 ## 2026-01-28: Add Time to Filename Dates
 
 Added HHMM time component to design doc and implementation plan filename formats, changing from `YYYY-MM-DD-feature-name.md` to `YYYY-MM-DD-HHMM-feature-name.md`. This enables chronological sorting when multiple documents are created on the same date.
