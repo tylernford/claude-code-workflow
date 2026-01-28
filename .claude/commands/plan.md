@@ -79,6 +79,13 @@ Use the template at `docs/templates/implementation-plan.md` as your guide.
 
 ---
 
+## Update Design Doc
+
+After creating the implementation plan, update the design doc's header:
+- Replace `[link to implementation plan doc]` with the actual path to the implementation plan (e.g., `docs/implementation-plans/YYYY-MM-DD-HHMM-feature-name.md`)
+
+---
+
 ## Phase Complete
 
 When the implementation plan is written, announce:
