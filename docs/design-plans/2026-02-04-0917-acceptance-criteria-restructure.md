@@ -81,6 +81,7 @@ docs/templates/implementation-plan.md  # Rename section header
 
 | Date | Task | Files | Notes |
 |------|------|-------|-------|
+| 2026-02-04 | Task 1 | .claude/commands/build.md | Added "After All Tasks: Acceptance Criteria" subsection, deleted standalone section, updated Phase Complete wording |
 
 ---
 
