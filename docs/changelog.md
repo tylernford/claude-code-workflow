@@ -4,6 +4,17 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-02-03: Add CLAUDE.md
+
+Added a `CLAUDE.md` file to the repo root that provides instant workflow context for new Claude sessions. The file includes the repo purpose, directory structure, command table, and core principles—eliminating the need for Claude to read multiple files to understand the project.
+
+**Design:** [docs/design-plans/2026-02-03-2241-add-claude-md.md](design-plans/2026-02-03-2241-add-claude-md.md)
+**Plan:** [docs/implementation-plans/2026-02-03-2243-add-claude-md.md](implementation-plans/2026-02-03-2243-add-claude-md.md)
+**Key files:**
+- `CLAUDE.md`
+
+---
+
 ## 2026-02-03: Fix Doc Path Asking
 
 Fixed a bug where `/plan` and `/build` commands would search directories instead of asking for document paths when not provided via arguments. Simplified the Prerequisite sections to remove directory references that triggered the search behavior, matching `/document`'s working pattern.
