@@ -1,7 +1,7 @@
 # Acceptance Criteria Restructure
 
 **Created:** 2026-02-04
-**Status:** Design
+**Status:** Complete
 **Implementation Plan Doc:** docs/implementation-plans/2026-02-04-0926-acceptance-criteria-restructure.md
 
 ---
@@ -88,9 +88,10 @@ docs/templates/implementation-plan.md  # Rename section header
 
 ## Completion
 
-**Completed:**
-**Final Status:**
+**Completed:** 2026-02-04
+**Final Status:** Complete
 
 **Summary:**
+Restructured `/build` to embed acceptance criteria directly in the Workflow section, creating a mandatory gate between task completion and Phase Complete. The 4-step verification ritual is now positioned as "After All Tasks: Acceptance Criteria" alongside the existing "For Each Task" subsection. Also renamed "Verification Checklist" to "Acceptance Criteria" in the implementation plan template.
 
-**Deviations from Plan:**
+**Deviations from Plan:** None

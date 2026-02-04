@@ -4,6 +4,18 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-02-04: Acceptance Criteria Restructure
+
+Restructured the `/build` command so acceptance criteria are embedded in the Workflow section as a mandatory gate before Phase Complete. Previously, the standalone "Verification Checklist" section was structurally isolated and Claude would skip it when gravitating to Phase Complete. The new structure places "After All Tasks: Acceptance Criteria" alongside "For Each Task" within Workflow.
+
+**Design:** [docs/design-plans/2026-02-04-0917-acceptance-criteria-restructure.md](design-plans/2026-02-04-0917-acceptance-criteria-restructure.md)
+**Plan:** [docs/implementation-plans/2026-02-04-0926-acceptance-criteria-restructure.md](implementation-plans/2026-02-04-0926-acceptance-criteria-restructure.md)
+**Key files:**
+- `.claude/commands/build.md`
+- `docs/templates/implementation-plan.md`
+
+---
+
 ## 2026-02-03: Add CLAUDE.md
 
 Added a `CLAUDE.md` file to the repo root that provides instant workflow context for new Claude sessions. The file includes the repo purpose, directory structure, command table, and core principles—eliminating the need for Claude to read multiple files to understand the project.
