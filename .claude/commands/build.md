@@ -12,11 +12,9 @@ Execute the implementation plan task by task, with commits at each checkpoint. Y
 
 ## Prerequisite
 
-An implementation plan must exist in `docs/implementation-plans/`.
-
 If the user does not provide an implementation plan path, ask them for the file path.
 
-A design document must also exist in `docs/design-plans/` for the Build Log. If the user does not provide a design doc path, ask them for the file path.
+Also ask for the design doc path (needed for the Build Log).
 
 ---
 
