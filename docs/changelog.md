@@ -4,6 +4,18 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-02-03: Fix Doc Path Asking
+
+Fixed a bug where `/plan` and `/build` commands would search directories instead of asking for document paths when not provided via arguments. Simplified the Prerequisite sections to remove directory references that triggered the search behavior, matching `/document`'s working pattern.
+
+**Design:** [docs/design-plans/2026-02-03-2142-fix-doc-path-asking.md](design-plans/2026-02-03-2142-fix-doc-path-asking.md)
+**Plan:** [docs/implementation-plans/2026-02-03-2147-fix-doc-path-asking.md](implementation-plans/2026-02-03-2147-fix-doc-path-asking.md)
+**Key files:**
+- `.claude/commands/plan.md`
+- `.claude/commands/build.md`
+
+---
+
 ## 2026-02-03: Add Timestamp Verification Instructions
 
 Added explicit instructions to the `/design` and `/plan` commands for obtaining the current timestamp before creating documents. The instruction "Before creating the file, run `date +%Y-%m-%d-%H%M` to get the current timestamp." now appears immediately before the file path templates in both commands.

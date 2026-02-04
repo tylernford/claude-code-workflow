@@ -1,7 +1,7 @@
 # Fix Document Path Asking in /plan and /build
 
 **Created:** 2026-02-03
-**Status:** Design
+**Status:** Complete
 **Implementation Plan Doc:** docs/implementation-plans/2026-02-03-2147-fix-doc-path-asking.md
 
 ---
@@ -19,9 +19,9 @@
 ## Requirements
 
 ### Must Have
-- [ ] `/plan` asks for design doc path when not provided via arguments
-- [ ] `/build` asks for implementation plan and design doc paths when not provided via arguments
-- [ ] Both commands wait for user response before proceeding
+- [x] `/plan` asks for design doc path when not provided via arguments
+- [x] `/build` asks for implementation plan and design doc paths when not provided via arguments
+- [x] Both commands wait for user response before proceeding
 
 ### Nice to Have
 - None
@@ -56,10 +56,10 @@ These directory references prompt Claude to search those locations rather than a
 
 ## Acceptance Criteria
 
-- [ ] Running `/plan` without arguments asks "Please provide the path to the design document:" (or similar)
-- [ ] Running `/build` without arguments asks for both implementation plan and design doc paths
-- [ ] Neither command searches `docs/design-plans/` or `docs/implementation-plans/` when no path is provided
-- [ ] Providing paths via arguments (e.g., `/plan docs/design-plans/...`) still works
+- [x] Running `/plan` without arguments asks "Please provide the path to the design document:" (or similar)
+- [x] Running `/build` without arguments asks for both implementation plan and design doc paths
+- [x] Neither command searches `docs/design-plans/` or `docs/implementation-plans/` when no path is provided
+- [x] Providing paths via arguments (e.g., `/plan docs/design-plans/...`) still works
 
 ---
 
@@ -84,9 +84,9 @@ These directory references prompt Claude to search those locations rather than a
 
 ## Completion
 
-**Completed:** [Date]
-**Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-02-03
+**Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Simplified Prerequisite sections in `/plan` and `/build` commands to remove directory references that triggered search behavior. Both commands now ask for document paths when not provided, matching `/document`'s working pattern.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:** None
