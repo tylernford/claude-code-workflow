@@ -72,11 +72,11 @@ Restructure the `/build` command so acceptance criteria are embedded in the Work
 
 ## Acceptance Criteria
 
-- [ ] `/build` Workflow section contains "After All Tasks: Acceptance Criteria" subsection
-- [ ] The 4-step ritual (present, verify, mark, fix-if-fail) is preserved in the new location
-- [ ] Standalone "Verification Checklist" section is removed from `/build`
-- [ ] Phase Complete says "Acceptance criteria passed" (not "Verification checklist passed")
-- [ ] Implementation plan template header renamed to "## Acceptance Criteria"
+- [x] `/build` Workflow section contains "After All Tasks: Acceptance Criteria" subsection
+- [x] The 4-step ritual (present, verify, mark, fix-if-fail) is preserved in the new location
+- [x] Standalone "Verification Checklist" section is removed from `/build`
+- [x] Phase Complete says "Acceptance criteria passed" (not "Verification checklist passed")
+- [x] Implementation plan template header renamed to "## Acceptance Criteria"
 
 ---
 
