@@ -70,6 +70,8 @@ Present tasks to user for review. Adjust based on feedback.
 
 ## Write Implementation Plan
 
+Before creating the file, run `date +%Y-%m-%d-%H%M` to get the current timestamp.
+
 Create the implementation plan at:
 ```
 docs/implementation-plans/YYYY-MM-DD-HHMM-feature-name.md
