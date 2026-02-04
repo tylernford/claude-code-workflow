@@ -65,12 +65,12 @@ Create the implementation plan at:
 
 ## Verification Checklist
 
-- [ ] `.claude/commands/design.md` contains "Before creating the file, run `date +%Y-%m-%d-%H%M` to get the current timestamp."
-- [ ] Instruction in `design.md` appears immediately before "Create the design document at:"
-- [ ] `.claude/commands/plan.md` contains "Before creating the file, run `date +%Y-%m-%d-%H%M` to get the current timestamp."
-- [ ] Instruction in `plan.md` appears immediately before "Create the implementation plan at:"
-- [ ] `docs/templates/design-doc.md` is unchanged
-- [ ] `docs/templates/implementation-plan.md` is unchanged
+- [x] `.claude/commands/design.md` contains "Before creating the file, run `date +%Y-%m-%d-%H%M` to get the current timestamp."
+- [x] Instruction in `design.md` appears immediately before "Create the design document at:"
+- [x] `.claude/commands/plan.md` contains "Before creating the file, run `date +%Y-%m-%d-%H%M` to get the current timestamp."
+- [x] Instruction in `plan.md` appears immediately before "Create the implementation plan at:"
+- [x] `docs/templates/design-doc.md` is unchanged
+- [x] `docs/templates/implementation-plan.md` is unchanged
 
 ---
 
