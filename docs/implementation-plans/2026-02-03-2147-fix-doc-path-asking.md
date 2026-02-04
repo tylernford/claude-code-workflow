@@ -63,10 +63,10 @@ Also ask for the design doc path (needed for the Build Log).
 
 ## Verification Checklist
 
-- [ ] Run `/plan` without arguments — should ask for design doc path
-- [ ] Run `/build` without arguments — should ask for implementation plan and design doc paths
-- [ ] Run `/plan docs/design-plans/...` with argument — should work as before
-- [ ] Run `/build docs/implementation-plans/...` with argument — should work as before
+- [x] Run `/plan` without arguments — should ask for design doc path
+- [x] Run `/build` without arguments — should ask for implementation plan and design doc paths
+- [x] Run `/plan docs/design-plans/...` with argument — should work as before
+- [x] Run `/build docs/implementation-plans/...` with argument — should work as before
 
 ---
 
