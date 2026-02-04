@@ -53,7 +53,7 @@
 
 ---
 
-## Verification Checklist
+## Acceptance Criteria
 
 - [ ] [How to test the feature works]
 - [ ] [Edge case to verify]
