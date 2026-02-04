@@ -1,7 +1,7 @@
 # Add Timestamp Verification Instructions
 
 **Created:** 2026-02-03
-**Status:** Design
+**Status:** Complete
 **Implementation Plan Doc:** docs/implementation-plans/2026-02-03-2104-add-timestamp-verification-instructions.md
 
 ---
@@ -88,9 +88,9 @@
 
 ## Completion
 
-**Completed:** [Date]
-**Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-02-03
+**Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Added the instruction "Before creating the file, run `date +%Y-%m-%d-%H%M` to get the current timestamp." to both `.claude/commands/design.md` (Step 5) and `.claude/commands/plan.md` (Write Implementation Plan section), immediately before their file path templates.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:** None - implemented exactly as designed.

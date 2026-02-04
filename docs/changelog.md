@@ -4,6 +4,18 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-02-03: Add Timestamp Verification Instructions
+
+Added explicit instructions to the `/design` and `/plan` commands for obtaining the current timestamp before creating documents. The instruction "Before creating the file, run `date +%Y-%m-%d-%H%M` to get the current timestamp." now appears immediately before the file path templates in both commands.
+
+**Design:** [docs/design-plans/2026-02-03-2059-add-timestamp-verification-instructions.md](design-plans/2026-02-03-2059-add-timestamp-verification-instructions.md)
+**Plan:** [docs/implementation-plans/2026-02-03-2104-add-timestamp-verification-instructions.md](implementation-plans/2026-02-03-2104-add-timestamp-verification-instructions.md)
+**Key files:**
+- `.claude/commands/design.md`
+- `.claude/commands/plan.md`
+
+---
+
 ## 2026-01-28: Design Doc Link to Implementation Plan
 
 Added bidirectional linking between design docs and implementation plans. The design doc template now includes an `Implementation Plan Doc` field, `/plan` writes the plan path back into the design doc, and `/document` reads the link from the header instead of searching.
