@@ -2,7 +2,7 @@
 
 **Created:** 2026-02-03
 **Status:** Design
-**Implementation Plan Doc:** [link to implementation plan doc]
+**Implementation Plan Doc:** docs/implementation-plans/2026-02-03-2104-add-timestamp-verification-instructions.md
 
 ---
 
