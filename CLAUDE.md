@@ -11,7 +11,7 @@ docs/
 ├── implementation-plans/  # Task breakdowns
 ├── templates/        # design-doc.md, implementation-plan.md
 ├── changelog.md      # Completed feature history
-└── workflow-ideas.md # Future improvements
+└── backlog.md        # Future improvements
 ```
 
 ## Commands

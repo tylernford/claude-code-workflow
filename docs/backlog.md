@@ -1,6 +1,6 @@
-# Workflow Ideas
+# Backlog
 
-Ideas and improvements for the Claude Development Workflow.
+Open ideas and improvements for the Claude Development Workflow.
 
 ---
 
