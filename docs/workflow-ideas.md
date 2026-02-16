@@ -4,7 +4,7 @@ Ideas and improvements for the Claude Development Workflow.
 
 ---
 
-## Design Doc Status Field
+## 2026-01-16: Design Doc Status Field
 
 **Idea:** Add a status field to design doc template:
 
