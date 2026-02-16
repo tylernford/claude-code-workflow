@@ -42,6 +42,7 @@ It forces you to:
 - Reconcile what was planned vs. what was built
 - Update specs before dependent work begins
 - Keep the Build Log focused on a single coherent scope
+- Update onboarding paths (README) when implementation changes affect setup steps, commands, or dependencies
 
 ### Guidelines
 
