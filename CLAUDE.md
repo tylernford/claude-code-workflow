@@ -5,13 +5,14 @@ This repo contains a phase-based workflow system for building features with Clau
 ## Structure
 
 ```
-.claude/commands/     # Slash command definitions
+.claude/commands/          # Slash command definitions
+claude-code-insights/      # Claude Code usage analysis reports
 docs/
-├── design-plans/     # Design documents
+├── design-plans/          # Design documents
 ├── implementation-plans/  # Task breakdowns
-├── templates/        # design-doc.md, implementation-plan.md
-├── changelog.md      # Completed feature history
-└── backlog.md        # Future improvements
+├── templates/             # design-doc.md, implementation-plan.md
+├── changelog.md           # Completed feature history
+└── backlog.md             # Future improvements
 ```
 
 ## Commands
