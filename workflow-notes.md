@@ -15,7 +15,3 @@ Purpose 2: Updates the onboarding path
 Implementation changes often affect how new developers set up or use the project. Without updating the README during documentation, the next person to clone the repo won't know about new setup steps, changed commands, or added dependencies.
 
 Takeaway: Don't treat /document as just "fill in the completion section." It's the checkpoint that ensures both the historical record and the living documentation (README) stay accurate.
-
----
-
-**BUILD DOESN"T READ OUT COMMMIT CHECKPOINTS FOR EACH TASK**
