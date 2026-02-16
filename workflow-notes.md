@@ -18,12 +18,4 @@ Takeaway: Don't treat /document as just "fill in the completion section." It's t
 
 ---
 
-**PLAN VERIFICATION CHECKLIST IS MARKED AS COMPLETE, IS THE DESIGN "MUST HAVE" AND "ACCEPTANCE CRITERIA" CHECKED OFF**
-
----
-
-**/BUILD ASKS FOR IMPLEMENTATION PLAN AND DESIGN DOC: A design document must also exist in `docs/design-plans/` for the Build Log. If the user does not provide a design doc path, ask them for the file path. BUILD LOG SHOULD MAYBE BE MOVED TO IMPLEMENTATION PLAN. MAYBE DESIGN DOC IS _ONLY_ REQUIRED FOR THE PLAN PHASE**
-
----
-
 **BUILD DOESN"T READ OUT COMMMIT CHECKPOINTS FOR EACH TASK**
