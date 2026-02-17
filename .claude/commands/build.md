@@ -35,8 +35,8 @@ Every response must begin with:
 2. **Implement** - Write the code / create the files
 3. **Verify** - Confirm "done when" criteria are met
 4. **Report** - Show what was created/modified
-5. **Commit** - Use the commit message from the plan (user handles git)
-6. **Log** - Add entry to Build Log in design doc
+5. **Log** - Add entry to Build Log in design doc
+6. **Commit** - Use the commit message from the plan (user handles git)
 7. **Pause** - Ask user: "Anything to note? (discoveries, surprises, context for later)" Then wait for confirmation before next task.
 
 ### After All Tasks: Acceptance Criteria

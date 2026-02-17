@@ -83,15 +83,3 @@ Takeaway: Don't treat /document as just "fill in the completion section." It's t
 - `/plan` is unchanged — it still reads the design doc to produce the implementation plan.
 
 **Also fixes:** During `/document`, acceptance criteria checkboxes in the design doc and verification checklist items in the implementation plan were not being marked as complete (noted 2026-01-16). With everything in the implementation plan, `/document` Step 2 can mark all checkboxes in a single document.
-
----
-
-## 2026-02-16: Reorder Build Steps: Log Before Commit
-
-**Idea:** In `/build`, the per-task workflow currently commits (step 5) before updating the Build Log (step 6). This means the build log entry isn't included in the task's commit.
-
-**Current order:** Announce → Implement → Verify → Report → Commit → Log → Pause
-
-**Proposed order:** Announce → Implement → Verify → Report → Log → Commit → Pause
-
-**Why:** The build log entry should be part of the task's commit so each commit is a complete snapshot of the work done — code changes + the log of what happened. With the current order, build log updates either get bundled into the next task's commit or forgotten.
