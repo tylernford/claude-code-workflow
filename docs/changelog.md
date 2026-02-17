@@ -4,6 +4,15 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-02-16: Reorder Build Steps
+
+Swapped the Log and Commit steps in the `/build` per-task workflow so the build log is updated before committing. Each commit now includes its own log entry, making commits self-contained records of what was done.
+
+**Key files:**
+- `.claude/commands/build.md`
+
+---
+
 ## 2026-02-04: Acceptance Criteria Restructure
 
 Restructured the `/build` command so acceptance criteria are embedded in the Workflow section as a mandatory gate before Phase Complete. Previously, the standalone "Verification Checklist" section was structurally isolated and Claude would skip it when gravitating to Phase Complete. The new structure places "After All Tasks: Acceptance Criteria" alongside "For Each Task" within Workflow.
