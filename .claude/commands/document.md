@@ -14,9 +14,9 @@ Complete project documentation and update developer-facing docs. This is the fin
 
 Build phase must be complete.
 
-If the user does not provide a design doc path, ask them for the file path.
+If the user does not provide a design spec path, ask them for the file path.
 
-Then read the `**Implementation Plan Doc:**` field from the design doc header to locate the implementation plan. If the field still contains the placeholder text `[link to implementation plan doc]`, ask the user for the path to the implementation plan.
+Then read the `**Implementation Plan:**` field from the design spec header to locate the implementation plan. If the field still contains the placeholder text `[link to implementation plan]`, ask the user for the path to the implementation plan.
 
 Also locate the changelog at `docs/changelog.md`.
 
@@ -35,16 +35,16 @@ Every response must begin with:
 
 ### Step 1: Load and Summarize
 
-- Read the design document
-- Read the implementation plan path from the design doc's `**Implementation Plan Doc:**` header field
-- If the field contains the placeholder `[link to implementation plan doc]`, ask the user for the path
+- Read the design spec
+- Read the implementation plan path from the design spec's `**Implementation Plan:**` header field
+- If the field contains the placeholder `[link to implementation plan]`, ask the user for the path
 - Review the Build Log entries
 - Summarize what was built and any deviations noted
 - Confirm this is the correct feature to document
 
-### Step 2: Complete Design Document
+### Step 2: Complete Design Spec
 
-Update the design document:
+Update the design spec:
 
 1. **Fill in Completion section:**
    - Completed date
@@ -65,7 +65,7 @@ Append an entry to `docs/changelog.md`:
 
 Brief description of what was built.
 
-**Design:** [link to design doc]
+**Design:** [link to design spec]
 **Plan:** [link to implementation plan]
 **Key files:** list of main files created/modified
 ```
@@ -83,15 +83,15 @@ Skip this step if the feature doesn't affect the README.
 
 Ask user: "Anything to note? (discoveries, surprises, or context not captured in the Build Log)"
 
-Incorporate any final notes into the design document's Completion section.
+Incorporate any final notes into the design spec's Completion section.
 
 ---
 
 ## PR Draft Generation
 
-Generate a PR draft from the design doc and implementation plan:
+Generate a PR draft from the design spec and implementation plan:
 
-**Title format:** `[type-prefix]: [feature name from design doc title]`
+**Title format:** `[type-prefix]: [feature name from design spec title]`
 
 **Type → Prefix mapping:**
 - Enhancement → `feat:`
@@ -100,12 +100,12 @@ Generate a PR draft from the design doc and implementation plan:
 - Documentation → `docs:`
 - Chore → `chore:`
 
-If the design doc Type doesn't match these, use best judgment or default to `feat:`.
+If the design spec Type doesn't match these, use best judgment or default to `feat:`.
 
 **Description content:**
-- Summary: 2-3 sentences from design doc Overview
-- Changes: Key files/areas from design doc's Files to Create/Modify section
-- Documentation: Paths to design doc and implementation plan
+- Summary: 2-3 sentences from design spec Overview
+- Changes: Key files/areas from the design spec's Files to Create/Modify section
+- Documentation: Paths to design spec and implementation plan
 
 ---
 
@@ -117,7 +117,7 @@ When documentation is complete, announce:
 **Phase 4: Document** | Complete
 
 Documentation updated:
-- Design doc completed: docs/design-specs/YYYY-MM-DD-feature-name.md
+- Design spec completed: docs/design-specs/YYYY-MM-DD-feature-name.md
 - Changelog updated: docs/changelog.md
 - README: [updated | no changes needed]
 
@@ -131,13 +131,13 @@ Documentation updated:
 
 **Description:**
 ## Summary
-[2-3 sentences from design doc Overview]
+[2-3 sentences from design spec Overview]
 
 ## Changes
 - [key files/areas changed from Files to Create/Modify]
 
 ## Documentation
-- Design: [path to design doc]
+- Design: [path to design spec]
 - Plan: [path to implementation plan]
 
 ---

@@ -4,6 +4,12 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-02-17: Rename "Design Plan" to "Design Spec"
+
+Renamed "Design Plan" terminology to "Design Spec" across the workflow system. The design phase produces a specification (what/why), not a plan — "Design Spec" pairs cleanly with "Implementation Plan" (how/tasks), making each artifact's purpose distinct. Also updated "design doc" / "design document" → "design spec" and "Implementation Plan Doc" → "Implementation Plan" in slash commands, templates, and docs.
+
+---
+
 ## 2026-02-16: Reorder Build Steps
 
 Swapped the Log and Commit steps in the `/build` per-task workflow so the build log is updated before committing. Each commit now includes its own log entry, making commits self-contained records of what was done.

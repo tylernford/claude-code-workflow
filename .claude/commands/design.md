@@ -6,7 +6,7 @@ You are starting **Phase 1: Design** for the feature: **$ARGUMENTS**
 
 ## Your Role
 
-Transform a raw idea into a structured, validated design document. You propose, the user approves. Do not auto-advance through steps.
+Transform a raw idea into a structured, validated design spec. You propose, the user approves. Do not auto-advance through steps.
 
 ---
 
@@ -66,11 +66,11 @@ Skip this step if the approach is obvious or already decided.
 - Iterate until the approach is solid
 - Confirm requirements and acceptance criteria
 
-### Step 5: Write Design Document
+### Step 5: Write Design Spec
 
 Before creating the file, run `date +%Y-%m-%d-%H%M` to get the current timestamp.
 
-Create the design document at:
+Create the design spec at:
 ```
 docs/design-specs/YYYY-MM-DD-HHMM-feature-name.md
 ```
@@ -88,14 +88,14 @@ Include:
 
 ## Phase Complete
 
-When the design document is written, announce:
+When the design spec is written, announce:
 
 ```
 **Phase 1: Design** | Complete
 
-Design document created at: docs/design-specs/YYYY-MM-DD-HHMM-feature-name.md
+Design spec created at: docs/design-specs/YYYY-MM-DD-HHMM-feature-name.md
 
-**Commit checkpoint:** Commit the design document before ending this session.
+**Commit checkpoint:** Commit the design spec before ending this session.
 
 Design is complete.
 

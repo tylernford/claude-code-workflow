@@ -1,6 +1,6 @@
 # Implementation Plan: [Feature Name]
 
-**Design Doc:** [link to design doc]
+**Design Spec:** [link to design spec]
 **Created:** YYYY-MM-DD
 
 ---
@@ -13,7 +13,7 @@
 
 ## Codebase Verification
 
-*Confirm assumptions from design doc match actual codebase*
+*Confirm assumptions from design spec match actual codebase*
 
 - [ ] [Assumption 1] - Verified: [yes/no/notes]
 - [ ] [Assumption 2] - Verified: [yes/no/notes]

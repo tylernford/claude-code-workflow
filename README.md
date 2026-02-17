@@ -14,7 +14,7 @@ Four phases, run one per session. Slash commands enforce the transitions.
 
 | Phase | Command | What happens |
 |-------|---------|-------------|
-| **Design** | `/design` | Transform an idea into a design document with requirements and decisions |
+| **Design** | `/design` | Transform an idea into a design spec with requirements and decisions |
 | **Plan** | `/plan` | Break the design into executable tasks with done-when criteria |
 | **Build** | `/build` | Execute tasks one at a time, committing at each checkpoint |
 | **Document** | `/document` | Update changelog, generate PR description, close out the work |
