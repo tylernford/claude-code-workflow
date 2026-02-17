@@ -2,7 +2,7 @@
 
 **Created:** YYYY-MM-DD
 **Status:** Design | Planning | Building | Complete
-**Implementation Plan Doc:** [link to implementation plan doc]
+**Implementation Plan:** [link to implementation plan]
 
 ---
 

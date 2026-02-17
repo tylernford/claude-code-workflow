@@ -14,7 +14,7 @@ Break the design into atomic, executable tasks with clear commit points. You pro
 
 ## Prerequisite
 
-If the user does not provide a design doc path, ask them for the file path.
+If the user does not provide a design spec path, ask them for the file path.
 
 ---
 
@@ -29,17 +29,17 @@ Every response must begin with:
 
 ## Steps
 
-### Step 1: Load Design Document
+### Step 1: Load Design Spec
 
-- Read the design document
+- Read the design spec
 - Summarize the key requirements and acceptance criteria
 - Confirm this is the correct feature to plan
 
 ### Step 2: Codebase Verification
 
-**Note:** The design document may have been written days or weeks ago. The codebase may have changed since then.
+**Note:** The design spec may have been written days or weeks ago. The codebase may have changed since then.
 
-- Verify assumptions in the design doc match the actual codebase
+- Verify assumptions in the design spec match the actual codebase
 - Check for existing patterns, utilities, or components to leverage
 - Flag any discrepancies between design assumptions and reality
 - Update understanding based on findings
@@ -59,7 +59,7 @@ Present tasks to user for review. Adjust based on feedback.
 
 ### Step 4: Plan Validation
 
-- Review task list against design doc requirements
+- Review task list against design spec requirements
 - Confirm all requirements are covered by tasks
 - Confirm all acceptance criteria are testable
 - Check task ordering makes sense (dependencies)
@@ -79,10 +79,10 @@ Use the template at `docs/templates/implementation-plan.md` as your guide.
 
 ---
 
-## Update Design Doc
+## Update Design Spec
 
-After creating the implementation plan, update the design doc's header:
-- Replace `[link to implementation plan doc]` with the actual path to the implementation plan (e.g., `docs/implementation-plans/YYYY-MM-DD-HHMM-feature-name.md`)
+After creating the implementation plan, update the design spec's header:
+- Replace `[link to implementation plan]` with the actual path to the implementation plan (e.g., `docs/implementation-plans/YYYY-MM-DD-HHMM-feature-name.md`)
 
 ---
 
