@@ -117,7 +117,7 @@ When documentation is complete, announce:
 **Phase 4: Document** | Complete
 
 Documentation updated:
-- Design doc completed: docs/design-plans/YYYY-MM-DD-feature-name.md
+- Design doc completed: docs/design-specs/YYYY-MM-DD-feature-name.md
 - Changelog updated: docs/changelog.md
 - README: [updated | no changes needed]
 

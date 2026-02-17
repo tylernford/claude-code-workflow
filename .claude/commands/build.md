@@ -77,7 +77,7 @@ When all tasks are done and verification checklist passes, announce:
 
 All [N] tasks completed.
 Acceptance criteria passed.
-Build Log updated in: docs/design-plans/YYYY-MM-DD-feature-name.md
+Build Log updated in: docs/design-specs/YYYY-MM-DD-feature-name.md
 
 **Commit checkpoint:** Ensure all tasks have been committed before ending this session.
 

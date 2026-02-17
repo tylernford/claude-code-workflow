@@ -8,9 +8,9 @@ This repo contains a phase-based workflow system for building features with Clau
 .claude/commands/          # Slash command definitions
 claude-code-insights/      # Claude Code usage analysis reports
 docs/
-├── design-plans/          # Design documents
+├── design-specs/          # Design documents
 ├── implementation-plans/  # Task breakdowns
-├── templates/             # design-doc.md, implementation-plan.md
+├── templates/             # design-spec.md, implementation-plan.md
 ├── changelog.md           # Completed feature history
 └── backlog.md             # Future improvements
 ```
