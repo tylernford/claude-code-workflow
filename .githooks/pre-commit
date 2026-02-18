@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Pre-commit hook: auto-format staged files with Prettier
+
+staged_files=$(git diff --cached --name-only --diff-filter=ACM)
+
+if [ -z "$staged_files" ]; then
+  exit 0
+fi
+
+# Filter to file types Prettier handles
+files_to_format=$(echo "$staged_files" | grep -E '\.md$')
+
+if [ -z "$files_to_format" ]; then
+  exit 0
+fi
+
+# Format and re-stage
+echo "$files_to_format" | xargs npx prettier --write
+echo "$files_to_format" | xargs git add
+
+exit 0
