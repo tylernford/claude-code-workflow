@@ -1,13 +1,14 @@
 # Implementation Plan: Simplify Doc Path Input
 
-**Design Doc:** docs/design-plans/2026-01-15-simplify-doc-path-input.md
-**Created:** 2026-01-15
+**Design Doc:** docs/design-plans/2026-01-15-simplify-doc-path-input.md **Created:**
+2026-01-15
 
 ---
 
 ## Summary
 
-Update `/plan` and `/build` commands to ask for document paths instead of searching directories and listing files. Matches the existing `/document` pattern.
+Update `/plan` and `/build` commands to ask for document paths instead of searching
+directories and listing files. Matches the existing `/document` pattern.
 
 ---
 
@@ -19,9 +20,12 @@ Update `/plan` and `/build` commands to ask for document paths instead of search
 - [x] `/document` has target wording pattern - Verified
 
 **Patterns to leverage:**
-- `/document` prerequisite section wording: "If the user does not provide a [doc] path, ask them for the file path."
+
+- `/document` prerequisite section wording: "If the user does not provide a [doc] path,
+  ask them for the file path."
 
 **Discrepancies found:**
+
 - None
 
 ---
@@ -30,15 +34,18 @@ Update `/plan` and `/build` commands to ask for document paths instead of search
 
 ### Task 1: Update Prerequisite sections in /plan and /build
 
-**Description:** Replace directory-listing instructions with ask-for-path instructions in both command files, matching `/document`'s wording style.
+**Description:** Replace directory-listing instructions with ask-for-path instructions in
+both command files, matching `/document`'s wording style.
 
 **Files:**
+
 - `.claude/commands/plan.md` - modify
 - `.claude/commands/build.md` - modify
 
 **Changes:**
 
 For `/plan` (lines 14-17), replace:
+
 ```
 ## Prerequisite
 
@@ -48,6 +55,7 @@ First, list available design docs and ask which one to plan for (or confirm if t
 ```
 
 With:
+
 ```
 ## Prerequisite
 
@@ -57,6 +65,7 @@ If the user does not provide a design doc path, ask them for the file path.
 ```
 
 For `/build` (lines 14-19), replace:
+
 ```
 ## Prerequisite
 
@@ -68,6 +77,7 @@ Also locate the corresponding design document in `docs/design-plans/` for the Bu
 ```
 
 With:
+
 ```
 ## Prerequisite
 
@@ -79,6 +89,7 @@ A design document must also exist in `docs/design-plans/` for the Build Log. If 
 ```
 
 **Done when:**
+
 - `/plan` without args prompts for design doc path (no directory listing)
 - `/build` without args prompts for both paths (no directory listing)
 - Both still reference expected directories as guidance
@@ -90,12 +101,15 @@ A design document must also exist in `docs/design-plans/` for the Build Log. If 
 ## Verification Checklist
 
 - [ ] Run `/plan` with no arguments - should ask for design doc path
-- [ ] Run `/build` with no arguments - should ask for implementation plan and design doc paths
-- [ ] Verify directory paths (`docs/design-plans/`, `docs/implementation-plans/`) are still mentioned
+- [ ] Run `/build` with no arguments - should ask for implementation plan and design doc
+      paths
+- [ ] Verify directory paths (`docs/design-plans/`, `docs/implementation-plans/`) are
+      still mentioned
 - [ ] Compare wording to `/document` - style should match
 
 ---
 
 ## Notes
 
-Single-task implementation due to small scope. Both files are modified together since they represent a cohesive change to the workflow's path-input behavior.
+Single-task implementation due to small scope. Both files are modified together since they
+represent a cohesive change to the workflow's path-input behavior.
