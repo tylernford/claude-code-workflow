@@ -4,6 +4,19 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-02-18: Add Prettier Formatting
+
+Added Prettier as a pre-commit hook for consistent Markdown formatting across the repo. A
+`.prettierrc` config and `.githooks/pre-commit` script run Prettier against staged `.md`
+files on every commit.
+
+**Key files:**
+
+- `.prettierrc`
+- `.githooks/pre-commit`
+
+---
+
 ## 2026-02-17: Rename "Design Plan" to "Design Spec"
 
 Renamed "Design Plan" terminology to "Design Spec" across the workflow system. The design
