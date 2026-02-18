@@ -154,9 +154,10 @@ design specs and implementation plans" (referenced as out of scope in the design
 
 _Filled in during `/build` phase_
 
-| Date       | Task   | Files                                                                | Notes                                                          |
-| ---------- | ------ | -------------------------------------------------------------------- | -------------------------------------------------------------- |
-| 2026-02-18 | Task 1 | docs/templates/design-spec.md, docs/templates/implementation-plan.md | Design Spec field already existed in impl plan template header |
+| Date       | Task   | Files                                                                | Notes                                                                                  |
+| ---------- | ------ | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| 2026-02-18 | Task 1 | docs/templates/design-spec.md, docs/templates/implementation-plan.md | Design Spec field already existed in impl plan template header                         |
+| 2026-02-18 | Task 2 | .claude/commands/build.md                                            | Removed design spec prerequisite, updated 4 references to point to implementation plan |
 
 ---
 
