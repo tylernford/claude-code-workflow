@@ -1,6 +1,7 @@
 # Claude Development Workflow
 
-This repo contains a phase-based workflow system for building features with Claude Code. The workflow itself is built and improved using this same system.
+This repo contains a phase-based workflow system for building features with Claude Code.
+The workflow itself is built and improved using this same system.
 
 ## Structure
 
@@ -17,12 +18,12 @@ docs/
 
 ## Commands
 
-| Command | Phase | Purpose |
-|---------|-------|---------|
-| `/design` | 1 | Transform idea into design spec |
-| `/plan` | 2 | Break design into executable tasks |
-| `/build` | 3 | Execute tasks with commits |
-| `/document` | 4 | Complete docs, generate PR draft |
+| Command     | Phase | Purpose                            |
+| ----------- | ----- | ---------------------------------- |
+| `/design`   | 1     | Transform idea into design spec    |
+| `/plan`     | 2     | Break design into executable tasks |
+| `/build`    | 3     | Execute tasks with commits         |
+| `/document` | 4     | Complete docs, generate PR draft   |
 
 ## Core Principles
 

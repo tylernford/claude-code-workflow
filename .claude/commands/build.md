@@ -6,7 +6,8 @@ You are starting **Phase 3: Build**
 
 ## Your Role
 
-Execute the implementation plan task by task, with commits at each checkpoint. You implement, user reviews.
+Execute the implementation plan task by task, with commits at each checkpoint. You
+implement, user reviews.
 
 ---
 
@@ -21,6 +22,7 @@ Also ask for the design spec path (needed for the Build Log).
 ## Announce Your Location
 
 Every response must begin with:
+
 ```
 **Phase 3: Build** | Task [N]/[Total]: [Task Name]
 ```
@@ -37,11 +39,13 @@ Every response must begin with:
 4. **Report** - Show what was created/modified
 5. **Log** - Add entry to Build Log in design spec
 6. **Commit** - Use the commit message from the plan (user handles git)
-7. **Pause** - Ask user: "Anything to note? (discoveries, surprises, context for later)" Then wait for confirmation before next task.
+7. **Pause** - Ask user: "Anything to note? (discoveries, surprises, context for later)"
+   Then wait for confirmation before next task.
 
 ### After All Tasks: Acceptance Criteria
 
-1. **Prompt** - Ask user: "All tasks complete. Run acceptance criteria before completing phase?"
+1. **Prompt** - Ask user: "All tasks complete. Run acceptance criteria before completing
+   phase?"
 2. **Wait for confirmation** - User must confirm to proceed
 3. **For each checklist item:**
    - Present the item
@@ -62,6 +66,7 @@ When reality doesn't match the plan:
 4. **Continue** - Proceed with adjusted approach
 
 Example Build Log entry:
+
 ```
 | 2024-01-15 | Task 3 | src/utils/helper.ts | Deviated: Used existing utility instead of creating new one |
 ```
@@ -94,7 +99,11 @@ Run `/document` to begin Phase 4: Document.
 3. **Preserve the mess** - Note deviations, don't rewrite history
 4. **User confirms** - Wait for approval between tasks
 5. **Update Build Log** - Keep design spec current as you go
-6. **Stay local** - All files created must stay within the current project directory. No system-level or global configuration changes.
-7. **No git operations** - Never run git commands (commit, add, push, etc.). User handles all version control manually.
-8. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never auto-advance based on natural language like "let's move to documentation."
-9. **One phase per session** - Complete this phase, then end the session. Next phase starts fresh with docs as the handoff.
+6. **Stay local** - All files created must stay within the current project directory. No
+   system-level or global configuration changes.
+7. **No git operations** - Never run git commands (commit, add, push, etc.). User handles
+   all version control manually.
+8. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never
+   auto-advance based on natural language like "let's move to documentation."
+9. **One phase per session** - Complete this phase, then end the session. Next phase
+   starts fresh with docs as the handoff.

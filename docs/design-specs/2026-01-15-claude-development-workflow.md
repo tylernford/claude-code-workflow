@@ -1,7 +1,6 @@
 # Claude Development Workflow
 
-**Created:** 2026-01-15
-**Status:** Complete
+**Created:** 2026-01-15 **Status:** Complete
 
 ---
 
@@ -9,7 +8,10 @@
 
 **What:** A rigorous, phase-based workflow for building features with Claude Code.
 
-**Why:** Working with LLMs can be disorienting — things happen fast, context gets lost, and it's easy to feel like you're "riding the dragon" instead of driving. This workflow keeps you in control with explicit phases, clear checkpoints, and documentation that captures not just what we built, but how we got there.
+**Why:** Working with LLMs can be disorienting — things happen fast, context gets lost,
+and it's easy to feel like you're "riding the dragon" instead of driving. This workflow
+keeps you in control with explicit phases, clear checkpoints, and documentation that
+captures not just what we built, but how we got there.
 
 **Type:** Process/Workflow
 
@@ -18,12 +20,16 @@
 ## Core Principles
 
 1. **You drive** — Claude proposes, you approve. No auto-advancing.
-2. **Slash commands only** — Phases are triggered ONLY by `/command`. Natural language like "ready to build" does not trigger anything.
-3. **One phase per session** — Each phase is a discrete Claude Code session. When a phase completes, end the session. Start a new session for the next phase. The docs are the handoff, not conversation memory.
+2. **Slash commands only** — Phases are triggered ONLY by `/command`. Natural language
+   like "ready to build" does not trigger anything.
+3. **One phase per session** — Each phase is a discrete Claude Code session. When a phase
+   completes, end the session. Start a new session for the next phase. The docs are the
+   handoff, not conversation memory.
 4. **Announce location** — Every response states the current phase and step.
 5. **Pause at transitions** — Phase ends, you decide when to start the next.
 6. **Summarize before moving** — Recap decisions at the end of each phase.
-7. **Preserve the mess** — Plans stay as originally written; deviations are noted, not erased.
+7. **Preserve the mess** — Plans stay as originally written; deviations are noted, not
+   erased.
 
 ---
 
@@ -43,7 +49,8 @@
 
 2. **Clarification**
    - Identify ambiguous terms
-   - Define scope precisely (e.g., "users" → website visitors? form submitters? content editors?)
+   - Define scope precisely (e.g., "users" → website visitors? form submitters? content
+     editors?)
    - Confirm what's in scope vs. out of scope
 
 3. **Brainstorming** (if needed)
@@ -61,7 +68,8 @@
 
 **Output:** Finalized design document with clear requirements and acceptance criteria.
 
-**End of session.** Start a new Claude Code session and run `/plan` to begin the next phase.
+**End of session.** Start a new Claude Code session and run `/plan` to begin the next
+phase.
 
 ---
 
@@ -94,7 +102,8 @@
 
 **Output:** Implementation plan at `docs/implementation-plans/YYYY-MM-DD-feature-name.md`
 
-**End of session.** Start a new Claude Code session and run `/build` to begin the next phase.
+**End of session.** Start a new Claude Code session and run `/build` to begin the next
+phase.
 
 ---
 
@@ -127,7 +136,8 @@
 
 **Output:** Working feature on feature branch, with design doc Build Log completed.
 
-**End of session.** Start a new Claude Code session and run `/document` to begin the next phase.
+**End of session.** Start a new Claude Code session and run `/document` to begin the next
+phase.
 
 ---
 
@@ -145,13 +155,14 @@
 2. **Update Changelog**
    - Append entry to `docs/changelog.md`
    - Format:
+
      ```markdown
      ## YYYY-MM-DD: Feature Name
+
      Brief description of what was built.
 
-     **Design:** [link to design doc]
-     **Plan:** [link to implementation plan]
-     **Key files:** list of main files created/modified
+     **Design:** [link to design doc] **Plan:** [link to implementation plan] **Key
+     files:** list of main files created/modified
      ```
 
 3. **Update README** (if applicable)
@@ -179,31 +190,32 @@ docs/
 
 ## Commands Summary
 
-| Command | Purpose |
-|---------|---------|
-| `/design feature-name` | Start design phase for a new feature |
-| `/plan` | Start planning phase (requires design doc) |
-| `/build` | Start build phase (requires implementation plan) |
-| `/document` | Start documentation phase (after build complete) |
+| Command                | Purpose                                          |
+| ---------------------- | ------------------------------------------------ |
+| `/design feature-name` | Start design phase for a new feature             |
+| `/plan`                | Start planning phase (requires design doc)       |
+| `/build`               | Start build phase (requires implementation plan) |
+| `/document`            | Start documentation phase (after build complete) |
 
 ---
 
 ## Task Sizing Guide
 
 **Right-sized task (15-45 min):**
+
 - Coherent unit of work
 - Independently verifiable
 - Makes a sensible commit
 
 **Example breakdown for a CardGrid component:**
 
-| Task | Commit |
-|------|--------|
-| Create CardGrid with base structure (tsx, scss, index) | "Add CardGrid component base structure" |
-| Add responsive grid layout | "Add CardGrid responsive layout" |
-| Add compact and featured variants | "Add CardGrid variants" |
-| Register in ContentBuilder + GraphQL fragment | "Integrate CardGrid with ContentBuilder" |
-| Create Storybook story | "Add CardGrid Storybook story" |
+| Task                                                   | Commit                                   |
+| ------------------------------------------------------ | ---------------------------------------- |
+| Create CardGrid with base structure (tsx, scss, index) | "Add CardGrid component base structure"  |
+| Add responsive grid layout                             | "Add CardGrid responsive layout"         |
+| Add compact and featured variants                      | "Add CardGrid variants"                  |
+| Register in ContentBuilder + GraphQL fragment          | "Integrate CardGrid with ContentBuilder" |
+| Create Storybook story                                 | "Add CardGrid Storybook story"           |
 
 ---
 
@@ -221,6 +233,7 @@ When reality doesn't match the plan:
 ## Requirements
 
 ### Must Have
+
 - [x] Four distinct phases with explicit commands
 - [x] Clear phase/step indicators in every response
 - [x] Design document template
@@ -230,11 +243,13 @@ When reality doesn't match the plan:
 - [x] Deviation handling process
 
 ### Nice to Have
+
 - [ ] Templates as actual files in `docs/templates/`
 - [ ] Example completed design doc
 - [ ] Example completed implementation plan
 
 ### Out of Scope
+
 - Sub-agents or parallel task execution
 - Automated phase transitions
 - Integration with external tools
@@ -281,24 +296,27 @@ docs/
 
 ## Build Log
 
-| Date | Task | Files | Notes |
-|------|------|-------|-------|
-| 2026-01-15 | Create directory structure | `.claude/commands/`, `docs/implementation-plans/`, `docs/templates/` | Added .gitkeep to implementation-plans |
-| 2026-01-15 | Create design doc template | `docs/templates/design-doc.md` | |
-| 2026-01-15 | Create implementation plan template | `docs/templates/implementation-plan.md` | |
-| 2026-01-15 | Create /design command | `.claude/commands/design.md` | Phase 1 workflow |
-| 2026-01-15 | Create /plan command | `.claude/commands/plan.md` | Phase 2 workflow |
-| 2026-01-15 | Create /build command | `.claude/commands/build.md` | Phase 3 workflow |
-| 2026-01-15 | Create /document command | `.claude/commands/document.md` | Phase 4 workflow |
-| 2026-01-15 | Create changelog | `docs/changelog.md` | Includes this feature as first entry |
+| Date       | Task                                | Files                                                                | Notes                                  |
+| ---------- | ----------------------------------- | -------------------------------------------------------------------- | -------------------------------------- |
+| 2026-01-15 | Create directory structure          | `.claude/commands/`, `docs/implementation-plans/`, `docs/templates/` | Added .gitkeep to implementation-plans |
+| 2026-01-15 | Create design doc template          | `docs/templates/design-doc.md`                                       |                                        |
+| 2026-01-15 | Create implementation plan template | `docs/templates/implementation-plan.md`                              |                                        |
+| 2026-01-15 | Create /design command              | `.claude/commands/design.md`                                         | Phase 1 workflow                       |
+| 2026-01-15 | Create /plan command                | `.claude/commands/plan.md`                                           | Phase 2 workflow                       |
+| 2026-01-15 | Create /build command               | `.claude/commands/build.md`                                          | Phase 3 workflow                       |
+| 2026-01-15 | Create /document command            | `.claude/commands/document.md`                                       | Phase 4 workflow                       |
+| 2026-01-15 | Create changelog                    | `docs/changelog.md`                                                  | Includes this feature as first entry   |
 
 ---
 
 ## Completion
 
-**Completed:** 2026-01-15
-**Final Status:** Complete
+**Completed:** 2026-01-15 **Final Status:** Complete
 
-**Summary:** Implemented a four-phase development workflow with slash commands (`/design`, `/plan`, `/build`, `/document`). Created supporting templates for design docs and implementation plans, plus a changelog for tracking completed features.
+**Summary:** Implemented a four-phase development workflow with slash commands (`/design`,
+`/plan`, `/build`, `/document`). Created supporting templates for design docs and
+implementation plans, plus a changelog for tracking completed features.
 
-**Deviations from Plan:** The workflow bootstrapped itself - no formal implementation plan document was created since this was the first use of the system. Future features will follow the full cycle.
+**Deviations from Plan:** The workflow bootstrapped itself - no formal implementation plan
+document was created since this was the first use of the system. Future features will
+follow the full cycle.

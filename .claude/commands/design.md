@@ -6,7 +6,8 @@ You are starting **Phase 1: Design** for the feature: **$ARGUMENTS**
 
 ## Your Role
 
-Transform a raw idea into a structured, validated design spec. You propose, the user approves. Do not auto-advance through steps.
+Transform a raw idea into a structured, validated design spec. You propose, the user
+approves. Do not auto-advance through steps.
 
 ---
 
@@ -14,7 +15,8 @@ Transform a raw idea into a structured, validated design spec. You propose, the 
 
 Run `git branch --show-current` to check the current branch.
 
-If the branch name does not contain `feat` or `feature`, warn: "Your branch doesn't appear to be a feature branch — consider creating one before proceeding."
+If the branch name does not contain `feat` or `feature`, warn: "Your branch doesn't appear
+to be a feature branch — consider creating one before proceeding."
 
 Continue regardless of branch.
 
@@ -23,6 +25,7 @@ Continue regardless of branch.
 ## Announce Your Location
 
 Every response must begin with:
+
 ```
 **Phase 1: Design** | Step [N]: [Step Name]
 ```
@@ -31,11 +34,13 @@ Every response must begin with:
 
 ## Steps
 
-Work through these steps one at a time. Wait for user input before proceeding to the next step.
+Work through these steps one at a time. Wait for user input before proceeding to the next
+step.
 
 ### Step 1: Context Gathering
 
 Ask the user:
+
 1. What are we building? (Get specifics)
 2. What constraints exist? (Tech stack, timeline, dependencies)
 3. What decisions have already been made?
@@ -53,6 +58,7 @@ Summarize what you learned before moving on.
 ### Step 3: Brainstorming (if needed)
 
 If there are multiple valid approaches:
+
 - Present 2-3 architectural options
 - Outline trade-offs for each (complexity, performance, maintainability)
 - Ask user to select a direction
@@ -71,6 +77,7 @@ Skip this step if the approach is obvious or already decided.
 Before creating the file, run `date +%Y-%m-%d-%H%M` to get the current timestamp.
 
 Create the design spec at:
+
 ```
 docs/design-specs/YYYY-MM-DD-HHMM-feature-name.md
 ```
@@ -78,6 +85,7 @@ docs/design-specs/YYYY-MM-DD-HHMM-feature-name.md
 Use the template at `docs/templates/design-spec.md` as your guide.
 
 Include:
+
 - Overview (what and why)
 - Requirements (must have, nice to have, out of scope)
 - Design decisions with rationale
@@ -111,7 +119,11 @@ an Implementation Session (Plan → Build → Document).
 2. **Summarize before moving** - Recap decisions at the end of each step
 3. **User drives** - Wait for explicit approval to proceed
 4. **No implementation** - This phase is design only, no code writing
-5. **Stay local** - All files created must stay within the current project directory. No system-level or global configuration changes.
-6. **Limited git** - Only `git branch --show-current` is allowed. All other git operations (commit, add, push, etc.) are user-only.
-7. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never auto-advance based on natural language like "let's start building."
-8. **One phase per session** - Complete this phase, then end the session. Next phase starts fresh with docs as the handoff.
+5. **Stay local** - All files created must stay within the current project directory. No
+   system-level or global configuration changes.
+6. **Limited git** - Only `git branch --show-current` is allowed. All other git operations
+   (commit, add, push, etc.) are user-only.
+7. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never
+   auto-advance based on natural language like "let's start building."
+8. **One phase per session** - Complete this phase, then end the session. Next phase
+   starts fresh with docs as the handoff.

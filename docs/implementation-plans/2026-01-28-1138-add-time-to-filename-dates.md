@@ -7,7 +7,8 @@
 
 ## Summary
 
-Add HHMM time component to design doc and implementation plan filename formats, changing from `YYYY-MM-DD-feature-name.md` to `YYYY-MM-DD-HHMM-feature-name.md`.
+Add HHMM time component to design doc and implementation plan filename formats, changing
+from `YYYY-MM-DD-feature-name.md` to `YYYY-MM-DD-HHMM-feature-name.md`.
 
 ---
 
@@ -19,9 +20,11 @@ Add HHMM time component to design doc and implementation plan filename formats, 
 - [x] `plan.md` line 89 contains `YYYY-MM-DD-feature-name.md` - Verified: yes
 
 **Patterns to leverage:**
+
 - None needed - simple string replacement
 
 **Discrepancies found:**
+
 - None - design doc accurately reflects codebase
 
 ---
@@ -30,22 +33,25 @@ Add HHMM time component to design doc and implementation plan filename formats, 
 
 ### Task 1: Add HHMM time component to filename formats
 
-**Description:** Update filename format patterns in both command files to include HHMM time between the date and feature name.
+**Description:** Update filename format patterns in both command files to include HHMM
+time between the date and feature name.
 
 **Files:**
+
 - `.claude/commands/design.md` - modify (lines 73, 94)
 - `.claude/commands/plan.md` - modify (lines 75, 89)
 
 **Changes:**
 
-| File | Line | Before | After |
-|------|------|--------|-------|
-| `design.md` | 73 | `YYYY-MM-DD-feature-name.md` | `YYYY-MM-DD-HHMM-feature-name.md` |
-| `design.md` | 94 | `YYYY-MM-DD-feature-name.md` | `YYYY-MM-DD-HHMM-feature-name.md` |
-| `plan.md` | 75 | `YYYY-MM-DD-feature-name.md` | `YYYY-MM-DD-HHMM-feature-name.md` |
-| `plan.md` | 89 | `YYYY-MM-DD-feature-name.md` | `YYYY-MM-DD-HHMM-feature-name.md` |
+| File        | Line | Before                       | After                             |
+| ----------- | ---- | ---------------------------- | --------------------------------- |
+| `design.md` | 73   | `YYYY-MM-DD-feature-name.md` | `YYYY-MM-DD-HHMM-feature-name.md` |
+| `design.md` | 94   | `YYYY-MM-DD-feature-name.md` | `YYYY-MM-DD-HHMM-feature-name.md` |
+| `plan.md`   | 75   | `YYYY-MM-DD-feature-name.md` | `YYYY-MM-DD-HHMM-feature-name.md` |
+| `plan.md`   | 89   | `YYYY-MM-DD-feature-name.md` | `YYYY-MM-DD-HHMM-feature-name.md` |
 
 **Done when:**
+
 - All 4 occurrences updated
 - `grep -r "YYYY-MM-DD-feature-name.md" .claude/commands/` returns no results
 - `grep -r "YYYY-MM-DD-HHMM-feature-name.md" .claude/commands/` returns 4 matches
@@ -64,5 +70,6 @@ Add HHMM time component to design doc and implementation plan filename formats, 
 
 ## Notes
 
-- Existing docs in `docs/design-plans/` and `docs/implementation-plans/` are intentionally not renamed
+- Existing docs in `docs/design-plans/` and `docs/implementation-plans/` are intentionally
+  not renamed
 - This is a documentation-only change; no code logic is affected

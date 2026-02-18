@@ -1,10 +1,14 @@
 # Claude Code Workflow
 
-A phase-based workflow for building features with Claude Code, where documentation serves as the handoff between sessions.
+A phase-based workflow for building features with Claude Code, where documentation serves
+as the handoff between sessions.
 
 ## Why
 
-Working with Claude Code across multiple sessions tends to lose context. Without structure, you get scope drift, repeated explanations, and sessions that start from scratch. This workflow solves that by making documentation the connective tissue between sessions — each phase produces artifacts that the next phase consumes.
+Working with Claude Code across multiple sessions tends to lose context. Without
+structure, you get scope drift, repeated explanations, and sessions that start from
+scratch. This workflow solves that by making documentation the connective tissue between
+sessions — each phase produces artifacts that the next phase consumes.
 
 The workflow itself was built and improved using this same system.
 
@@ -12,12 +16,12 @@ The workflow itself was built and improved using this same system.
 
 Four phases, run one per session. Slash commands enforce the transitions.
 
-| Phase | Command | What happens |
-|-------|---------|-------------|
-| **Design** | `/design` | Transform an idea into a design spec with requirements and decisions |
-| **Plan** | `/plan` | Break the design into executable tasks with done-when criteria |
-| **Build** | `/build` | Execute tasks one at a time, committing at each checkpoint |
-| **Document** | `/document` | Update changelog, generate PR description, close out the work |
+| Phase        | Command     | What happens                                                         |
+| ------------ | ----------- | -------------------------------------------------------------------- |
+| **Design**   | `/design`   | Transform an idea into a design spec with requirements and decisions |
+| **Plan**     | `/plan`     | Break the design into executable tasks with done-when criteria       |
+| **Build**    | `/build`    | Execute tasks one at a time, committing at each checkpoint           |
+| **Document** | `/document` | Update changelog, generate PR description, close out the work        |
 
 Core principles:
 
