@@ -1,7 +1,6 @@
 # [Feature Name]
 
-**Created:** YYYY-MM-DD **Status:** Design | Planning | Building | Complete
-**Implementation Plan:** [link to implementation plan]
+**Created:** YYYY-MM-DD **Implementation Plan:** [link to implementation plan]
 
 ---
 
@@ -59,23 +58,3 @@
 path/to/file1.ext  # description
 path/to/file2.ext  # description
 ```
-
----
-
-## Build Log
-
-_Filled in during `/build` phase_
-
-| Date | Task | Files | Notes |
-| ---- | ---- | ----- | ----- |
-|      |      |       |       |
-
----
-
-## Completion
-
-**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
-
-**Summary:** [Brief description of what was actually built]
-
-**Deviations from Plan:** [Any significant changes from original design]
