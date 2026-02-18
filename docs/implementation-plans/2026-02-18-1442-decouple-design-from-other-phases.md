@@ -165,11 +165,19 @@ _Filled in during `/build` phase_
 
 ## Completion
 
-**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-02-18 **Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Moved Build Log and Completion sections from the design spec template to the
+implementation plan template. Updated `/build` to use only the implementation plan (no
+design spec dependency). Updated `/document` to use the implementation plan as its entry
+point, filling Completion and marking acceptance criteria there. Design spec now freezes
+after `/plan`. Updated backlog to remove the completed item and add folder-as-status idea.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:** `/document` retains a read-only dependency on the design spec
+for PR draft generation (Overview, Type, Files to Create/Modify). This wasn't anticipated
+in the design or plan phases. The design spec is never written to, so the core goal is
+met, but a future iteration could decide whether to move that content to the
+implementation plan or keep the read-only dependency.
 
 ---
 

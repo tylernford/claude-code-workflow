@@ -4,6 +4,27 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-02-18: Decouple /design from Other Phases
+
+Moved Build Log and Completion sections from the design spec template to the
+implementation plan template, then updated `/build` and `/document` so they never write to
+the design spec. The design spec now freezes after `/plan`; the implementation plan owns
+the full build story.
+
+**Design:**
+[docs/design-specs/2026-02-18-1317-decouple-design-from-other-phases.md](design-specs/2026-02-18-1317-decouple-design-from-other-phases.md)
+**Plan:**
+[docs/implementation-plans/2026-02-18-1442-decouple-design-from-other-phases.md](implementation-plans/2026-02-18-1442-decouple-design-from-other-phases.md)
+**Key files:**
+
+- `docs/templates/design-spec.md`
+- `docs/templates/implementation-plan.md`
+- `.claude/commands/build.md`
+- `.claude/commands/document.md`
+- `docs/backlog.md`
+
+---
+
 ## 2026-02-18: Add Prettier Formatting
 
 Added Prettier as a pre-commit hook for consistent Markdown formatting across the repo. A
