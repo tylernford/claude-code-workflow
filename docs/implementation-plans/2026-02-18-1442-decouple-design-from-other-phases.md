@@ -138,15 +138,15 @@ design specs and implementation plans" (referenced as out of scope in the design
 
 ## Acceptance Criteria
 
-- [ ] `/build` can be run with only an implementation plan path — no design spec path
+- [x] `/build` can be run with only an implementation plan path — no design spec path
       requested
-- [ ] Build Log entries are written to the implementation plan during `/build`
-- [ ] `/document` can be run with only an implementation plan path as entry point
-- [ ] `/document` marks acceptance criteria checkboxes `[x]` in the implementation plan
-- [ ] `/document` fills in the Completion section in the implementation plan
-- [ ] Changelog entry includes both design spec and implementation plan paths
-- [ ] Design spec template contains no Build Log or Completion section
-- [ ] Implementation plan template contains Build Log and Completion sections
+- [x] Build Log entries are written to the implementation plan during `/build`
+- [x] `/document` can be run with only an implementation plan path as entry point
+- [x] `/document` marks acceptance criteria checkboxes `[x]` in the implementation plan
+- [x] `/document` fills in the Completion section in the implementation plan
+- [x] Changelog entry includes both design spec and implementation plan paths
+- [x] Design spec template contains no Build Log or Completion section
+- [x] Implementation plan template contains Build Log and Completion sections
 
 ---
 
