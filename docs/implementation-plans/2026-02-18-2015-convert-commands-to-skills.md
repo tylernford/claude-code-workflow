@@ -191,6 +191,7 @@ _Filled in during `/build` phase_
 | ---------- | ------ | ---------------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | 2026-02-18 | Task 1 | .claude/skills/design/SKILL.md, .claude/skills/design/templates/design-spec.md     | Created design skill with frontmatter and bundled template |
 | 2026-02-18 | Task 2 | .claude/skills/plan/SKILL.md, .claude/skills/plan/templates/implementation-plan.md | Created plan skill with frontmatter and bundled template   |
+| 2026-02-18 | Task 3 | .claude/skills/build/SKILL.md, .claude/skills/document/SKILL.md                    | Created build and document skills with frontmatter         |
 
 ---
 
