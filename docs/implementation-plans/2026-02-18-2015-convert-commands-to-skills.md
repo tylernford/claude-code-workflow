@@ -168,18 +168,18 @@ with `docs/templates/` line removed from the tree.
 
 ## Acceptance Criteria
 
-- [ ] `/design`, `/plan`, `/build`, `/document` are invocable as skills and produce the
+- [x] `/design`, `/plan`, `/build`, `/document` are invocable as skills and produce the
       same behavior as the current commands
-- [ ] `.claude/skills/` contains 4 skill directories with correct structure (SKILL.md +
+- [x] `.claude/skills/` contains 4 skill directories with correct structure (SKILL.md +
       templates where applicable)
-- [ ] Each SKILL.md has frontmatter with `disable-model-invocation: true` and
+- [x] Each SKILL.md has frontmatter with `disable-model-invocation: true` and
       `allowed-tools: Read, Grep, Glob`
-- [ ] `/design` can locate and read `templates/design-spec.md` from its skill directory
-- [ ] `/plan` can locate and read `templates/implementation-plan.md` from its skill
+- [x] `/design` can locate and read `templates/design-spec.md` from its skill directory
+- [x] `/plan` can locate and read `templates/implementation-plan.md` from its skill
       directory
-- [ ] `.claude/commands/` is deleted
-- [ ] `docs/templates/` is deleted
-- [ ] CLAUDE.md reflects the new `.claude/skills/` structure
+- [x] `.claude/commands/` is deleted
+- [x] `docs/templates/` is deleted
+- [x] CLAUDE.md reflects the new `.claude/skills/` structure
 
 ---
 
