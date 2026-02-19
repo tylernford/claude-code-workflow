@@ -1,6 +1,7 @@
 # Convert Commands to Skills
 
-**Created:** 2026-02-18 **Implementation Plan:** [link to implementation plan]
+**Created:** 2026-02-18 **Implementation Plan:**
+docs/implementation-plans/2026-02-18-2015-convert-commands-to-skills.md
 
 ---
 
