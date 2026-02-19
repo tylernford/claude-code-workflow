@@ -4,6 +4,26 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-02-18: Complete Phase Decoupling
+
+Fully decoupled `/document` from the design spec by having `/plan` carry Type and Overview
+into the implementation plan header. Updated `/document` to source PR draft content
+entirely from the implementation plan, so downstream phases never need to read the design
+spec.
+
+**Design:**
+[docs/design-specs/2026-02-18-1724-complete-phase-decoupling.md](design-specs/2026-02-18-1724-complete-phase-decoupling.md)
+**Plan:**
+[docs/implementation-plans/2026-02-18-1855-complete-phase-decoupling.md](implementation-plans/2026-02-18-1855-complete-phase-decoupling.md)
+**Key files:**
+
+- `docs/templates/implementation-plan.md`
+- `.claude/commands/plan.md`
+- `.claude/commands/document.md`
+- `docs/templates/design-spec.md`
+
+---
+
 ## 2026-02-18: Decouple /design from Other Phases
 
 Moved Build Log and Completion sections from the design spec template to the

@@ -52,7 +52,7 @@
 
 ---
 
-## Files to Create/Modify
+## Suggested Files to Create/Modify
 
 ```
 path/to/file1.ext  # description
