@@ -187,9 +187,10 @@ with `docs/templates/` line removed from the tree.
 
 _Filled in during `/build` phase_
 
-| Date       | Task   | Files                                                                          | Notes                                                      |
-| ---------- | ------ | ------------------------------------------------------------------------------ | ---------------------------------------------------------- |
-| 2026-02-18 | Task 1 | .claude/skills/design/SKILL.md, .claude/skills/design/templates/design-spec.md | Created design skill with frontmatter and bundled template |
+| Date       | Task   | Files                                                                              | Notes                                                      |
+| ---------- | ------ | ---------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| 2026-02-18 | Task 1 | .claude/skills/design/SKILL.md, .claude/skills/design/templates/design-spec.md     | Created design skill with frontmatter and bundled template |
+| 2026-02-18 | Task 2 | .claude/skills/plan/SKILL.md, .claude/skills/plan/templates/implementation-plan.md | Created plan skill with frontmatter and bundled template   |
 
 ---
 
