@@ -68,6 +68,13 @@ Present tasks to user for review. Adjust based on feedback.
 - Confirm all acceptance criteria are testable
 - Check task ordering makes sense (dependencies)
 
+### Step 5: Confirm Type and Overview
+
+- Read the **Type** and **Overview** fields from the design spec
+- Present both to the user for confirmation
+- Adjust if the user requests changes
+- These will be added to the implementation plan header
+
 ---
 
 ## Write Implementation Plan
@@ -80,7 +87,9 @@ Create the implementation plan at:
 docs/implementation-plans/YYYY-MM-DD-HHMM-feature-name.md
 ```
 
-Use the template at `docs/templates/implementation-plan.md` as your guide.
+Use the template at `docs/templates/implementation-plan.md` as your guide. Include all
+four header fields: **Created**, **Type**, **Overview**, and **Design Spec** (using the
+confirmed values from Step 5 and the design spec path).
 
 ---
 
