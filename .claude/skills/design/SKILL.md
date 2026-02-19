@@ -1,3 +1,8 @@
+---
+disable-model-invocation: true
+allowed-tools: Read, Grep, Glob
+---
+
 # /design $ARGUMENTS
 
 You are starting **Phase 1: Design** for the feature: **$ARGUMENTS**
@@ -82,7 +87,7 @@ Create the design spec at:
 docs/design-specs/YYYY-MM-DD-HHMM-feature-name.md
 ```
 
-Use the template at `docs/templates/design-spec.md` as your guide.
+Use the template at [templates/design-spec.md](templates/design-spec.md) as your guide.
 
 Include:
 

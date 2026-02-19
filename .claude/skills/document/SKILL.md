@@ -1,3 +1,8 @@
+---
+disable-model-invocation: true
+allowed-tools: Read, Grep, Glob
+---
+
 # /document
 
 You are starting **Phase 4: Document**

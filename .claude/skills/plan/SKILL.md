@@ -1,3 +1,8 @@
+---
+disable-model-invocation: true
+allowed-tools: Read, Grep, Glob
+---
+
 # /plan
 
 You are starting an **Implementation Session** — Phase 1: Plan
@@ -87,9 +92,9 @@ Create the implementation plan at:
 docs/implementation-plans/YYYY-MM-DD-HHMM-feature-name.md
 ```
 
-Use the template at `docs/templates/implementation-plan.md` as your guide. Include all
-four header fields: **Created**, **Type**, **Overview**, and **Design Spec** (using the
-confirmed values from Step 5 and the design spec path).
+Use the template at [templates/implementation-plan.md](templates/implementation-plan.md)
+as your guide. Include all four header fields: **Created**, **Type**, **Overview**, and
+**Design Spec** (using the confirmed values from Step 5 and the design spec path).
 
 ---
 

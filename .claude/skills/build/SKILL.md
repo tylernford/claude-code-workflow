@@ -1,3 +1,8 @@
+---
+disable-model-invocation: true
+allowed-tools: Read, Grep, Glob
+---
+
 # /build
 
 You are starting **Phase 3: Build**

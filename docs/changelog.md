@@ -4,6 +4,29 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-02-18: Convert Commands to Skills
+
+Migrated the 4 workflow commands (`/design`, `/plan`, `/build`, `/document`) from
+`.claude/commands/` to `.claude/skills/`, adding frontmatter configuration and bundling
+templates into their respective skill directories. Deleted old command and template
+directories.
+
+**Design:**
+[docs/design-specs/2026-02-18-1957-convert-commands-to-skills.md](design-specs/2026-02-18-1957-convert-commands-to-skills.md)
+**Plan:**
+[docs/implementation-plans/2026-02-18-2015-convert-commands-to-skills.md](implementation-plans/2026-02-18-2015-convert-commands-to-skills.md)
+**Key files:**
+
+- `.claude/skills/design/SKILL.md`
+- `.claude/skills/design/templates/design-spec.md`
+- `.claude/skills/plan/SKILL.md`
+- `.claude/skills/plan/templates/implementation-plan.md`
+- `.claude/skills/build/SKILL.md`
+- `.claude/skills/document/SKILL.md`
+- `CLAUDE.md`
+
+---
+
 ## 2026-02-18: Complete Phase Decoupling
 
 Fully decoupled `/document` from the design spec by having `/plan` carry Type and Overview
