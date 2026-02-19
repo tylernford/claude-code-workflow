@@ -1,6 +1,7 @@
 # Implementation Plan: [Feature Name]
 
-**Design Spec:** [link to design spec] **Created:** YYYY-MM-DD
+**Created:** YYYY-MM-DD **Type:** [type] **Overview:** [overview] **Design Spec:** [link
+to design spec]
 
 ---
 
@@ -60,6 +61,25 @@ _Confirm assumptions from design spec match actual codebase_
 - [ ] [How to test the feature works]
 - [ ] [Edge case to verify]
 - [ ] [Integration point to check]
+
+---
+
+## Build Log
+
+_Filled in during `/build` phase_
+
+| Date | Task | Files | Notes |
+| ---- | ---- | ----- | ----- |
+
+---
+
+## Completion
+
+**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
+
+**Summary:** [Brief description of what was actually built]
+
+**Deviations from Plan:** [Any significant changes from original design]
 
 ---
 

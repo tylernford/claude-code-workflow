@@ -15,8 +15,6 @@ implement, user reviews.
 
 If the user does not provide an implementation plan path, ask them for the file path.
 
-Also ask for the design spec path (needed for the Build Log).
-
 ---
 
 ## Announce Your Location
@@ -37,7 +35,7 @@ Every response must begin with:
 2. **Implement** - Write the code / create the files
 3. **Verify** - Confirm "done when" criteria are met
 4. **Report** - Show what was created/modified
-5. **Log** - Add entry to Build Log in design spec
+5. **Log** - Add entry to Build Log in the implementation plan
 6. **Commit** - Use the commit message from the plan (user handles git)
 7. **Pause** - Ask user: "Anything to note? (discoveries, surprises, context for later)"
    Then wait for confirmation before next task.
@@ -62,7 +60,7 @@ When reality doesn't match the plan:
 
 1. **Don't update the implementation plan** - It's a record of original thinking
 2. **Note the deviation** - What changed and why
-3. **Add to Build Log** - Record in the design spec
+3. **Add to Build Log** - Record in the implementation plan
 4. **Continue** - Proceed with adjusted approach
 
 Example Build Log entry:
@@ -82,7 +80,7 @@ When all tasks are done and verification checklist passes, announce:
 
 All [N] tasks completed.
 Acceptance criteria passed.
-Build Log updated in: docs/design-specs/YYYY-MM-DD-feature-name.md
+Build Log updated in: docs/implementation-plans/YYYY-MM-DD-feature-name.md
 
 **Commit checkpoint:** Ensure all tasks have been committed before ending this session.
 
@@ -98,7 +96,7 @@ Run `/document` to begin Phase 4: Document.
 2. **Follow the plan** - Don't add unplanned work
 3. **Preserve the mess** - Note deviations, don't rewrite history
 4. **User confirms** - Wait for approval between tasks
-5. **Update Build Log** - Keep design spec current as you go
+5. **Update Build Log** - Keep implementation plan current as you go
 6. **Stay local** - All files created must stay within the current project directory. No
    system-level or global configuration changes.
 7. **No git operations** - Never run git commands (commit, add, push, etc.). User handles

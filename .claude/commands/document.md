@@ -14,11 +14,7 @@ Complete project documentation and update developer-facing docs. This is the fin
 
 Build phase must be complete.
 
-If the user does not provide a design spec path, ask them for the file path.
-
-Then read the `**Implementation Plan:**` field from the design spec header to locate the
-implementation plan. If the field still contains the placeholder text
-`[link to implementation plan]`, ask the user for the path to the implementation plan.
+If the user does not provide an implementation plan path, ask them for the file path.
 
 Also locate the changelog at `docs/changelog.md`.
 
@@ -38,30 +34,29 @@ Every response must begin with:
 
 ### Step 1: Load and Summarize
 
-- Read the design spec
-- Read the implementation plan path from the design spec's `**Implementation Plan:**`
-  header field
-- If the field contains the placeholder `[link to implementation plan]`, ask the user for
-  the path
-- Review the Build Log entries
+- Read the implementation plan
+- Read **Type** and **Overview** from the implementation plan header
+- Review the Build Log entries in the implementation plan
 - Summarize what was built and any deviations noted
 - Confirm this is the correct feature to document
 
-### Step 2: Complete Design Spec
+### Step 2: Complete Implementation Plan
 
-Update the design spec:
+Update the implementation plan:
 
-1. **Fill in Completion section:**
+1. **Mark acceptance criteria** as `[x]` in the Acceptance Criteria section
+
+2. **Fill in Completion section:**
    - Completed date
    - Final status (Complete | Partial | Abandoned)
    - Summary of what was actually built
    - Deviations from original plan
 
-2. **Update Status** at top of document to "Complete"
-
 3. **Review Build Log** - Ensure it captures the full build history
 
 ### Step 3: Update Changelog
+
+Read the design spec path from the implementation plan's `**Design Spec:**` header field.
 
 Append an entry to `docs/changelog.md`:
 
@@ -70,8 +65,8 @@ Append an entry to `docs/changelog.md`:
 
 Brief description of what was built.
 
-**Design:** [link to design spec] **Plan:** [link to implementation plan] **Key files:**
-list of main files created/modified
+**Design:** [design spec path from implementation plan header] **Plan:** [link to
+implementation plan] **Key files:** list of main files created/modified
 ```
 
 ### Step 4: Update README (if applicable)
@@ -89,15 +84,15 @@ Skip this step if the feature doesn't affect the README.
 Ask user: "Anything to note? (discoveries, surprises, or context not captured in the Build
 Log)"
 
-Incorporate any final notes into the design spec's Completion section.
+Incorporate any final notes into the implementation plan's Completion section.
 
 ---
 
 ## PR Draft Generation
 
-Generate a PR draft from the design spec and implementation plan:
+Generate a PR draft from the implementation plan:
 
-**Title format:** `[type-prefix]: [feature name from design spec title]`
+**Title format:** `[type-prefix]: [feature name from implementation plan title]`
 
 **Type → Prefix mapping:**
 
@@ -107,13 +102,14 @@ Generate a PR draft from the design spec and implementation plan:
 - Documentation → `docs:`
 - Chore → `chore:`
 
-If the design spec Type doesn't match these, use best judgment or default to `feat:`.
+If the Type doesn't match these, use best judgment or default to `feat:`.
 
 **Description content:**
 
-- Summary: 2-3 sentences from design spec Overview
-- Changes: Key files/areas from the design spec's Files to Create/Modify section
-- Documentation: Paths to design spec and implementation plan
+- Summary: 2-3 sentences based on the implementation plan's **Overview** and Build Log
+- Changes: Key files/areas from the implementation plan's Build Log
+- Documentation: Paths to design spec (from implementation plan header) and implementation
+  plan
 
 ---
 
@@ -125,7 +121,7 @@ When documentation is complete, announce:
 **Phase 4: Document** | Complete
 
 Documentation updated:
-- Design spec completed: docs/design-specs/YYYY-MM-DD-feature-name.md
+- Implementation plan completed: docs/implementation-plans/YYYY-MM-DD-feature-name.md
 - Changelog updated: docs/changelog.md
 - README: [updated | no changes needed]
 
@@ -139,10 +135,10 @@ Documentation updated:
 
 **Description:**
 ## Summary
-[2-3 sentences from design spec Overview]
+[2-3 sentences based on Overview and Build Log]
 
 ## Changes
-- [key files/areas changed from Files to Create/Modify]
+- [key files/areas from Build Log]
 
 ## Documentation
 - Design: [path to design spec]

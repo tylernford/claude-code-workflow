@@ -91,28 +91,20 @@ stay accurate.
 
 ---
 
-## 2026-02-14: Move Build Log to Implementation Plan
+## 2026-02-18: Folder-as-Status System for Design Specs and Implementation Plans
 
-**Idea:** The Build Log currently lives in the design spec, which forces `/build` to
-require both the implementation plan and the design spec. Move the Build Log to the
-implementation plan so that `/build` only needs one document.
+**Idea:** Use folder structure to indicate document status instead of metadata fields:
 
-**Why:** The design spec is the "what and why" — it should be a `/design` → `/plan`
-artifact. The implementation plan is the "how" — it should own the full build story:
-tasks, acceptance criteria, build log, and deviations. This is a cleaner separation of
-concerns.
+```
+docs/design-specs/active/
+docs/design-specs/complete/
+docs/implementation-plans/active/
+docs/implementation-plans/complete/
+```
 
-**Impact on other phases:**
+**Why:** Moving a file between folders is a clear, visible status change. No need to open
+the file to check its status. Makes it easy to see what's in progress vs. done at a
+glance.
 
-- `/build` no longer needs the design spec path. It reads and writes only the
-  implementation plan.
-- `/document` is simplified — acceptance criteria, verification checklist, and build log
-  are all in one place. Marking checkboxes as complete (currently missed — see below)
-  becomes straightforward.
-- `/plan` is unchanged — it still reads the design spec to produce the implementation
-  plan.
-
-**Also fixes:** During `/document`, acceptance criteria checkboxes in the design spec and
-verification checklist items in the implementation plan were not being marked as complete
-(noted 2026-01-16). With everything in the implementation plan, `/document` Step 2 can
-mark all checkboxes in a single document.
+**Origin:** Noted as out of scope in the "Decouple /design from Other Phases" design spec
+(2026-02-18).
