@@ -134,18 +134,18 @@ the design spec template.
 
 ## Acceptance Criteria
 
-- [ ] `/plan` has a Step 5 that confirms Type and Overview with the user
-- [ ] Implementation plan template header includes Type and Overview fields in order:
+- [x] `/plan` has a Step 5 that confirms Type and Overview with the user
+- [x] Implementation plan template header includes Type and Overview fields in order:
       Created, Type, Overview, Design Spec
-- [ ] `/plan` writes the design spec path into the implementation plan when writing the
+- [x] `/plan` writes the design spec path into the implementation plan when writing the
       file
-- [ ] `/document` prerequisite does not read or reference the design spec file
-- [ ] `/document` PR draft title prefix comes from implementation plan's Type field
-- [ ] `/document` PR draft summary comes from implementation plan's Overview field
-- [ ] `/document` PR draft changes come from implementation plan's Build Log
-- [ ] Changelog entry includes design spec path (read from implementation plan header, not
+- [x] `/document` prerequisite does not read or reference the design spec file
+- [x] `/document` PR draft title prefix comes from implementation plan's Type field
+- [x] `/document` PR draft summary comes from implementation plan's Overview field
+- [x] `/document` PR draft changes come from implementation plan's Build Log
+- [x] Changelog entry includes design spec path (read from implementation plan header, not
       from the design spec file itself)
-- [ ] Design spec template section reads "Suggested Files to Create/Modify"
+- [x] Design spec template section reads "Suggested Files to Create/Modify"
 
 ---
 
