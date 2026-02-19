@@ -6,19 +6,18 @@ The workflow itself is built and improved using this same system.
 ## Structure
 
 ```
-.claude/commands/          # Slash command definitions
+.claude/skills/            # Skill definitions (design, plan, build, document)
 claude-code-insights/      # Claude Code usage analysis reports
 docs/
 ├── design-specs/          # Design documents
 ├── implementation-plans/  # Task breakdowns
-├── templates/             # design-spec.md, implementation-plan.md
 ├── changelog.md           # Completed feature history
 └── backlog.md             # Future improvements
 ```
 
-## Commands
+## Skills
 
-| Command     | Phase | Purpose                            |
+| Skill       | Phase | Purpose                            |
 | ----------- | ----- | ---------------------------------- |
 | `/design`   | 1     | Transform idea into design spec    |
 | `/plan`     | 2     | Break design into executable tasks |
