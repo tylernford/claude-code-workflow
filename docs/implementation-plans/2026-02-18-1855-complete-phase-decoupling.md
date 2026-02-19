@@ -164,11 +164,17 @@ _Filled in during `/build` phase_
 
 ## Completion
 
-**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-02-18 **Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Fully decoupled `/document` from the design spec. Updated the implementation
+plan template with Type and Overview header fields, added a Type/Overview confirmation
+step to `/plan`, rewired `/document` to source all PR draft content from the
+implementation plan, and renamed the design spec template's "Files to Create/Modify"
+section to "Suggested Files to Create/Modify".
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:** Task 3 — PR summary sources from both Overview and Build Log
+(plan specified Overview only). Phase Complete template in `/document` was also updated
+for consistency, which wasn't explicitly called out in the task description.
 
 ---
 
