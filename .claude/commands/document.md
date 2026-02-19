@@ -16,10 +16,6 @@ Build phase must be complete.
 
 If the user does not provide an implementation plan path, ask them for the file path.
 
-Then read the `**Design Spec:**` field from the implementation plan header to locate the
-design spec. If the field still contains the placeholder text `[link to design spec]`, ask
-the user for the path to the design spec.
-
 Also locate the changelog at `docs/changelog.md`.
 
 ---
@@ -39,9 +35,7 @@ Every response must begin with:
 ### Step 1: Load and Summarize
 
 - Read the implementation plan
-- Read the design spec path from the implementation plan's `**Design Spec:**` header field
-- If the field contains the placeholder `[link to design spec]`, ask the user for the path
-- Read the design spec (read-only — do not modify it)
+- Read **Type** and **Overview** from the implementation plan header
 - Review the Build Log entries in the implementation plan
 - Summarize what was built and any deviations noted
 - Confirm this is the correct feature to document
@@ -62,6 +56,8 @@ Update the implementation plan:
 
 ### Step 3: Update Changelog
 
+Read the design spec path from the implementation plan's `**Design Spec:**` header field.
+
 Append an entry to `docs/changelog.md`:
 
 ```markdown
@@ -69,8 +65,8 @@ Append an entry to `docs/changelog.md`:
 
 Brief description of what was built.
 
-**Design:** [link to design spec] **Plan:** [link to implementation plan] **Key files:**
-list of main files created/modified
+**Design:** [design spec path from implementation plan header] **Plan:** [link to
+implementation plan] **Key files:** list of main files created/modified
 ```
 
 ### Step 4: Update README (if applicable)
@@ -94,9 +90,9 @@ Incorporate any final notes into the implementation plan's Completion section.
 
 ## PR Draft Generation
 
-Generate a PR draft from the design spec and implementation plan:
+Generate a PR draft from the implementation plan:
 
-**Title format:** `[type-prefix]: [feature name from design spec title]`
+**Title format:** `[type-prefix]: [feature name from implementation plan title]`
 
 **Type → Prefix mapping:**
 
@@ -106,13 +102,14 @@ Generate a PR draft from the design spec and implementation plan:
 - Documentation → `docs:`
 - Chore → `chore:`
 
-If the design spec Type doesn't match these, use best judgment or default to `feat:`.
+If the Type doesn't match these, use best judgment or default to `feat:`.
 
 **Description content:**
 
-- Summary: 2-3 sentences from design spec Overview
-- Changes: Key files/areas from the design spec's Files to Create/Modify section
-- Documentation: Paths to design spec and implementation plan
+- Summary: 2-3 sentences based on the implementation plan's **Overview** and Build Log
+- Changes: Key files/areas from the implementation plan's Build Log
+- Documentation: Paths to design spec (from implementation plan header) and implementation
+  plan
 
 ---
 
@@ -138,10 +135,10 @@ Documentation updated:
 
 **Description:**
 ## Summary
-[2-3 sentences from design spec Overview]
+[2-3 sentences based on Overview and Build Log]
 
 ## Changes
-- [key files/areas changed from Files to Create/Modify]
+- [key files/areas from Build Log]
 
 ## Documentation
 - Design: [path to design spec]

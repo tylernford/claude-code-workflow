@@ -153,10 +153,11 @@ the design spec template.
 
 _Filled in during `/build` phase_
 
-| Date       | Task   | Files                                 | Notes                                                   |
-| ---------- | ------ | ------------------------------------- | ------------------------------------------------------- |
-| 2026-02-18 | Task 1 | docs/templates/implementation-plan.md | Reordered header fields, added Type and Overview        |
-| 2026-02-18 | Task 2 | .claude/commands/plan.md              | Added Step 5, updated Write Implementation Plan section |
+| Date       | Task   | Files                                 | Notes                                                                                                                                                                                                        |
+| ---------- | ------ | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 2026-02-18 | Task 1 | docs/templates/implementation-plan.md | Reordered header fields, added Type and Overview                                                                                                                                                             |
+| 2026-02-18 | Task 2 | .claude/commands/plan.md              | Added Step 5, updated Write Implementation Plan section                                                                                                                                                      |
+| 2026-02-18 | Task 3 | .claude/commands/document.md          | Removed design spec dependency, sourced PR draft from implementation plan. Deviated: PR summary sources from Overview + Build Log (not just Overview). Also updated Phase Complete template for consistency. |
 
 ---
 
