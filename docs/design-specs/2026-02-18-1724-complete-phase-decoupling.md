@@ -1,6 +1,7 @@
 # Complete Phase Decoupling
 
-**Created:** 2026-02-18 **Implementation Plan:** [link to implementation plan]
+**Created:** 2026-02-18 **Implementation Plan:**
+docs/implementation-plans/2026-02-18-1855-complete-phase-decoupling.md
 
 ---
 
