@@ -198,11 +198,15 @@ _Filled in during `/build` phase_
 
 ## Completion
 
-**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-02-18 **Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Migrated all 4 workflow commands from `.claude/commands/` to
+`.claude/skills/`, each with frontmatter configuration (`disable-model-invocation: true`,
+`allowed-tools: Read, Grep, Glob`). Bundled templates into `/design` and `/plan` skill
+directories with relative markdown link references. Deleted old `.claude/commands/` and
+`docs/templates/` directories. Updated CLAUDE.md to reflect the new structure.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:** None
 
 ---
 

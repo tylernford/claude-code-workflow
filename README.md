@@ -14,9 +14,9 @@ The workflow itself was built and improved using this same system.
 
 ## How It Works
 
-Four phases, run one per session. Slash commands enforce the transitions.
+Four phases, run one per session. Each phase is a skill you invoke explicitly.
 
-| Phase        | Command     | What happens                                                         |
+| Phase        | Skill       | What happens                                                         |
 | ------------ | ----------- | -------------------------------------------------------------------- |
 | **Design**   | `/design`   | Transform an idea into a design spec with requirements and decisions |
 | **Plan**     | `/plan`     | Break the design into executable tasks with done-when criteria       |
@@ -32,12 +32,11 @@ Core principles:
 ## Project Structure
 
 ```
-.claude/commands/          # Slash command definitions (design, plan, build, document)
+.claude/skills/            # Skill definitions (design, plan, build, document)
 claude-code-insights/      # Claude Code usage analysis reports
 docs/
 ├── design-specs/          # Design documents
 ├── implementation-plans/  # Task breakdowns
-├── templates/             # design-spec.md, implementation-plan.md
 ├── changelog.md           # Completed feature history
 └── backlog.md             # Future improvements
 CLAUDE.md                  # Project instructions for Claude Code
