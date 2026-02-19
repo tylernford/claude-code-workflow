@@ -153,8 +153,9 @@ the design spec template.
 
 _Filled in during `/build` phase_
 
-| Date | Task | Files | Notes |
-| ---- | ---- | ----- | ----- |
+| Date       | Task   | Files                                 | Notes                                            |
+| ---------- | ------ | ------------------------------------- | ------------------------------------------------ |
+| 2026-02-18 | Task 1 | docs/templates/implementation-plan.md | Reordered header fields, added Type and Overview |
 
 ---
 

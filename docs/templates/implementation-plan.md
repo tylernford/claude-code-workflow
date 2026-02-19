@@ -1,6 +1,7 @@
 # Implementation Plan: [Feature Name]
 
-**Design Spec:** [link to design spec] **Created:** YYYY-MM-DD
+**Created:** YYYY-MM-DD **Type:** [type] **Overview:** [overview] **Design Spec:** [link
+to design spec]
 
 ---
 
