@@ -116,13 +116,13 @@ creates a working symlink from `.git/hooks/post-merge` to `scripts/post-merge`.
 
 ## Acceptance Criteria
 
-- [ ] After `git pull` on `main` that includes changes under `.claude/skills/`, the 4
+- [x] After `git pull` on `main` that includes changes under `.claude/skills/`, the 4
       workflow skills are copied to `~/.claude/skills/`
-- [ ] After `git pull` on `main` with no skills changes, nothing happens
-- [ ] Non-workflow skills in `~/.claude/skills/` (e.g., `learning-opportunities`) are not
+- [x] After `git pull` on `main` with no skills changes, nothing happens
+- [x] Non-workflow skills in `~/.claude/skills/` (e.g., `learning-opportunities`) are not
       modified
-- [ ] `scripts/post-merge` is version-controlled in the repo
-- [ ] Setup instructions are documented in the README
+- [x] `scripts/post-merge` is version-controlled in the repo
+- [x] Setup instructions are documented in the README
 
 ---
 
