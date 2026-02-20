@@ -130,8 +130,9 @@ creates a working symlink from `.git/hooks/post-merge` to `scripts/post-merge`.
 
 _Filled in during `/build` phase_
 
-| Date | Task | Files | Notes |
-| ---- | ---- | ----- | ----- |
+| Date       | Task   | Files                  | Notes                                                    |
+| ---------- | ------ | ---------------------- | -------------------------------------------------------- |
+| 2026-02-20 | Task 1 | scripts/sync-skills.sh | Created sync script; verified manual run copies 4 skills |
 
 ---
 
