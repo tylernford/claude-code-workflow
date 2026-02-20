@@ -130,9 +130,10 @@ creates a working symlink from `.git/hooks/post-merge` to `scripts/post-merge`.
 
 _Filled in during `/build` phase_
 
-| Date       | Task   | Files                  | Notes                                                    |
-| ---------- | ------ | ---------------------- | -------------------------------------------------------- |
-| 2026-02-20 | Task 1 | scripts/sync-skills.sh | Created sync script; verified manual run copies 4 skills |
+| Date       | Task   | Files                  | Notes                                                                                                         |
+| ---------- | ------ | ---------------------- | ------------------------------------------------------------------------------------------------------------- |
+| 2026-02-20 | Task 1 | scripts/sync-skills.sh | Created sync script; verified manual run copies 4 skills                                                      |
+| 2026-02-20 | Task 2 | scripts/post-merge     | Deviated: used `git rev-parse --show-toplevel` instead of relative dirname to handle symlink from .git/hooks/ |
 
 ---
 

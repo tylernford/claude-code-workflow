@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+CHANGED=$(git diff-tree -r --name-only ORIG_HEAD HEAD -- .claude/skills/)
+
+if [ -n "$CHANGED" ]; then
+  echo "Skills changed — syncing to global..."
+  REPO_ROOT=$(git rev-parse --show-toplevel)
+  "$REPO_ROOT/scripts/sync-skills.sh"
+fi
