@@ -134,6 +134,7 @@ _Filled in during `/build` phase_
 | ---------- | ------ | ---------------------- | ------------------------------------------------------------------------------------------------------------- |
 | 2026-02-20 | Task 1 | scripts/sync-skills.sh | Created sync script; verified manual run copies 4 skills                                                      |
 | 2026-02-20 | Task 2 | scripts/post-merge     | Deviated: used `git rev-parse --show-toplevel` instead of relative dirname to handle symlink from .git/hooks/ |
+| 2026-02-20 | Task 3 | README.md              | Added Setup section with hook install and manual sync instructions                                            |
 
 ---
 
