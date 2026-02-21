@@ -141,11 +141,20 @@ _Filled in during `/build` phase_
 
 ## Completion
 
-**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-02-20 **Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Created a sync script and git post-merge hook that automatically copies the 4
+workflow skill directories (design, plan, build, document) from the repo to
+`~/.claude/skills/` whenever a pull includes changes under `.claude/skills/`. Added README
+setup instructions for one-time hook installation.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:**
+
+- Used `git rev-parse --show-toplevel` in the post-merge hook instead of relative
+  `dirname` to correctly resolve the repo root when the hook runs as a symlink from
+  `.git/hooks/`
+- Added `rm -rf` before `cp -R` in the sync script to prevent nested directories when the
+  target skill directory already exists
 
 ---
 

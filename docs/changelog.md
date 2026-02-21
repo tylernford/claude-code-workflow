@@ -4,6 +4,25 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-02-20: Global Skills Sync
+
+Added automatic syncing of workflow skills from the repo to `~/.claude/skills/` after
+pulling changes on `main`. A git post-merge hook detects changes under `.claude/skills/`
+and triggers a sync script that copies the 4 workflow skill directories to the global
+location without affecting non-workflow skills.
+
+**Design:**
+[docs/design-specs/2026-02-20-1739-global-skills-sync.md](design-specs/2026-02-20-1739-global-skills-sync.md)
+**Plan:**
+[docs/implementation-plans/2026-02-20-1746-global-skills-sync.md](implementation-plans/2026-02-20-1746-global-skills-sync.md)
+**Key files:**
+
+- `scripts/sync-skills.sh`
+- `scripts/post-merge`
+- `README.md`
+
+---
+
 ## 2026-02-18: Convert Commands to Skills
 
 Migrated the 4 workflow commands (`/design`, `/plan`, `/build`, `/document`) from
