@@ -48,13 +48,13 @@ To automatically sync workflow skills to your global `~/.claude/skills/` after p
 changes on `main`, run this once:
 
 ```bash
-chmod +x scripts/sync-skills.sh scripts/post-merge
-ln -s ../../scripts/post-merge .git/hooks/post-merge
+git config core.hooksPath .githooks
+chmod +x scripts/sync-skills.sh
 ```
 
-This creates a git `post-merge` hook that detects changes under `.claude/skills/` and
-copies the 4 workflow skills (`design`, `plan`, `build`, `document`) to
-`~/.claude/skills/`. Non-workflow skills are not affected.
+This configures git to use the `.githooks/` directory, which includes a `post-merge` hook
+that detects changes under `.claude/skills/` and copies the 4 workflow skills (`design`,
+`plan`, `build`, `document`) to `~/.claude/skills/`. Non-workflow skills are not affected.
 
 To sync manually at any time:
 

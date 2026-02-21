@@ -4,6 +4,19 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-02-20: Git Hooks Reconciliation
+
+Moved the post-merge hook from `scripts/post-merge` to `.githooks/post-merge` to align
+with the existing `core.hooksPath = .githooks` configuration. Updated README setup
+instructions to use `git config core.hooksPath .githooks` instead of symlink-based setup.
+
+**Key files:**
+
+- `.githooks/post-merge`
+- `README.md`
+
+---
+
 ## 2026-02-20: Global Skills Sync
 
 Added automatic syncing of workflow skills from the repo to `~/.claude/skills/` after
