@@ -41,3 +41,23 @@ docs/
 └── backlog.md             # Future improvements
 CLAUDE.md                  # Project instructions for Claude Code
 ```
+
+## Setup
+
+To automatically sync workflow skills to your global `~/.claude/skills/` after pulling
+changes on `main`, run this once:
+
+```bash
+chmod +x scripts/sync-skills.sh scripts/post-merge
+ln -s ../../scripts/post-merge .git/hooks/post-merge
+```
+
+This creates a git `post-merge` hook that detects changes under `.claude/skills/` and
+copies the 4 workflow skills (`design`, `plan`, `build`, `document`) to
+`~/.claude/skills/`. Non-workflow skills are not affected.
+
+To sync manually at any time:
+
+```bash
+bash scripts/sync-skills.sh
+```
