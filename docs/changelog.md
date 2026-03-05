@@ -4,6 +4,21 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-03-04: Skill Template Path Resolution
+
+Fixed skill template references to use absolute paths (`~/.claude/skills/...`) instead of
+relative paths. Claude Code resolves relative paths against the project working directory
+instead of the skill directory, causing templates to silently fail when skills are invoked
+from external projects.
+
+**Issue:** [docs/issues/2026-03-04-skill-relative-path-resolution.md](issues/2026-03-04-skill-relative-path-resolution.md)
+**Key files:**
+
+- `.claude/skills/design/SKILL.md`
+- `.claude/skills/plan/SKILL.md`
+
+---
+
 ## 2026-02-20: Git Hooks Reconciliation
 
 Moved the post-merge hook from `scripts/post-merge` to `.githooks/post-merge` to align
