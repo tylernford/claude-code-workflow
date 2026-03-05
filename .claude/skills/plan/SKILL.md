@@ -92,7 +92,8 @@ Create the implementation plan at:
 docs/implementation-plans/YYYY-MM-DD-HHMM-feature-name.md
 ```
 
-Use the template at [templates/implementation-plan.md](templates/implementation-plan.md)
+Use the template at
+[~/.claude/skills/plan/templates/implementation-plan.md](~/.claude/skills/plan/templates/implementation-plan.md)
 as your guide. Include all four header fields: **Created**, **Type**, **Overview**, and
 **Design Spec** (using the confirmed values from Step 5 and the design spec path).
 
