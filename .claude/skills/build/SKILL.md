@@ -5,7 +5,7 @@ allowed-tools: Read, Grep, Glob
 
 # /build
 
-You are starting **Phase 3: Build**
+You are starting **Phase 3: Build**FUUUUUUUUUUUUUUUUUUUUUUUUUUCK
 
 ---
 
