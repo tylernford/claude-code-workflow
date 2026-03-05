@@ -87,7 +87,7 @@ Create the design spec at:
 docs/design-specs/YYYY-MM-DD-HHMM-feature-name.md
 ```
 
-Use the template at [templates/design-spec.md](templates/design-spec.md) as your guide.
+Use the template at [~/.claude/skills/design/templates/design-spec.md](~/.claude/skills/design/templates/design-spec.md) as your guide.
 
 Include:
 
