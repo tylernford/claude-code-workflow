@@ -11,6 +11,7 @@ claude-code-insights/      # Claude Code usage analysis reports
 docs/
 ├── design-specs/          # Design documents
 ├── implementation-plans/  # Task breakdowns
+├── learning/              # Learning logs from /learn-by-doing
 ├── changelog.md           # Completed feature history
 └── backlog.md             # Future improvements
 ```
@@ -22,6 +23,7 @@ docs/
 | `/design`   | 1     | Transform idea into design spec    |
 | `/plan`     | 2     | Break design into executable tasks |
 | `/build`    | 3     | Execute tasks with commits         |
+| `/learn-by-doing` | 3 | User implements, Claude tutors |
 | `/document` | 4     | Complete docs, generate PR draft   |
 
 ## Core Principles
