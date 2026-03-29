@@ -11,6 +11,10 @@ allowed-tools: Read, Grep, Glob
   Original author: Dr. Cat Hicks
   License: Creative Commons Attribution 4.0 International (CC-BY-4.0)
   https://creativecommons.org/licenses/by/4.0/
+
+  Changes: Restructured as a tutoring workflow where the user implements
+  a pre-existing plan task by task. Added stuck escalation ladder, learning
+  log, fading scaffolding guidance, and phase lifecycle integration.
 -->
 
 # /learn-by-doing
