@@ -131,6 +131,7 @@ pause-for-input. The LLM may also be inferring that trivial questions don't warr
 full sequence.
 
 **Possible fixes:**
+
 - Add explicit "pause for input after each escalation step" instruction
 - Add an example showing the full 4-step sequence with pauses
 - Emphasize that escalation applies to all stuck moments, not just "hard" ones

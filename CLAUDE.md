@@ -18,13 +18,13 @@ docs/
 
 ## Skills
 
-| Skill       | Phase | Purpose                            |
-| ----------- | ----- | ---------------------------------- |
-| `/design`   | 1     | Transform idea into design spec    |
-| `/plan`     | 2     | Break design into executable tasks |
-| `/build`    | 3     | Execute tasks with commits         |
-| `/learn-by-doing` | 3 | User implements, Claude tutors |
-| `/document` | 4     | Complete docs, generate PR draft   |
+| Skill             | Phase | Purpose                            |
+| ----------------- | ----- | ---------------------------------- |
+| `/design`         | 1     | Transform idea into design spec    |
+| `/plan`           | 2     | Break design into executable tasks |
+| `/build`          | 3     | Execute tasks with commits         |
+| `/learn-by-doing` | 3     | User implements, Claude tutors     |
+| `/document`       | 4     | Complete docs, generate PR draft   |
 
 ## Core Principles
 

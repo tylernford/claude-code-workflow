@@ -1,6 +1,9 @@
 ---
 name: learn-by-doing
-description: Facilitates deliberate skill development during AI-assisted coding. User implements the plan task by task; Claude tutors using evidence-based learning techniques forked from learning-opportunities (CC-BY-4.0, Dr. Cat Hicks).
+description:
+  Facilitates deliberate skill development during AI-assisted coding. User implements the
+  plan task by task; Claude tutors using evidence-based learning techniques forked from
+  learning-opportunities (CC-BY-4.0, Dr. Cat Hicks).
 disable-model-invocation: true
 allowed-tools: Read, Grep, Glob
 ---
@@ -155,7 +158,8 @@ Wait for their response before continuing.
 **Trace the Path**
 
 1. Set up a concrete scenario with specific values
-2. **Pause at each decision point:** "The request hits [component] now. What happens next?"
+2. **Pause at each decision point:** "The request hits [component] now. What happens
+   next?"
 3. Wait before revealing each step
 4. Continue through the full path
 
@@ -217,7 +221,7 @@ code themselves builds codebase familiarity and creates stronger memory traces.
 - **Later:** "Find where we handle `[feature]`"
 - **Eventually:** "Where would you look to change how `[feature]` works?"
 
-Fading adjusts the difficulty of the *question setup*, not the *answer*. At every level,
+Fading adjusts the difficulty of the _question setup_, not the _answer_. At every level,
 the learner still generates the answer themselves. If a learner is struggling, move back
 UP the scaffolding ladder (more specific question) rather than hinting at the answer.
 

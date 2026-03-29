@@ -16,13 +16,13 @@ The workflow itself was built and improved using this same system.
 
 Four phases, run one per session. Each phase is a skill you invoke explicitly.
 
-| Phase        | Skill              | What happens                                                         |
-| ------------ | ------------------ | -------------------------------------------------------------------- |
-| **Design**   | `/design`          | Transform an idea into a design spec with requirements and decisions |
-| **Plan**     | `/plan`            | Break the design into executable tasks with done-when criteria       |
-| **Build**    | `/build`           | Execute tasks one at a time, committing at each checkpoint           |
-|              | `/learn-by-doing`  | Same as `/build`, but user writes code while Claude tutors           |
-| **Document** | `/document`        | Update changelog, generate PR description, close out the work        |
+| Phase        | Skill             | What happens                                                         |
+| ------------ | ----------------- | -------------------------------------------------------------------- |
+| **Design**   | `/design`         | Transform an idea into a design spec with requirements and decisions |
+| **Plan**     | `/plan`           | Break the design into executable tasks with done-when criteria       |
+| **Build**    | `/build`          | Execute tasks one at a time, committing at each checkpoint           |
+|              | `/learn-by-doing` | Same as `/build`, but user writes code while Claude tutors           |
+| **Document** | `/document`       | Update changelog, generate PR description, close out the work        |
 
 Core principles:
 
