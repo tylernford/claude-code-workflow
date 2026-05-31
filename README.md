@@ -33,7 +33,7 @@ Core principles:
 ## Project Structure
 
 ```
-.claude/skills/            # Skill definitions (design, plan, build, document, learn-by-doing)
+.claude/skills/            # Skill definitions (design, plan, build, document, learn-by-doing, study-partner)
 claude-code-insights/      # Claude Code usage analysis reports
 docs/
 ├── design-specs/          # Design documents
@@ -43,6 +43,14 @@ docs/
 └── backlog.md             # Future improvements
 CLAUDE.md                  # Project instructions for Claude Code
 ```
+
+## Other Skills
+
+Beyond the workflow phases, the repo ships standalone skills:
+
+- **`/study-partner`** — A user-invoked study session that facilitates deliberate learning
+  through interactive exercises grounded in learning science. Works on repo code or
+  external content (URLs, files, pasted snippets).
 
 ## Setup
 
@@ -64,3 +72,10 @@ To sync manually at any time:
 ```bash
 bash scripts/sync-skills.sh
 ```
+
+## Credits
+
+The `/learn-by-doing` and `/study-partner` skills adapt learning-science material from
+[learning-opportunities](https://github.com/DrCatHicks/learning-opportunities) by Dr. Cat
+Hicks, used under
+[Creative Commons Attribution 4.0 International (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
