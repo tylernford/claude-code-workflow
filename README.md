@@ -72,3 +72,10 @@ To sync manually at any time:
 ```bash
 bash scripts/sync-skills.sh
 ```
+
+## Credits
+
+The `/learn-by-doing` and `/study-partner` skills adapt learning-science material from
+[learning-opportunities](https://github.com/DrCatHicks/learning-opportunities) by Dr. Cat
+Hicks, used under
+[Creative Commons Attribution 4.0 International (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).

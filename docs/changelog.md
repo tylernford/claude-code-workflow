@@ -10,7 +10,8 @@ Added a user-invoked `/study-partner` skill that facilitates deliberate learning
 interactive exercises grounded in learning science. The skill handles two input modes
 (repo-context and external content), selects from five exercise types automatically,
 weaves in retrieval practice when prior familiarity is detected, and pauses for user input
-throughout. Adapted from the learning-opportunities reference material.
+throughout. Learning techniques forked from the learning-opportunities skill (CC-BY-4.0,
+Dr. Cat Hicks).
 
 **Design:**
 [docs/design-specs/2026-02-19-1151-study-partner.md](design-specs/2026-02-19-1151-study-partner.md)

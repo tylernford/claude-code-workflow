@@ -1,3 +1,13 @@
+<!--
+  SPDX-License-Identifier: CC-BY-4.0
+  Forked from: https://github.com/DrCatHicks/learning-opportunities
+  Original author: Dr. Cat Hicks
+  License: Creative Commons Attribution 4.0 International (CC-BY-4.0)
+  https://creativecommons.org/licenses/by/4.0/
+
+  Changes: Reference link updates and formatting.
+-->
+
 # Learning Principles
 
 This document provides the scientific rationale for the techniques in

@@ -2,9 +2,25 @@
 name: study-partner
 description:
   Facilitates deliberate learning through interactive exercises based on learning science
-  principles. User-invoked only — run /study-partner to start a study session on repo code
-  or external content.
+  principles forked from learning-opportunities (CC-BY-4.0, Dr. Cat Hicks). User-invoked
+  only — run /study-partner to start a study session on repo code or external content.
 ---
+
+<!--
+  SPDX-License-Identifier: CC-BY-4.0
+  Learning facilitation techniques forked from:
+  https://github.com/DrCatHicks/learning-opportunities
+  Original author: Dr. Cat Hicks
+  License: Creative Commons Attribution 4.0 International (CC-BY-4.0)
+  https://creativecommons.org/licenses/by/4.0/
+
+  Changes: Reframed the upstream skill as a standalone, user-invoked study
+  session. Added two input modes (repo-context and external content) with input
+  classification, a selection-heuristics table for choosing among the exercise
+  types, and recast retrieval practice as a woven-in technique rather than a
+  standalone exercise. The exercise types and pause-for-input model are adapted
+  from the source.
+-->
 
 # Study Partner
 
