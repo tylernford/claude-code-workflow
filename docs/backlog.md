@@ -108,3 +108,33 @@ glance.
 
 **Origin:** Noted as out of scope in the "Decouple /design from Other Phases" design spec
 (2026-02-18).
+
+---
+
+## 2026-03-26: `/learn-by-doing` Stuck Escalation Pacing
+
+**Problem:** The stuck escalation sequence (hint → pointed question → point to pattern →
+show answer) doesn't reliably pause between steps. Observed behaviors:
+
+1. **Steps combined into one response** — hint and pointed question delivered together
+   instead of pausing for input between each step
+2. **Steps skipped entirely** — for "small" questions (e.g., `chmod +x`), jumped straight
+   to showing the answer without attempting earlier escalation steps
+
+**Expected:** Each escalation step should be a separate response with a pause for user
+input, matching the pause-for-input protocol used elsewhere in the skill. The sequence
+should apply regardless of how "simple" the question seems.
+
+**Root cause (suspected):** The skill instructions say "move to the next step only if the
+current one doesn't unblock them" but don't explicitly state that each step requires a
+pause-for-input. The LLM may also be inferring that trivial questions don't warrant the
+full sequence.
+
+**Possible fixes:**
+
+- Add explicit "pause for input after each escalation step" instruction
+- Add an example showing the full 4-step sequence with pauses
+- Emphasize that escalation applies to all stuck moments, not just "hard" ones
+
+**Origin:** Validation testing of `/learn-by-doing` (2026-03-26). Acceptance criterion 5
+remains the only failing criterion.

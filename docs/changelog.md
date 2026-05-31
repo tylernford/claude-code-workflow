@@ -23,6 +23,74 @@ throughout. Adapted from the learning-opportunities reference material.
 
 ---
 
+## 2026-03-26: Learn by Doing
+
+Added `/learn-by-doing` skill — an alternative to `/build` that uses the same
+implementation plan but flips the roles. The user writes all code; Claude acts as a tutor
+using evidence-based learning techniques forked from the learning-opportunities skill
+(CC-BY-4.0, Dr. Cat Hicks). Includes task-by-task progression with learning facilitation,
+stuck escalation, build log, learning log, and commit checkpoints.
+
+**Design:**
+[docs/design-specs/2026-03-24-1616-learn-by-doing.md](design-specs/2026-03-24-1616-learn-by-doing.md)
+**Plan:**
+[docs/implementation-plans/2026-03-24-2005-learn-by-doing.md](implementation-plans/2026-03-24-2005-learn-by-doing.md)
+**Key files:**
+
+- `.claude/skills/learn-by-doing/SKILL.md`
+- `.claude/skills/learn-by-doing/resources/PRINCIPLES.md`
+- `CLAUDE.md`
+
+---
+
+## 2026-03-04: Skill Template Path Resolution
+
+Fixed skill template references to use absolute paths (`~/.claude/skills/...`) instead of
+relative paths. Claude Code resolves relative paths against the project working directory
+instead of the skill directory, causing templates to silently fail when skills are invoked
+from external projects.
+
+**Issue:**
+[docs/issues/2026-03-04-skill-relative-path-resolution.md](issues/2026-03-04-skill-relative-path-resolution.md)
+**Key files:**
+
+- `.claude/skills/design/SKILL.md`
+- `.claude/skills/plan/SKILL.md`
+
+---
+
+## 2026-02-20: Git Hooks Reconciliation
+
+Moved the post-merge hook from `scripts/post-merge` to `.githooks/post-merge` to align
+with the existing `core.hooksPath = .githooks` configuration. Updated README setup
+instructions to use `git config core.hooksPath .githooks` instead of symlink-based setup.
+
+**Key files:**
+
+- `.githooks/post-merge`
+- `README.md`
+
+---
+
+## 2026-02-20: Global Skills Sync
+
+Added automatic syncing of workflow skills from the repo to `~/.claude/skills/` after
+pulling changes on `main`. A git post-merge hook detects changes under `.claude/skills/`
+and triggers a sync script that copies the 4 workflow skill directories to the global
+location without affecting non-workflow skills.
+
+**Design:**
+[docs/design-specs/2026-02-20-1739-global-skills-sync.md](design-specs/2026-02-20-1739-global-skills-sync.md)
+**Plan:**
+[docs/implementation-plans/2026-02-20-1746-global-skills-sync.md](implementation-plans/2026-02-20-1746-global-skills-sync.md)
+**Key files:**
+
+- `scripts/sync-skills.sh`
+- `scripts/post-merge`
+- `README.md`
+
+---
+
 ## 2026-02-18: Convert Commands to Skills
 
 Migrated the 4 workflow commands (`/design`, `/plan`, `/build`, `/document`) from

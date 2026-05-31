@@ -16,12 +16,13 @@ The workflow itself was built and improved using this same system.
 
 Four phases, run one per session. Each phase is a skill you invoke explicitly.
 
-| Phase        | Skill       | What happens                                                         |
-| ------------ | ----------- | -------------------------------------------------------------------- |
-| **Design**   | `/design`   | Transform an idea into a design spec with requirements and decisions |
-| **Plan**     | `/plan`     | Break the design into executable tasks with done-when criteria       |
-| **Build**    | `/build`    | Execute tasks one at a time, committing at each checkpoint           |
-| **Document** | `/document` | Update changelog, generate PR description, close out the work        |
+| Phase        | Skill             | What happens                                                         |
+| ------------ | ----------------- | -------------------------------------------------------------------- |
+| **Design**   | `/design`         | Transform an idea into a design spec with requirements and decisions |
+| **Plan**     | `/plan`           | Break the design into executable tasks with done-when criteria       |
+| **Build**    | `/build`          | Execute tasks one at a time, committing at each checkpoint           |
+|              | `/learn-by-doing` | Same as `/build`, but user writes code while Claude tutors           |
+| **Document** | `/document`       | Update changelog, generate PR description, close out the work        |
 
 Core principles:
 
@@ -32,11 +33,12 @@ Core principles:
 ## Project Structure
 
 ```
-.claude/skills/            # Skill definitions (workflow phases + standalone skills)
+.claude/skills/            # Skill definitions (design, plan, build, document, learn-by-doing, study-partner)
 claude-code-insights/      # Claude Code usage analysis reports
 docs/
 ├── design-specs/          # Design documents
 ├── implementation-plans/  # Task breakdowns
+├── learning/              # Learning logs from /learn-by-doing
 ├── changelog.md           # Completed feature history
 └── backlog.md             # Future improvements
 CLAUDE.md                  # Project instructions for Claude Code
@@ -49,3 +51,24 @@ Beyond the workflow phases, the repo ships standalone skills:
 - **`/study-partner`** — A user-invoked study session that facilitates deliberate learning
   through interactive exercises grounded in learning science. Works on repo code or
   external content (URLs, files, pasted snippets).
+
+## Setup
+
+To automatically sync workflow skills to your global `~/.claude/skills/` after pulling
+changes on `main`, run this once:
+
+```bash
+git config core.hooksPath .githooks
+chmod +x scripts/sync-skills.sh
+```
+
+This configures git to use the `.githooks/` directory, which includes a `post-merge` hook
+that detects changes under `.claude/skills/` and copies the 5 workflow skills (`design`,
+`plan`, `build`, `learn-by-doing`, `document`) to `~/.claude/skills/`. Non-workflow skills
+are not affected.
+
+To sync manually at any time:
+
+```bash
+bash scripts/sync-skills.sh
+```
