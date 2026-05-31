@@ -9,6 +9,7 @@ allowed-tools: Read, Grep, Glob
 ---
 
 <!--
+  SPDX-License-Identifier: CC-BY-4.0
   Learning facilitation techniques forked from:
   https://github.com/DrCatHicks/learning-opportunities
   Original author: Dr. Cat Hicks
