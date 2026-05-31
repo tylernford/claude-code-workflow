@@ -4,6 +4,25 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-05-31: Add Study Partner Skill
+
+Added a user-invoked `/study-partner` skill that facilitates deliberate learning through
+interactive exercises grounded in learning science. The skill handles two input modes
+(repo-context and external content), selects from five exercise types automatically,
+weaves in retrieval practice when prior familiarity is detected, and pauses for user input
+throughout. Adapted from the learning-opportunities reference material.
+
+**Design:**
+[docs/design-specs/2026-02-19-1151-study-partner.md](design-specs/2026-02-19-1151-study-partner.md)
+**Plan:**
+[docs/implementation-plans/2026-02-19-1232-study-partner.md](implementation-plans/2026-02-19-1232-study-partner.md)
+**Key files:**
+
+- `.claude/skills/study-partner/SKILL.md`
+- `.claude/skills/study-partner/resources/PRINCIPLES.md`
+
+---
+
 ## 2026-02-18: Convert Commands to Skills
 
 Migrated the 4 workflow commands (`/design`, `/plan`, `/build`, `/document`) from

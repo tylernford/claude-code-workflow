@@ -32,7 +32,7 @@ Core principles:
 ## Project Structure
 
 ```
-.claude/skills/            # Skill definitions (design, plan, build, document)
+.claude/skills/            # Skill definitions (workflow phases + standalone skills)
 claude-code-insights/      # Claude Code usage analysis reports
 docs/
 ├── design-specs/          # Design documents
@@ -41,3 +41,11 @@ docs/
 └── backlog.md             # Future improvements
 CLAUDE.md                  # Project instructions for Claude Code
 ```
+
+## Other Skills
+
+Beyond the workflow phases, the repo ships standalone skills:
+
+- **`/study-partner`** — A user-invoked study session that facilitates deliberate learning
+  through interactive exercises grounded in learning science. Works on repo code or
+  external content (URLs, files, pasted snippets).
