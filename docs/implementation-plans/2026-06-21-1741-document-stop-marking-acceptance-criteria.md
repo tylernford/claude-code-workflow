@@ -98,16 +98,16 @@ Replace items 1 and 2 of Step 2 with:
 
 ## Acceptance Criteria
 
-- [ ] `document/SKILL.md` no longer instructs marking acceptance criteria `[x]` (the "Mark
+- [x] `document/SKILL.md` no longer instructs marking acceptance criteria `[x]` (the "Mark
       acceptance criteria as `[x]`" instruction at the current Step 2 item 1 is gone).
-- [ ] `document/SKILL.md` instructs reviewing the existing acceptance-criteria state
+- [x] `document/SKILL.md` instructs reviewing the existing acceptance-criteria state
       read-only and using unchecked items to inform the Completion section.
-- [ ] `document/SKILL.md`'s Completion-section instruction states that any remaining `[ ]`
+- [x] `document/SKILL.md`'s Completion-section instruction states that any remaining `[ ]`
       criteria require Final status `Partial`/`Abandoned` with the unmet items listed as
       deviations.
-- [ ] A one-line note clarifies that `/build` is the sole authority for marking acceptance
+- [x] A one-line note clarifies that `/build` is the sole authority for marking acceptance
       criteria (Nice-to-Have, folded into Step 2 item 1).
-- [ ] No edits to `build/SKILL.md`, `plan/SKILL.md`, or `design/SKILL.md`.
+- [x] No edits to `build/SKILL.md`, `plan/SKILL.md`, or `design/SKILL.md`.
 
 ---
 
@@ -115,8 +115,9 @@ Replace items 1 and 2 of Step 2 with:
 
 _Filled in during `/build` phase_
 
-| Date | Task | Files | Notes |
-| ---- | ---- | ----- | ----- |
+| Date       | Task   | Files                            | Notes                                                                    |
+| ---------- | ------ | -------------------------------- | ------------------------------------------------------------------------ |
+| 2026-06-21 | Task 1 | .claude/skills/document/SKILL.md | Replaced Step 2 items 1–2 per plan. Edit applied cleanly, no deviations. |
 
 ---
 
