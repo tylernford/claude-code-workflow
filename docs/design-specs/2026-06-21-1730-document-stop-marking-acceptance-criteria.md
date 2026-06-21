@@ -1,6 +1,7 @@
 # Stop /document Marking Acceptance Criteria
 
-**Created:** 2026-06-21 **Implementation Plan:** [to be created by /plan]
+**Created:** 2026-06-21 **Implementation Plan:**
+docs/implementation-plans/2026-06-21-1741-document-stop-marking-acceptance-criteria.md
 
 ---
 
