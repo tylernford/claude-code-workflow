@@ -207,9 +207,10 @@ the "One phase per session" Core Principle below the table is unchanged.
 
 _Filled in during `/build` phase_
 
-| Date       | Task   | Files                                              | Notes                                                                                                                                                                                                       |
-| ---------- | ------ | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026-06-21 | Task 1 | design/plan/build/document/learn-by-doing SKILL.md | Renumbered all 5 skills: design unnumbered standalone; Implementation Plan=1, Build=2, Learn by Doing=2, Document=3. Grouped openers, terse announce/complete, handoffs point to next phase. No deviations. |
+| Date       | Task   | Files                                              | Notes                                                                                                                                                                                                             |
+| ---------- | ------ | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-06-21 | Task 1 | design/plan/build/document/learn-by-doing SKILL.md | Renumbered all 5 skills: design unnumbered standalone; Implementation Plan=1, Build=2, Learn by Doing=2, Document=3. Grouped openers, terse announce/complete, handoffs point to next phase. No deviations.       |
+| 2026-06-21 | Task 2 | CLAUDE.md                                          | Replaced flat 1/2/3/3/4 Skills table with two-track model (Design standalone + Implementation 1/2/2-alt/3), added distinction note, fixed stale Structure comment at :9 to include learn-by-doing. No deviations. |
 
 ---
 
