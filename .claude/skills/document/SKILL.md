@@ -49,11 +49,16 @@ Every response must begin with:
 
 Update the implementation plan:
 
-1. **Mark acceptance criteria** as `[x]` in the Acceptance Criteria section
+1. **Review acceptance criteria (read-only)** - Read the existing state in the Acceptance
+   Criteria section. `/build` is the sole authority for marking `[x]`; document never sets
+   or changes checkbox state. Use any items still `[ ]` to inform the Completion section
+   below.
 
 2. **Fill in Completion section:**
    - Completed date
-   - Final status (Complete | Partial | Abandoned)
+   - Final status (Complete | Partial | Abandoned) — if any acceptance criteria remain
+     `[ ]`, Final status must be `Partial` or `Abandoned`, and each unmet item is recorded
+     as a deviation.
    - Summary of what was actually built
    - Deviations from original plan
 
