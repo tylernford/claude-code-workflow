@@ -122,8 +122,9 @@ note /design file list is non-binding in template"
 
 _Filled in during `/build` phase_
 
-| Date | Task | Files | Notes |
-| ---- | ---- | ----- | ----- |
+| Date       | Task   | Files                          | Notes                                                                                                                                                                                  |
+| ---------- | ------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-06-21 | Task 1 | .claude/skills/design/SKILL.md | Hedged Step 5 Include entry to "Suggested Files to Create/Modify (see template)", added non-binding note referencing `/plan`, clarified Rule 4 (scope vs. code). Matches plan exactly. |
 
 ---
 

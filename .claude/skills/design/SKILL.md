@@ -97,7 +97,10 @@ Include:
 - Requirements (must have, nice to have, out of scope)
 - Design decisions with rationale
 - Acceptance criteria (testable)
-- Files to create/modify
+- Suggested Files to Create/Modify (see template)
+
+The "Suggested Files to Create/Modify" list is a non-binding starting point. `/plan`
+re-verifies these against the codebase (its Step 2) and owns the final paths.
 
 ---
 
@@ -125,7 +128,8 @@ Implementation — Phase 1: Plan.
 1. **One step at a time** - Do not combine steps or rush ahead
 2. **Summarize before moving** - Recap decisions at the end of each step
 3. **User drives** - Wait for explicit approval to proceed
-4. **No implementation** - This phase is design only, no code writing
+4. **No implementation** - Design names the likely files (scope) but writes no code.
+   Listing the surface area is allowed; writing the implementation is not.
 5. **Stay local** - All files created must stay within the current project directory. No
    system-level or global configuration changes.
 6. **Limited git** - Only `git branch --show-current` is allowed. All other git operations
