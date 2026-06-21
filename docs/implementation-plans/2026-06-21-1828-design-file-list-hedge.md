@@ -131,11 +131,19 @@ _Filled in during `/build` phase_
 
 ## Completion
 
-**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-06-21 **Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Removed the internal contradiction in the `/design` skill's file-list output.
+`SKILL.md` Step 5 now hedges its "Include" entry to "Suggested Files to Create/Modify (see
+template)" and carries a note that the list is a non-binding starting point which `/plan`
+re-verifies and owns. Rule 4 now distinguishes scope (naming the likely files — allowed)
+from implementation (writing code — not allowed), removing the apparent conflict with
+Step 5. The `design-spec.md` template gained a matching non-binding blockquote above its
+"Suggested Files to Create/Modify" code block. The file list is retained throughout; no
+paths or sections were removed. `/plan`, `/build`, and `/document` are untouched.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:** None. Both tasks were implemented exactly as planned (per Build
+Log).
 
 ---
 

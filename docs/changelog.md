@@ -4,6 +4,30 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-06-21: Fix the Design-Spec File-List Hedge
+
+Made `/design`'s "Files to Create/Modify" output internally consistent and explicitly
+non-binding. Previously `SKILL.md` Step 5 ended its "Include" list with a bare
+`Files to create/modify`, while the template headed the same section "Suggested Files to
+Create/Modify" — and the section nominally tripped the skill's own Rule 4 ("No
+implementation"). Step 5 now hedges to "Suggested Files to Create/Modify (see template)"
+and adds a note that the list is a non-binding starting point which `/plan` re-verifies
+and owns; Rule 4 now distinguishes scope (naming the likely files — allowed) from
+implementation (writing code — not allowed). The template gained a matching non-binding
+blockquote above its file-list code block. The list is retained throughout; no paths or
+sections were removed, and `/plan`, `/build`, and `/document` are unchanged.
+
+**Design:**
+[docs/design-specs/2026-06-21-1821-design-file-list-hedge.md](design-specs/2026-06-21-1821-design-file-list-hedge.md)
+**Plan:**
+[docs/implementation-plans/2026-06-21-1828-design-file-list-hedge.md](implementation-plans/2026-06-21-1828-design-file-list-hedge.md)
+**Key files:**
+
+- `.claude/skills/design/SKILL.md`
+- `.claude/skills/design/templates/design-spec.md`
+
+---
+
 ## 2026-06-21: Stop /document Marking Acceptance Criteria
 
 Made `/document` read-only over acceptance-criteria checkbox state. Previously Step 2
