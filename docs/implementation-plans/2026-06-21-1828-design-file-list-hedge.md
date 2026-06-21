@@ -107,14 +107,14 @@ note /design file list is non-binding in template"
 
 ## Acceptance Criteria
 
-- [ ] `design/SKILL.md` no longer contains the bare phrase "Files to create/modify"; it
+- [x] `design/SKILL.md` no longer contains the bare phrase "Files to create/modify"; it
       uses hedged "Suggested Files…" wording consistent with the template.
-- [ ] Both `design/SKILL.md` and `design/templates/design-spec.md` state the list is
+- [x] Both `design/SKILL.md` and `design/templates/design-spec.md` state the list is
       non-binding and that `/plan` re-verifies and owns final paths.
-- [ ] Rule 4 wording distinguishes scope (listing files — allowed) from implementation
+- [x] Rule 4 wording distinguishes scope (listing files — allowed) from implementation
       (writing code — not allowed), with no remaining contradiction against Step 5.
-- [ ] No file paths or the file-list section are removed from the design output.
-- [ ] `/plan`, `/build`, and `/document` are unchanged.
+- [x] No file paths or the file-list section are removed from the design output.
+- [x] `/plan`, `/build`, and `/document` are unchanged.
 
 ---
 
