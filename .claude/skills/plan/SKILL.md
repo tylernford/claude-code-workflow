@@ -5,9 +5,7 @@ allowed-tools: Read, Grep, Glob
 
 # /plan
 
-You are starting an **Implementation Session** — Phase 1: Plan
-
-This session will take you through Plan → Build → Document.
+You are starting **Implementation · Phase 1: Plan**.
 
 ---
 
@@ -29,7 +27,7 @@ If the user does not provide a design spec path, ask them for the file path.
 Every response must begin with:
 
 ```
-**Phase 2: Plan** | Step [N]: [Step Name]
+**Phase 1: Plan** | Step [N]: [Step Name]
 ```
 
 ---
@@ -113,14 +111,14 @@ After creating the implementation plan, update the design spec's header:
 When the implementation plan is written, announce:
 
 ```
-**Phase 2: Plan** | Complete
+**Phase 1: Plan** | Complete
 
 Implementation plan created at: docs/implementation-plans/YYYY-MM-DD-HHMM-feature-name.md
 
 **Commit checkpoint:** Commit the implementation plan before ending this session.
 
 Next: End this session and start a new Claude Code session.
-Run `/build` to begin Phase 3: Build.
+Run `/build` to begin Phase 2: Build.
 ```
 
 ---

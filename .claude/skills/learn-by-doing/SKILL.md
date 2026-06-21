@@ -23,7 +23,7 @@ allowed-tools: Read, Grep, Glob
 
 # /learn-by-doing
 
-You are starting **Phase 3: Learn by Doing**
+You are starting **Implementation · Phase 2: Learn by Doing**.
 
 ---
 
@@ -49,7 +49,7 @@ If the user does not provide an implementation plan path, ask them for the file 
 Every response must begin with:
 
 ```
-**Phase 3: Learn by Doing** | Task [N]/[Total]: [Task Name]
+**Phase 2: Learn by Doing** | Task [N]/[Total]: [Task Name]
 ```
 
 ---
@@ -281,7 +281,7 @@ Example Build Log entry:
 When all tasks are done and verification checklist passes, announce:
 
 ```
-**Phase 3: Learn by Doing** | Complete
+**Phase 2: Learn by Doing** | Complete
 
 All [N] tasks completed.
 Acceptance criteria passed.
@@ -291,7 +291,7 @@ Learning Log saved to: docs/learning/YYYY-MM-DD-HHMM-feature-name.md
 **Commit checkpoint:** Ensure all tasks have been committed before ending this session.
 
 Next: End this session and start a new Claude Code session.
-Run `/document` to begin Phase 4: Document.
+Run `/document` to begin Phase 3: Document.
 ```
 
 ---

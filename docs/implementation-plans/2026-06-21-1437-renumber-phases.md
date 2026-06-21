@@ -207,8 +207,9 @@ the "One phase per session" Core Principle below the table is unchanged.
 
 _Filled in during `/build` phase_
 
-| Date | Task | Files | Notes |
-| ---- | ---- | ----- | ----- |
+| Date       | Task   | Files                                              | Notes                                                                                                                                                                                                       |
+| ---------- | ------ | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-06-21 | Task 1 | design/plan/build/document/learn-by-doing SKILL.md | Renumbered all 5 skills: design unnumbered standalone; Implementation Plan=1, Build=2, Learn by Doing=2, Document=3. Grouped openers, terse announce/complete, handoffs point to next phase. No deviations. |
 
 ---
 
