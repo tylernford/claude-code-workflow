@@ -54,6 +54,9 @@
 
 ## Suggested Files to Create/Modify
 
+> Non-binding starting point. `/plan` re-verifies these against the codebase in its Step 2
+> and owns the final paths.
+
 ```
 path/to/file1.ext  # description
 path/to/file2.ext  # description
