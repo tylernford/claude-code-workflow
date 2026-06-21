@@ -123,11 +123,18 @@ _Filled in during `/build` phase_
 
 ## Completion
 
-**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-06-21 **Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Rewrote Step 2 items 1–2 of `.claude/skills/document/SKILL.md`. Item 1 is now
+"Review acceptance criteria (read-only)" — it reads the existing checkbox state, names
+`/build` as the sole authority for marking `[x]`, and feeds any still-unchecked items into
+the Completion section. Item 2 (Fill in Completion section) now states that any remaining
+`[ ]` criteria force a `Partial`/`Abandoned` Final status with each unmet item recorded as
+a deviation. The old blanket "Mark acceptance criteria as `[x]`" instruction is gone.
+Single-file change; `build/SKILL.md`, `plan/SKILL.md`, and `design/SKILL.md` untouched.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:** None. Edit applied as specified. All five acceptance criteria
+were met and marked `[x]` by `/build` (the marking authority this change establishes).
 
 ---
 

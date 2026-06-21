@@ -4,6 +4,27 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-06-21: Stop /document Marking Acceptance Criteria
+
+Made `/document` read-only over acceptance-criteria checkbox state. Previously Step 2
+unconditionally re-marked every criterion `[x]`, which could silently launder an honest
+partial/abandoned build into an all-green checklist. Since `/build` is already the sole
+pass-gated authority for marking `[x]`, document now only reviews the existing state: Step
+2 item 1 became "Review acceptance criteria (read-only)" naming `/build` as the marking
+authority, and the Completion section now forces a `Partial`/`Abandoned` Final status
+(with unmet items as deviations) whenever any criterion remains `[ ]`. Single-file edit;
+no changes to `build`, `plan`, or `design` skills.
+
+**Design:**
+[docs/design-specs/2026-06-21-1730-document-stop-marking-acceptance-criteria.md](design-specs/2026-06-21-1730-document-stop-marking-acceptance-criteria.md)
+**Plan:**
+[docs/implementation-plans/2026-06-21-1741-document-stop-marking-acceptance-criteria.md](implementation-plans/2026-06-21-1741-document-stop-marking-acceptance-criteria.md)
+**Key files:**
+
+- `.claude/skills/document/SKILL.md`
+
+---
+
 ## 2026-06-21: Renumber Phases — Design-standalone + Implementation 1–3
 
 Restructured the workflow's phase model so `/design` is a standalone unnumbered upstream
