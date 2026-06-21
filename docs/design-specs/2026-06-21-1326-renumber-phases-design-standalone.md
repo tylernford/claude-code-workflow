@@ -1,6 +1,7 @@
 # Renumber Phases — Design Standalone, Implementation 1–3
 
-**Created:** 2026-06-21 **Implementation Plan:** [link to implementation plan]
+**Created:** 2026-06-21 **Implementation Plan:**
+docs/implementation-plans/2026-06-21-1437-renumber-phases.md
 
 ---
 
