@@ -1,6 +1,7 @@
 # Fix the Design-Spec File-List Hedge
 
-**Created:** 2026-06-21 **Implementation Plan:** [link to implementation plan]
+**Created:** 2026-06-21 **Implementation Plan:**
+docs/implementation-plans/2026-06-21-1828-design-file-list-hedge.md
 
 ---
 
