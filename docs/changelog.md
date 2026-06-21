@@ -4,6 +4,31 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-06-21: Renumber Phases — Design-standalone + Implementation 1–3
+
+Restructured the workflow's phase model so `/design` is a standalone unnumbered upstream
+phase and the implementation workflow is a clean three-phase arc — Phase 1: Plan → Phase
+2: Build → Phase 3: Document (with `/learn-by-doing` as a Phase 2 alternative to Build).
+Removed the "Implementation Session" framing, unified every skill's
+opener/announce/handoff strings on grouped labels (`Implementation · Phase N`), and
+replaced CLAUDE.md's flat Skills table with a two-track (Design / Implementation) model.
+Pure relabeling — no phase behavior, steps, rules, or artifacts changed.
+
+**Design:**
+[docs/design-specs/2026-06-21-1326-renumber-phases-design-standalone.md](design-specs/2026-06-21-1326-renumber-phases-design-standalone.md)
+**Plan:**
+[docs/implementation-plans/2026-06-21-1437-renumber-phases.md](implementation-plans/2026-06-21-1437-renumber-phases.md)
+**Key files:**
+
+- `.claude/skills/design/SKILL.md`
+- `.claude/skills/plan/SKILL.md`
+- `.claude/skills/build/SKILL.md`
+- `.claude/skills/document/SKILL.md`
+- `.claude/skills/learn-by-doing/SKILL.md`
+- `CLAUDE.md`
+
+---
+
 ## 2026-05-31: Add Study Partner Skill
 
 Added a user-invoked `/study-partner` skill that facilitates deliberate learning through

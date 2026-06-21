@@ -216,11 +216,20 @@ _Filled in during `/build` phase_
 
 ## Completion
 
-**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-06-21 **Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Renumbered the workflow's phase model across all five skill files and
+CLAUDE.md. `/design` is now an unnumbered standalone upstream phase; the implementation
+workflow is a three-phase arc — Phase 1: Plan → Phase 2: Build → Phase 3: Document, with
+`/learn-by-doing` as a Phase 2 alternative to Build. Skills now use grouped openers
+(`Implementation · Phase N`), terse announce/complete lines, and handoffs that name the
+next phase. Both "Implementation Session" occurrences are removed, and CLAUDE.md's Skills
+table is restructured into a two-track (Design standalone / Implementation 1/2/2-alt/3)
+model with a distinction note.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:** One deliberate, in-scope-adjacent fix — Task 2 also corrected
+the stale Structure comment at `CLAUDE.md:9` (which omitted `learn-by-doing`). Outside the
+spec's `:21-27` window but a trivial same-file accuracy fix. No other deviations.
 
 ---
 
