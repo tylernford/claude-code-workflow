@@ -178,27 +178,27 @@ the "One phase per session" Core Principle below the table is unchanged.
 
 ## Acceptance Criteria
 
-- [ ] `grep -rn "Implementation Session" .claude/skills/` returns no matches
-- [ ] `/design` opener, announce, and complete blocks read `**Design**` with no phase
+- [x] `grep -rn "Implementation Session" .claude/skills/` returns no matches
+- [x] `/design` opener, announce, and complete blocks read `**Design**` with no phase
       number; its handoff points to "Phase 1: Plan"
-- [ ] `/plan` opener reads "**Implementation · Phase 1: Plan**" with no "Session" / "Plan
+- [x] `/plan` opener reads "**Implementation · Phase 1: Plan**" with no "Session" / "Plan
       → Build → Document" sentence; announce and complete read terse "**Phase 1: Plan**";
       handoff points to "Phase 2: Build"
-- [ ] `/build` opener reads "**Implementation · Phase 2: Build**"; announce and complete
+- [x] `/build` opener reads "**Implementation · Phase 2: Build**"; announce and complete
       read terse "**Phase 2: Build**"; handoff points to "Phase 3: Document"
-- [ ] `/document` opener reads "**Implementation · Phase 3: Document**"; announce and
+- [x] `/document` opener reads "**Implementation · Phase 3: Document**"; announce and
       complete read terse "**Phase 3: Document**"
-- [ ] `/learn-by-doing` opener reads "**Implementation · Phase 2: Learn by Doing**";
+- [x] `/learn-by-doing` opener reads "**Implementation · Phase 2: Learn by Doing**";
       announce and complete read terse "**Phase 2: Learn by Doing**"; handoff points to
       "Phase 3: Document"
-- [ ] Within any single skill file the phase number is identical in the opener, announce
+- [x] Within any single skill file the phase number is identical in the opener, announce
       block, and complete block (no internal contradiction)
-- [ ] CLAUDE.md's Skills table shows `/design` as standalone and `/plan` `/build`
+- [x] CLAUDE.md's Skills table shows `/design` as standalone and `/plan` `/build`
       `/learn-by-doing` `/document` under Implementation 1/2/2 (alt)/3, with the
       distinction note present
-- [ ] CLAUDE.md's Structure comment at `:9` lists all five skills, including
+- [x] CLAUDE.md's Structure comment at `:9` lists all five skills, including
       `learn-by-doing`
-- [ ] "One phase per session" Core Principle remains intact and is not contradicted by any
+- [x] "One phase per session" Core Principle remains intact and is not contradicted by any
       skill's framing
 
 ---
