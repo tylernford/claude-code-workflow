@@ -5,7 +5,7 @@ allowed-tools: Read, Grep, Glob
 
 # /design $ARGUMENTS
 
-You are starting **Phase 1: Design** for the feature: **$ARGUMENTS**
+You are starting the **Design** for: **$ARGUMENTS**
 
 ---
 
@@ -32,7 +32,7 @@ Continue regardless of branch.
 Every response must begin with:
 
 ```
-**Phase 1: Design** | Step [N]: [Step Name]
+**Design** | Step [N]: [Step Name]
 ```
 
 ---
@@ -106,7 +106,7 @@ Include:
 When the design spec is written, announce:
 
 ```
-**Phase 1: Design** | Complete
+**Design** | Complete
 
 Design spec created at: docs/design-specs/YYYY-MM-DD-HHMM-feature-name.md
 
@@ -115,7 +115,7 @@ Design spec created at: docs/design-specs/YYYY-MM-DD-HHMM-feature-name.md
 Design is complete.
 
 When ready to implement, start a new Claude Code session and run `/plan` to begin
-an Implementation Session (Plan → Build → Document).
+Implementation — Phase 1: Plan.
 ```
 
 ---

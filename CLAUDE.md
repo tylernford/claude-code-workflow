@@ -6,7 +6,7 @@ The workflow itself is built and improved using this same system.
 ## Structure
 
 ```
-.claude/skills/            # Skill definitions (design, plan, build, document)
+.claude/skills/            # Skill definitions (design, plan, build, learn-by-doing, document)
 claude-code-insights/      # Claude Code usage analysis reports
 docs/
 ├── design-specs/          # Design documents
@@ -18,13 +18,23 @@ docs/
 
 ## Skills
 
-| Skill             | Phase | Purpose                            |
-| ----------------- | ----- | ---------------------------------- |
-| `/design`         | 1     | Transform idea into design spec    |
-| `/plan`           | 2     | Break design into executable tasks |
-| `/build`          | 3     | Execute tasks with commits         |
-| `/learn-by-doing` | 3     | User implements, Claude tutors     |
-| `/document`       | 4     | Complete docs, generate PR draft   |
+`/design` is a standalone upstream phase — it produces a frozen design spec. The
+implementation workflow that follows is a three-phase arc.
+
+**Design (standalone)**
+
+| Skill     | Purpose                         |
+| --------- | ------------------------------- |
+| `/design` | Transform idea into design spec |
+
+**Implementation**
+
+| Skill             | Phase   | Purpose                            |
+| ----------------- | ------- | ---------------------------------- |
+| `/plan`           | 1       | Break design into executable tasks |
+| `/build`          | 2       | Execute tasks with commits         |
+| `/learn-by-doing` | 2 (alt) | User implements, Claude tutors     |
+| `/document`       | 3       | Complete docs, generate PR draft   |
 
 ## Core Principles
 

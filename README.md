@@ -14,15 +14,24 @@ The workflow itself was built and improved using this same system.
 
 ## How It Works
 
-Four phases, run one per session. Each phase is a skill you invoke explicitly.
+Each phase is a skill you invoke explicitly, run one per session. `/design` is a
+standalone upstream phase that produces a frozen design spec; the implementation workflow
+that follows is a three-phase arc.
 
-| Phase        | Skill             | What happens                                                         |
-| ------------ | ----------------- | -------------------------------------------------------------------- |
-| **Design**   | `/design`         | Transform an idea into a design spec with requirements and decisions |
-| **Plan**     | `/plan`           | Break the design into executable tasks with done-when criteria       |
-| **Build**    | `/build`          | Execute tasks one at a time, committing at each checkpoint           |
-|              | `/learn-by-doing` | Same as `/build`, but user writes code while Claude tutors           |
-| **Document** | `/document`       | Update changelog, generate PR description, close out the work        |
+**Design (standalone)**
+
+| Phase      | Skill     | What happens                                                         |
+| ---------- | --------- | -------------------------------------------------------------------- |
+| **Design** | `/design` | Transform an idea into a design spec with requirements and decisions |
+
+**Implementation**
+
+| Phase            | Skill             | What happens                                                   |
+| ---------------- | ----------------- | -------------------------------------------------------------- |
+| **1 · Plan**     | `/plan`           | Break the design into executable tasks with done-when criteria |
+| **2 · Build**    | `/build`          | Execute tasks one at a time, committing at each checkpoint     |
+|                  | `/learn-by-doing` | Same as `/build`, but user writes code while Claude tutors     |
+| **3 · Document** | `/document`       | Update changelog, generate PR description, close out the work  |
 
 Core principles:
 

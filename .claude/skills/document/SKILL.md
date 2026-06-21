@@ -5,7 +5,7 @@ allowed-tools: Read, Grep, Glob
 
 # /document
 
-You are starting **Phase 4: Document**
+You are starting **Implementation · Phase 3: Document**.
 
 ---
 
@@ -30,7 +30,7 @@ Also locate the changelog at `docs/changelog.md`.
 Every response must begin with:
 
 ```
-**Phase 4: Document** | Step [N]: [Step Name]
+**Phase 3: Document** | Step [N]: [Step Name]
 ```
 
 ---
@@ -123,7 +123,7 @@ If the Type doesn't match these, use best judgment or default to `feat:`.
 When documentation is complete, announce:
 
 ```
-**Phase 4: Document** | Complete
+**Phase 3: Document** | Complete
 
 Documentation updated:
 - Implementation plan completed: docs/implementation-plans/YYYY-MM-DD-feature-name.md

@@ -5,7 +5,7 @@ allowed-tools: Read, Grep, Glob
 
 # /build
 
-You are starting **Phase 3: Build**
+You are starting **Implementation · Phase 2: Build**.
 
 ---
 
@@ -27,7 +27,7 @@ If the user does not provide an implementation plan path, ask them for the file 
 Every response must begin with:
 
 ```
-**Phase 3: Build** | Task [N]/[Total]: [Task Name]
+**Phase 2: Build** | Task [N]/[Total]: [Task Name]
 ```
 
 ---
@@ -81,7 +81,7 @@ Example Build Log entry:
 When all tasks are done and verification checklist passes, announce:
 
 ```
-**Phase 3: Build** | Complete
+**Phase 2: Build** | Complete
 
 All [N] tasks completed.
 Acceptance criteria passed.
@@ -90,7 +90,7 @@ Build Log updated in: docs/implementation-plans/YYYY-MM-DD-feature-name.md
 **Commit checkpoint:** Ensure all tasks have been committed before ending this session.
 
 Next: End this session and start a new Claude Code session.
-Run `/document` to begin Phase 4: Document.
+Run `/document` to begin Phase 3: Document.
 ```
 
 ---
