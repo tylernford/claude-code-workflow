@@ -10,7 +10,7 @@
 
 **Why:** [Why this feature matters / what problem it solves]
 
-**Type:** [Feature | Enhancement | Bugfix | Refactor | Process]
+**Type:** [Feature | Enhancement | Bugfix | Refactor | Docs | Process]
 
 ---
 

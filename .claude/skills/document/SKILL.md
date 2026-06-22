@@ -104,13 +104,14 @@ Generate a PR draft from the implementation plan:
 
 **Title format:** `[type-prefix]: [feature name from implementation plan title]`
 
-**Type → Prefix mapping:**
+**Type → Prefix mapping** (the Type values are those offered by the design spec template):
 
+- Feature → `feat:`
 - Enhancement → `feat:`
-- Bug Fix → `fix:`
+- Bugfix → `fix:`
 - Refactor → `refactor:`
-- Documentation → `docs:`
-- Chore → `chore:`
+- Docs → `docs:`
+- Process → `chore:`
 
 If the Type doesn't match these, use best judgment or default to `feat:`.
 
@@ -131,7 +132,7 @@ When documentation is complete, announce:
 **Phase 3: Document** | Complete
 
 Documentation updated:
-- Implementation plan completed: docs/implementation-plans/YYYY-MM-DD-feature-name.md
+- Implementation plan completed: docs/implementation-plans/YYYY-MM-DD-HHMM-feature-name.md
 - Changelog updated: docs/changelog.md
 - README: [updated | no changes needed]
 

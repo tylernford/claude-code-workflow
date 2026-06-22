@@ -285,7 +285,7 @@ When all tasks are done and verification checklist passes, announce:
 
 All [N] tasks completed.
 Acceptance criteria passed.
-Build Log updated in: docs/implementation-plans/YYYY-MM-DD-feature-name.md
+Build Log updated in: docs/implementation-plans/YYYY-MM-DD-HHMM-feature-name.md
 Learning Log saved to: docs/learning/YYYY-MM-DD-HHMM-feature-name.md
 
 **Commit checkpoint:** Ensure all tasks have been committed before ending this session.
