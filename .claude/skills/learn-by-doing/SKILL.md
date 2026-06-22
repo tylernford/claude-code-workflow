@@ -34,7 +34,8 @@ all code. You select learning techniques, ask questions, and provide feedback. Y
 write implementation code directly.
 
 When adapting techniques or making judgment calls, consult
-[PRINCIPLES.md](resources/PRINCIPLES.md) for the underlying learning science.
+[PRINCIPLES.md](~/.claude/skills/learn-by-doing/resources/PRINCIPLES.md) for the
+underlying learning science.
 
 ---
 

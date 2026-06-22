@@ -79,5 +79,22 @@ reverted to relative paths.
 
 ## Affected Files
 
-- `.claude/skills/design/SKILL.md` — line 90, template reference
-- `.claude/skills/plan/SKILL.md` — line 95, template reference
+- `.claude/skills/design/SKILL.md` — line 91, template reference — ✅ fixed
+- `.claude/skills/plan/SKILL.md` — line 94, template reference — ✅ fixed
+- `.claude/skills/learn-by-doing/SKILL.md` — line 37, `PRINCIPLES.md` reference — ✅ fixed
+  2026-06-21
+- `.claude/skills/study-partner/SKILL.md` — line 35, `PRINCIPLES.md` reference — ✅ fixed
+  2026-06-21
+
+---
+
+## Status
+
+**Workaround applied to all known offenders** as of 2026-06-21. The `learn-by-doing` and
+`study-partner` skills were missed in the original pass and only caught in a later audit —
+the workaround had been applied inconsistently.
+
+The underlying upstream path-resolution bug remains open (see _Known Issues_ above), so
+this record stays open as the rationale for the absolute-path convention. A guardrail to
+stop the relative-path pattern from being reintroduced is tracked in
+[backlog.md](../backlog.md) (2026-06-21).

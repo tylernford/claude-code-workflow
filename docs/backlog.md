@@ -138,3 +138,26 @@ full sequence.
 
 **Origin:** Validation testing of `/learn-by-doing` (2026-03-26). Acceptance criterion 5
 remains the only failing criterion.
+
+---
+
+## 2026-06-21: Guardrail Against Relative Support-File Links in Skills
+
+**Idea:** Add an automated check that fails when any `SKILL.md` references a supporting
+file (`resources/`, `templates/`, etc.) with a relative markdown link instead of an
+absolute `~/.claude/skills/<skill>/...` path.
+
+**Why:** Relative links trigger the path-resolution bug documented in
+[2026-03-05-skill-relative-path-resolution.md](issues/2026-03-05-skill-relative-path-resolution.md) —
+when a skill runs globally, Claude resolves the link against the invoking project's
+working directory, fails to find the file, and improvises. The fix has now been applied
+inconsistently twice (caught in `design`/`plan`, missed in `learn-by-doing`/`study-partner`
+until a later audit). A check would stop the pattern from being reintroduced.
+
+**Sketch:** A grep over `.claude/skills/**/SKILL.md` for `](resources/`,
+`](templates/`, etc. (links that start with a bare support-dir name rather than `~`).
+Could run standalone, be wired into `sync-skills.sh`, or fire from a pre-commit hook.
+Open question: enforcement point and whether to also verify linked files exist.
+
+**Origin:** Built and removed during the 2026-06-21 fix for the inconsistent path
+workaround; demoted to backlog pending a decision on where enforcement should live.
