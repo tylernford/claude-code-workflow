@@ -32,7 +32,8 @@ This skill gives users an on-demand way to study code or content using research-
 exercise techniques.
 
 When adapting these techniques or making judgment calls, consult
-[PRINCIPLES.md](resources/PRINCIPLES.md) for the underlying learning science.
+[PRINCIPLES.md](~/.claude/skills/study-partner/resources/PRINCIPLES.md) for the
+underlying learning science.
 
 ## Invocation handling
 
