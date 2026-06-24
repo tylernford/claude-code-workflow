@@ -217,26 +217,26 @@ criteria and states deferred/dropped items are recorded but not verified there.
 > The **active gate** is the unstruck items — `(design)` + `(added)`. `/build` verifies
 > those and records, but does not verify, the struck items.
 
-- [ ] The plan template's Acceptance Criteria section instructs carry-forward using the
+- [x] The plan template's Acceptance Criteria section instructs carry-forward using the
       four-tag scheme `(design)` / `(added)` / `(deferred → …)` / `(dropped — reason)`,
       with no generic placeholder remaining. `(design)`
-- [ ] `/plan` SKILL has an explicit instruction (new Step 4) to carry every design-spec
+- [x] `/plan` SKILL has an explicit instruction (new Step 4) to carry every design-spec
       criterion into the plan's Acceptance Criteria, tagged, and to add plan-specific
       criteria tagged `(added)`. `(design)`
-- [ ] `/plan` Plan Validation (now Step 5) asserts every design-spec criterion is
+- [x] `/plan` Plan Validation (now Step 5) asserts every design-spec criterion is
       accounted for (carried, deferred, or dropped with reason) — silent omission is
       called out as a defect. `(design)`
-- [ ] `/build` SKILL's acceptance-criteria step states the gate is the active (unstruck)
+- [x] `/build` SKILL's acceptance-criteria step states the gate is the active (unstruck)
       criteria, and that deferred/dropped items are recorded but not verified there.
       `(design)`
-- [ ] Running the updated `/plan` against
+- [x] Running the updated `/plan` against
       `docs/design-specs/2026-02-19-1151-study-partner.md` scoped to "Phase 1: must-haves
       only" produces an Acceptance Criteria ledger that carries all 9 must-haves as
       `(design)` **and** renders the deferred Nice-to-Have criteria (e.g. "dynamic
       difficulty adjustment") as struck `~~…~~ (deferred → …)` lines — not as absences.
       Discard the test plan afterward. (Verified post-merge, or after a manual
       `sync-skills.sh` so the edited skill is active.) `(design)`
-- [ ] The `/design` skill and design-spec template are unchanged. `(design)`
+- [x] The `/design` skill and design-spec template are unchanged. `(design)`
 
 ---
 
