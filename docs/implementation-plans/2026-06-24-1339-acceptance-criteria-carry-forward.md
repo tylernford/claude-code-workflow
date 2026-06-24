@@ -244,8 +244,9 @@ criteria and states deferred/dropped items are recorded but not verified there.
 
 _Filled in during `/build` phase_
 
-| Date | Task | Files | Notes |
-| ---- | ---- | ----- | ----- |
+| Date       | Task   | Files                                                | Notes |
+| ---------- | ------ | ---------------------------------------------------- | ----- |
+| 2026-06-24 | Task 1 | .claude/skills/plan/templates/implementation-plan.md | —     |
 
 ---
 
