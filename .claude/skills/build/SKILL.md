@@ -40,7 +40,9 @@ Every response must begin with:
 2. **Implement** - Write the code / create the files
 3. **Verify** - Confirm "done when" criteria are met
 4. **Report** - Show what was created/modified
-5. **Log** - Add entry to Build Log in the implementation plan
+5. **Log** - Add **one Build Log row for this task** to the implementation plan. `Files` =
+   key files created/modified; `Notes` = deviations or discoveries, or `—` if none.
+   (Canonical column schema lives in the plan template's Build Log.)
 6. **Commit** - Use the commit message from the plan (user handles git)
 7. **Pause** - Ask user: "Anything to note? (discoveries, surprises, context for later)"
    Then wait for confirmation before next task.
@@ -61,18 +63,19 @@ Every response must begin with:
 
 ## Handling Deviations
 
-When reality doesn't match the plan:
+When reality doesn't match the plan, the deviation goes in the **`Notes` column of that
+task's Build Log row** — every task still gets a row whether or not it deviated.
 
 1. **Don't update the implementation plan** - It's a record of original thinking
-2. **Note the deviation** - What changed and why
-3. **Add to Build Log** - Record in the implementation plan
-4. **Continue** - Proceed with adjusted approach
+2. **Record it in Notes** - What changed and why, in that task's row
+3. **Continue** - Proceed with adjusted approach
 
-Example Build Log entry:
+Example Build Log rows (a clean task, then a deviation):
 
-```
-| 2024-01-15 | Task 3 | src/utils/helper.ts | Deviated: Used existing utility instead of creating new one |
-```
+| Date       | Task   | Files                  | Notes                                         |
+| ---------- | ------ | ---------------------- | --------------------------------------------- |
+| 2024-01-15 | Task 2 | src/components/Card.ts | —                                             |
+| 2024-01-15 | Task 3 | src/utils/helper.ts    | Used existing utility instead of creating new |
 
 ---
 
