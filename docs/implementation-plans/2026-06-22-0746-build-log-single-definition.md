@@ -170,11 +170,27 @@ _Filled in during `/build` phase_
 
 ## Completion
 
-**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-06-24 **Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** `/build` described the Build Log two different ways — one implying a row per
+task, the other implying you only log when something deviates. This change settles on the
+per-task model, all within `.claude/skills/build/SKILL.md`.
 
-**Deviations from Plan:** [Any significant changes from original design]
+Step 5 ("Log") now says: add one row per task. `Files` lists the key files you touched;
+`Notes` holds any deviation or discovery, or `—` if there's nothing to note. It points to
+the plan template for the column schema instead of repeating it.
+
+"Handling Deviations" now treats a deviation as just the `Notes` text on that task's row,
+not a separate log. Its example is a small table — a header, one clean row (`Notes` =
+`—`), and one deviation row.
+
+`document/SKILL.md` didn't change, but its Changes section can now count on every task
+having a row. Synced to `~/.claude/skills/` via `sync-skills.sh`.
+
+**Deviations from Plan:** Note the plan-phase re-typing from Bugfix → Docs (recorded in
+the Summary and Notes sections): the predicted "deviations-only" failure mode did not
+reproduce in real Build Logs (n=2), so the change stands as a clarity fix for latent
+ambiguous prose rather than a behavioral bugfix.
 
 ---
 

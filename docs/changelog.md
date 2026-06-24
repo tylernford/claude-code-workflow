@@ -4,6 +4,29 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-06-24: Build Log Single Definition
+
+`/build` described the Build Log two different ways — one implying a row per task, the
+other implying you only log when something deviates. This change settles on the per-task
+model, all within a single file. Step 5 ("Log") now says: add one row per task — `Files`
+lists the key files you touched, `Notes` holds any deviation or discovery, or `—` if
+there's nothing to note — and it points to the plan template for the column schema instead
+of repeating it. "Handling Deviations" now treats a deviation as just the `Notes` text on
+that task's row, not a separate log, with a small example table (a header, one clean `—`
+row, and one deviation row). `document/SKILL.md` didn't change, but its Changes section
+can now count on every task having a row. (Re-typed Bugfix → Docs during planning after
+real Build Logs showed the predicted deviations-only failure mode did not reproduce.)
+
+**Design:**
+[docs/design-specs/2026-06-21-2126-build-log-single-definition.md](design-specs/2026-06-21-2126-build-log-single-definition.md)
+**Plan:**
+[docs/implementation-plans/2026-06-22-0746-build-log-single-definition.md](implementation-plans/2026-06-22-0746-build-log-single-definition.md)
+**Key files:**
+
+- `.claude/skills/build/SKILL.md`
+
+---
+
 ## 2026-06-21: Fix the Design-Spec File-List Hedge
 
 Made `/design`'s "Files to Create/Modify" output internally consistent and explicitly
