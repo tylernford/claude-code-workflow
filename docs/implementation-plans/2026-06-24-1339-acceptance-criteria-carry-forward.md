@@ -254,11 +254,34 @@ _Filled in during `/build` phase_
 
 ## Completion
 
-**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-06-24 **Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Closed a gap where acceptance criteria could be silently dropped between
+phases. The problem: `/design` writes the criteria, `/build` checks them off as the
+completion gate — but `/plan` (the step in between) had no instruction to copy them
+forward. Criteria could quietly vanish while `/build` still reported "all passed."
 
-**Deviations from Plan:** [Any significant changes from original design]
+The fix has three parts:
+
+- **Template** — The plan's Acceptance Criteria section is now a ledger where every
+  criterion carries a tag saying what happened to it: `(design)` (came from the design
+  spec), `(added)` (new in this plan), `(deferred → …)`, or `(dropped — reason)`. Deferred
+  and dropped criteria stay on the page but are struck through, so a missing criterion
+  shows up as a visible struck line instead of just disappearing.
+- **`/plan`** — A new step tells `/plan` to copy every design criterion into the ledger
+  and tag it, and the validation step now flags any design criterion that's missing
+  entirely as a defect.
+- **`/build`** — The completion gate now only checks the active (unstruck) criteria;
+  struck items are noted but not verified.
+
+The final acceptance check was an end-to-end test: running the updated `/plan` against the
+study-partner design spec and confirming its deferred criteria rendered as struck lines.
+
+**Deviations from Plan:** None. All three tasks landed as written (Build Log notes `—` for
+each), and all six acceptance criteria passed. As the plan called for, edits went to the
+repo-tracked `.claude/skills/...` files (the source of truth), not the
+`~/.claude/skills/...` paths the design spec had named; the global copies update
+automatically via the `.githooks/post-merge` hook.
 
 ---
 

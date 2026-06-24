@@ -4,6 +4,36 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-06-24: Acceptance-Criteria Carry-Forward
+
+Acceptance criteria could silently disappear between phases. `/design` writes them and
+`/build` checks them off as the completion gate, but `/plan` — the step in between — was
+never told to copy them forward. A criterion could quietly vanish while `/build` still
+reported "acceptance criteria passed."
+
+Now the plan's Acceptance Criteria section is a ledger where every criterion carries a tag
+explaining what happened to it: `(design)` for ones carried from the design spec,
+`(added)` for new ones, and `(deferred → …)` or `(dropped — reason)` for ones not being
+done here. Deferred and dropped criteria stay on the page but are struck through, so a
+missing criterion shows up as a visible struck line rather than just an absence. `/plan`
+now has a step that copies every design criterion into the ledger and tags it, plus a
+validation check that flags any design criterion missing entirely as a defect. And
+`/build`'s completion gate now only verifies the active (unstruck) criteria, noting the
+struck ones without checking them. The behavior was confirmed end-to-end by running the
+updated `/plan` against the study-partner design spec.
+
+**Design:**
+[docs/design-specs/2026-06-24-1235-acceptance-criteria-carry-forward.md](design-specs/2026-06-24-1235-acceptance-criteria-carry-forward.md)
+**Plan:**
+[docs/implementation-plans/2026-06-24-1339-acceptance-criteria-carry-forward.md](implementation-plans/2026-06-24-1339-acceptance-criteria-carry-forward.md)
+**Key files:**
+
+- `.claude/skills/plan/templates/implementation-plan.md`
+- `.claude/skills/plan/SKILL.md`
+- `.claude/skills/build/SKILL.md`
+
+---
+
 ## 2026-06-24: Build Log Single Definition
 
 `/build` described the Build Log two different ways — one implying a row per task, the
