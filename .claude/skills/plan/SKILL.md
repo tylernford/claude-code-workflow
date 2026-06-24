@@ -64,14 +64,28 @@ Each task must include:
 
 Present tasks to user for review. Adjust based on feedback.
 
-### Step 4: Plan Validation
+### Step 4: Build the Acceptance Criteria Ledger
+
+Populate the plan's Acceptance Criteria section (see template) as a provenance-tagged
+ledger:
+
+- Carry **every** criterion from the design spec into the ledger, tagged `(design)`.
+  Reword freely — a reworded criterion is still `(design)`.
+- Add any plan-specific criteria, tagged `(added)`.
+- If a design criterion won't be met here, keep its line but strike it through and tag
+  `(deferred → target)` or `(dropped — reason)`. Never delete it.
+
+### Step 5: Plan Validation
 
 - Review task list against design spec requirements
 - Confirm all requirements are covered by tasks
-- Confirm all acceptance criteria are testable
+- **Acceptance-criteria coverage:** confirm every design-spec criterion appears in the
+  ledger (carried, deferred, or dropped-with-reason). A design criterion that appears
+  nowhere is a defect — call it out and fix before finalizing.
+- Confirm all active (unstruck) criteria are testable
 - Check task ordering makes sense (dependencies)
 
-### Step 5: Confirm Type and Overview
+### Step 6: Confirm Type and Overview
 
 - Read the **Type** and **Overview** fields from the design spec
 - Present both to the user for confirmation
@@ -93,7 +107,7 @@ docs/implementation-plans/YYYY-MM-DD-HHMM-feature-name.md
 Use the template at
 [~/.claude/skills/plan/templates/implementation-plan.md](~/.claude/skills/plan/templates/implementation-plan.md)
 as your guide. Include all four header fields: **Created**, **Type**, **Overview**, and
-**Design Spec** (using the confirmed values from Step 5 and the design spec path).
+**Design Spec** (using the confirmed values from Step 6 and the design spec path).
 
 ---
 

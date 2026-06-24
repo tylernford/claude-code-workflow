@@ -49,15 +49,20 @@ Every response must begin with:
 
 ### After All Tasks: Acceptance Criteria
 
+The gate is the plan's **active (unstruck) criteria** — the `(design)` and `(added)`
+items. Struck items (`(deferred)` / `(dropped)`) are recorded in the ledger but **not
+verified here**; they belong to a later plan or are intentionally out of scope. Do not
+skip silently over them — the strike is the record.
+
 1. **Prompt** - Ask user: "All tasks complete. Run acceptance criteria before completing
    phase?"
 2. **Wait for confirmation** - User must confirm to proceed
-3. **For each checklist item:**
+3. **For each active (unstruck) checklist item:**
    - Present the item
    - Verify with user (pass/fail)
    - If pass: Mark `[x]` in implementation plan
    - If fail: Fix the issue, log deviation in Build Log, re-verify
-4. **All items must pass** before proceeding to Phase Complete
+4. **All active items must pass** before proceeding to Phase Complete
 
 ---
 

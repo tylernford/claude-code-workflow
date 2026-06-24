@@ -58,9 +58,25 @@ _Confirm assumptions from design spec match actual codebase_
 
 ## Acceptance Criteria
 
-- [ ] [How to test the feature works]
-- [ ] [Edge case to verify]
-- [ ] [Integration point to check]
+> Provenance-tagged ledger. **Every** criterion from the design spec appears below, tagged
+> with what happened to it — plus any criteria this plan adds. A criterion that won't be
+> met here is struck through, never deleted: an omission must read as a struck line, never
+> an absence.
+>
+> | Tag                   | Meaning                                               |
+> | --------------------- | ----------------------------------------------------- |
+> | `(design)`            | Carried from the design spec (verbatim or reworded)   |
+> | `(added)`             | New criterion this plan introduces                    |
+> | `(deferred → target)` | Belongs to a later plan/phase — strike the line       |
+> | `(dropped — reason)`  | Intentionally not done, with reason — strike the line |
+>
+> The **active gate** is the unstruck items — `(design)` + `(added)`. `/build` verifies
+> those and records, but does not verify, the struck (deferred/dropped) items.
+
+- [ ] [Carried design criterion] `(design)`
+- [ ] [Plan-specific criterion] `(added)`
+- [ ] ~~[Deferred design criterion]~~ `(deferred → Phase 2)`
+- [ ] ~~[Dropped design criterion]~~ `(dropped — superseded by X)`
 
 ---
 
