@@ -1,6 +1,7 @@
 # Acceptance-Criteria Carry-Forward
 
-**Created:** 2026-06-24 **Implementation Plan:** [link to implementation plan]
+**Created:** 2026-06-24 **Implementation Plan:**
+[docs/implementation-plans/2026-06-24-1339-acceptance-criteria-carry-forward.md](../implementation-plans/2026-06-24-1339-acceptance-criteria-carry-forward.md)
 
 ---
 
