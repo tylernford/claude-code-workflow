@@ -1,6 +1,6 @@
 ---
 disable-model-invocation: true
-allowed-tools: Read, Grep, Glob
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash
 ---
 
 # /document
@@ -170,8 +170,11 @@ Feature complete! The workflow cycle is finished.
 3. **Complete the loop** - Don't skip this phase; documentation is part of done
 4. **Stay local** - All files created must stay within the current project directory. No
    system-level or global configuration changes.
-5. **No git operations** - Never run git commands (commit, add, push, etc.). User handles
-   all version control manually.
+5. **Git: read only, never commit** - May read git (`git status`, `git diff`, `git log`,
+   `git rev-parse`) to source the narrative, files, and deviation rationale, but **never
+   commits, stages, or writes git state**. Forbidden: commit, add, push, force-push,
+   rebase, reset, branch creation/switching/deletion, tag, and any remote operation. The
+   user commits the documentation updates.
 6. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. This
    is the final phase, but the rule applies if restarting the workflow.
 7. **One phase per session** - Complete this phase, then end the session. The workflow

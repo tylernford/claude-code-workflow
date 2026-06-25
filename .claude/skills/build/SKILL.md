@@ -1,6 +1,6 @@
 ---
 disable-model-invocation: true
-allowed-tools: Read, Grep, Glob
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash
 ---
 
 # /build
@@ -112,8 +112,12 @@ Run `/document` to begin Phase 3: Document.
 5. **Update Build Log** - Keep implementation plan current as you go
 6. **Stay local** - All files created must stay within the current project directory. No
    system-level or global configuration changes.
-7. **No git operations** - Never run git commands (commit, add, push, etc.). User handles
-   all version control manually.
+7. **Git: read + commit only, on the current branch** - May read git (`git status`,
+   `git diff`, `git log`, `git rev-parse`) freely, and may commit a completed task on the
+   **current branch only**, staging the files that task **actually changed** by **explicit
+   path** (never `git add -A`, never `git add .`). Forbidden: push, force-push, rebase,
+   reset, branch creation/switching/deletion, tag, and any remote operation. If the work
+   needs a branch change or a remote op, escalate to the user.
 8. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never
    auto-advance based on natural language like "let's move to documentation."
 9. **One phase per session** - Complete this phase, then end the session. Next phase
