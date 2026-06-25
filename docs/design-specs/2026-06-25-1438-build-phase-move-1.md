@@ -1,6 +1,7 @@
 # Build Phase — Move 1: Approve-by-Exception + Executable `done_when`
 
-**Created:** 2026-06-25 **Implementation Plan:** [link to implementation plan]
+**Created:** 2026-06-25 **Implementation Plan:**
+docs/implementation-plans/2026-06-25-1453-build-phase-move-1.md
 
 ---
 
