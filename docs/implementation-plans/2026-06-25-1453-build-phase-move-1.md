@@ -344,44 +344,44 @@ doc, not a normal code commit. **Files:**
 > The **active gate** is the unstruck items — `(design)` + `(added)`. `/build` verifies
 > those and records, but does not verify, the struck (deferred/dropped) items.
 
-- [ ] `build/SKILL.md` and `document/SKILL.md` frontmatter list
+- [x] `build/SKILL.md` and `document/SKILL.md` frontmatter list
       `Read, Grep, Glob, Write, Edit, Bash` and retain `disable-model-invocation: true`.
       `(design)`
-- [ ] `build/SKILL.md` Rule 7 and `document/SKILL.md` Rule 5 are the narrowed forms
+- [x] `build/SKILL.md` Rule 7 and `document/SKILL.md` Rule 5 are the narrowed forms
       (read-only git everywhere; `/build` commits current-branch/explicit-paths-only; no
       remote/history ops; `/document` never commits). `(design)`
-- [ ] `build/SKILL.md` "For Each Task" has no per-task pause; it resolves the check before
+- [x] `build/SKILL.md` "For Each Task" has no per-task pause; it resolves the check before
       implementing, runs the resolved command (exit 0 = gate), commits declared files with
       a deviation note in the body, and proceeds — with an explicit escalate-by-exception
       clause. `(design)`
-- [ ] `build/SKILL.md` Rules read "Sequential execution" (not "One task at a time") and
+- [x] `build/SKILL.md` Rules read "Sequential execution" (not "One task at a time") and
       "Approve by exception" (not "User confirms"); the "Update Build Log" rule is
       removed. `(design)`
-- [ ] `build/SKILL.md` bounds the verify→fix cycle at three attempts and escalates on the
+- [x] `build/SKILL.md` bounds the verify→fix cycle at three attempts and escalates on the
       third failure (Decision 7). `(design)`
-- [ ] The plan template's per-task `Done when:` is the intent + optional candidate-command
+- [x] The plan template's per-task `Done when:` is the intent + optional candidate-command
       form, with `(manual)` representable and, if structured, field names matching the
       spine schema (`intent` + exactly one of `command:` / `manual: true`); the Build Log
       table section is removed. `(design)`
-- [ ] `build/SKILL.md` "After All Tasks" presents the batch once over `<base>..HEAD`
+- [x] `build/SKILL.md` "After All Tasks" presents the batch once over `<base>..HEAD`
       (diff + commit list, deviations first, `(manual)` separately, verified-vs-compiled,
       test-file diffs surfaced), then runs active executable AC and presents `(manual)`
       AC; `<base>` is defined once near the top of the skill. `(design)`
-- [ ] `build/SKILL.md` "Handling Deviations" routes the why to the commit body, not a
+- [x] `build/SKILL.md` "Handling Deviations" routes the why to the commit body, not a
       Build Log row; Phase Complete drops the "Build Log updated in:" line. `(design)`
-- [ ] A deviation that touches an undeclared file results in that file being staged (by
+- [x] A deviation that touches an undeclared file results in that file being staged (by
       explicit path) and noted in the commit body, or escalated — never left as a silent
       dirty-tree drop. No path is ever staged via `git add -A`. `(design)`
-- [ ] `document/SKILL.md` Step 1 sources from `git log` / `git log --stat` `<base>..HEAD`
+- [x] `document/SKILL.md` Step 1 sources from `git log` / `git log --stat` `<base>..HEAD`
       and commit bodies; the "Review Build Log" step is gone; changelog "Key files" and
       PR-draft "Changes" source from `git log --stat`. `(design)`
-- [ ] **Validation run:** one real `/build` against a small plan completes end-to-end —
+- [x] **Validation run:** one real `/build` against a small plan completes end-to-end —
       proceeds without per-task pauses, runs at least one executable `done_when`, commits
       per task with explicit-path staging, and presents a coherent end-of-batch review;
       the escalation triggers are tuned from what it interrupts on; and the harvest is
       captured (batch-review feel, manual-rate, `done_when` resolution behavior, round-cap
       pressure). `(design)`
-- [ ] The updated `build`/`document` skills are synced to the global skills dir (via
+- [x] The updated `build`/`document` skills are synced to the global skills dir (via
       `scripts/sync-skills.sh`) before the validation run, so the validation exercises the
       new skill, not the old one. `(added)`
 
@@ -391,14 +391,16 @@ doc, not a normal code commit. **Files:**
 
 _Filled in during `/build` phase_
 
-| Date       | Task   | Files                                                           | Notes                                                                                                                                |
-| ---------- | ------ | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 2026-06-25 | Task 1 | .claude/skills/build/SKILL.md, .claude/skills/document/SKILL.md | —                                                                                                                                    |
-| 2026-06-25 | Task 2 | .claude/skills/build/SKILL.md                                   | Renumbered Rules 6–8 after removing "Update Build Log"                                                                               |
-| 2026-06-25 | Task 3 | .claude/skills/build/SKILL.md                                   | Added `<base>` section after Prerequisite; renamed "After All Tasks" to "End-of-Batch Review"                                        |
-| 2026-06-25 | Task 4 | .claude/skills/build/SKILL.md                                   | Re-resolved done_when grep: candidate over-matched explanatory "Build Log" prose; checked table header + Phase Complete line instead |
-| 2026-06-25 | Task 5 | .claude/skills/plan/templates/implementation-plan.md            | —                                                                                                                                    |
-| 2026-06-25 | Task 6 | .claude/skills/document/SKILL.md                                | Also cleaned stale Build Log refs in Step 5 and the Phase Complete PR-draft template (beyond Step 1/2.3) for consistency             |
+| Date       | Task           | Files                                                                                                   | Notes                                                                                                                                                                                                                                                                                                                                                                               |
+| ---------- | -------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-06-25 | Task 1         | .claude/skills/build/SKILL.md, .claude/skills/document/SKILL.md                                         | —                                                                                                                                                                                                                                                                                                                                                                                   |
+| 2026-06-25 | Task 2         | .claude/skills/build/SKILL.md                                                                           | Renumbered Rules 6–8 after removing "Update Build Log"                                                                                                                                                                                                                                                                                                                              |
+| 2026-06-25 | Task 3         | .claude/skills/build/SKILL.md                                                                           | Added `<base>` section after Prerequisite; renamed "After All Tasks" to "End-of-Batch Review"                                                                                                                                                                                                                                                                                       |
+| 2026-06-25 | Task 4         | .claude/skills/build/SKILL.md                                                                           | Re-resolved done_when grep: candidate over-matched explanatory "Build Log" prose; checked table header + Phase Complete line instead                                                                                                                                                                                                                                                |
+| 2026-06-25 | Task 5         | .claude/skills/plan/templates/implementation-plan.md                                                    | —                                                                                                                                                                                                                                                                                                                                                                                   |
+| 2026-06-25 | Task 6         | .claude/skills/document/SKILL.md                                                                        | Also cleaned stale Build Log refs in Step 5 and the Phase Complete PR-draft template (beyond Step 1/2.3) for consistency                                                                                                                                                                                                                                                            |
+| 2026-06-25 | Task 7         | docs/research/workflow-upgrade/2026-06-25-move-1-validation-plan.md, …-validation-harvest.md (scaffold) | PARTIAL: authored throwaway validation plan + harvest scaffold. Run + harvest deferred to a separate post-sync session — can't nest /build or fabricate the harvest here                                                                                                                                                                                                            |
+| 2026-06-25 | Task 7 (cont.) | docs/research/workflow-upgrade/2026-06-25-move-1-validation-harvest.md                                  | COMPLETE: user ran build+document on branch feat/build-phase-move-1-harvest; harvest written from session captures (build-output.md, document-output.md) + commit bodies. Run exercised all behaviors on a clean path; harvest flags 2 gaps (cap/failure-path & un-telegraphed drift) as Move 1.5 input. No §1 trigger change (under-evidenced; second stress-test run recommended) |
 
 ---
 
