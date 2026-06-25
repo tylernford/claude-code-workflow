@@ -1,10 +1,11 @@
 # Move 1 Validation Harvest
 
-**Status:** ✅ RUN COMPLETE — observations below.
+**Status:** RUN COMPLETE — observations below.
 
 **Run against:** `docs/research/workflow-upgrade/2026-06-25-move-1-validation-plan.md`
-**Run date:** 2026-06-25 **Branch:** `feat/build-phase-move-1-harvest` **Skills synced
-before run:** yes (`scripts/sync-skills.sh`)
+(throwaway plan, committed on the harvest branch only — not present on this branch) **Run
+date:** 2026-06-25 **Branch:** `feat/build-phase-move-1-harvest` **Skills synced before
+run:** yes (`scripts/sync-skills.sh`)
 
 **Raw signal:** `docs/research/build-output.md`, `docs/research/document-output.md`
 (session captures), and the commit bodies of `d80af30`, `71d3f2e`, `317e061` on the
