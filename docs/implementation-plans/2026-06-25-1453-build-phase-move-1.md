@@ -398,6 +398,7 @@ _Filled in during `/build` phase_
 | 2026-06-25 | Task 3 | .claude/skills/build/SKILL.md                                   | Added `<base>` section after Prerequisite; renamed "After All Tasks" to "End-of-Batch Review"                                        |
 | 2026-06-25 | Task 4 | .claude/skills/build/SKILL.md                                   | Re-resolved done_when grep: candidate over-matched explanatory "Build Log" prose; checked table header + Phase Complete line instead |
 | 2026-06-25 | Task 5 | .claude/skills/plan/templates/implementation-plan.md            | —                                                                                                                                    |
+| 2026-06-25 | Task 6 | .claude/skills/document/SKILL.md                                | Also cleaned stale Build Log refs in Step 5 and the Phase Complete PR-draft template (beyond Step 1/2.3) for consistency             |
 
 ---
 
