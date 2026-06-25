@@ -127,19 +127,24 @@ out of scope. Do not skip silently over them — the strike is the record.
 
 ## Handling Deviations
 
-When reality doesn't match the plan, the deviation goes in the **`Notes` column of that
-task's Build Log row** — every task still gets a row whether or not it deviated.
+When reality doesn't match the plan, the rationale goes in the **commit body** — git is
+the record now, not a hand-maintained Build Log.
 
-1. **Don't update the implementation plan** - It's a record of original thinking
-2. **Record it in Notes** - What changed and why, in that task's row
-3. **Continue** - Proceed with adjusted approach
+1. **Don't update the implementation plan** - It's a record of original thinking.
+2. **Record the why in the commit body** - What changed and why, in the body of the task's
+   commit.
+3. **Continue** - Proceed with the adjusted approach.
 
-Example Build Log rows (a clean task, then a deviation):
+**Undeclared-file case.** If a deviation makes you touch a file the task **did not
+declare**:
 
-| Date       | Task   | Files                  | Notes                                         |
-| ---------- | ------ | ---------------------- | --------------------------------------------- |
-| 2024-01-15 | Task 2 | src/components/Card.ts | —                                             |
-| 2024-01-15 | Task 3 | src/utils/helper.ts    | Used existing utility instead of creating new |
+- If the change is in-scope: stage that file by **explicit path** (never `git add -A`) and
+  record it in the commit body — name the file and the why.
+- If the touch is **out of scope** for the task: **escalate** to the user instead of
+  committing it.
+
+Never leave a changed file as a silent dirty-tree drop, and never sweep it in with
+`git add -A`.
 
 ---
 
@@ -152,7 +157,6 @@ When all tasks are done and verification checklist passes, announce:
 
 All [N] tasks completed.
 Acceptance criteria passed.
-Build Log updated in: docs/implementation-plans/YYYY-MM-DD-HHMM-feature-name.md
 
 **Commit checkpoint:** Ensure all tasks have been committed before ending this session.
 
