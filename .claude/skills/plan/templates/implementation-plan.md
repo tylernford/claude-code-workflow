@@ -42,7 +42,18 @@ _Confirm assumptions from design spec match actual codebase_
 [sample code]
 ```
 
-**Done when:** [Expected output / how to verify] **Commit:** "[commit message]"
+**Done when:**
+
+- intent: [what proves this task done — the locked, durable claim] command:
+  `[candidate — a guess; /build re-resolves against the real repo]`
+- intent: [intent with no feasible command] manual: true
+
+**Commit:** "[commit message]"
+
+> Each `done_when` item is an **intent** (locked) plus **exactly one** of a candidate
+> `command:` (marked as a guess — `/build` re-resolves it against the real repo, never
+> lifts it verbatim) or `manual: true`. Field names match the spine schema. Never author
+> build-time outcomes (pass/fail, "compiles") into this block.
 
 ---
 
@@ -52,7 +63,13 @@ _Confirm assumptions from design spec match actual codebase_
 
 - `path/to/file.ext` - [create/modify]
 
-**Done when:** [Expected output / how to verify] **Commit:** "[commit message]"
+**Done when:**
+
+- intent: [what proves this task done] command:
+  `[candidate — a guess; /build re-resolves against the real repo]`
+- intent: [intent with no feasible command] manual: true
+
+**Commit:** "[commit message]"
 
 ---
 
@@ -77,15 +94,6 @@ _Confirm assumptions from design spec match actual codebase_
 - [ ] [Plan-specific criterion] `(added)`
 - [ ] ~~[Deferred design criterion]~~ `(deferred → Phase 2)`
 - [ ] ~~[Dropped design criterion]~~ `(dropped — superseded by X)`
-
----
-
-## Build Log
-
-_Filled in during `/build` phase_
-
-| Date | Task | Files | Notes |
-| ---- | ---- | ----- | ----- |
 
 ---
 
