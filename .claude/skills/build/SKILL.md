@@ -22,6 +22,24 @@ If the user does not provide an implementation plan path, ask them for the file 
 
 ---
 
+## `<base>`: session-start snapshot
+
+At the **start of the build session**, snapshot the current commit:
+
+```
+git rev-parse HEAD
+```
+
+Call this `<base>`. It is the point the whole batch is measured against — the end-of-batch
+review and the AC gate both diff over `<base>..HEAD`. Capture it **once**, before the
+first task's commit, and reuse it for the rest of the session.
+
+**Resumed build:** if you are resuming a build that already has commits from a prior
+session, re-snapshot `<base>` now. The review will then cover only **this session's**
+commits (`<base>..HEAD`), which is the correct scope for a resumed run.
+
+---
+
 ## Announce Your Location
 
 Every response must begin with:
@@ -71,22 +89,39 @@ user with the failing command output. Do not grind past the cap.
 
 Anything outside (a)–(c) — proceed.
 
-### After All Tasks: Acceptance Criteria
+### After All Tasks: End-of-Batch Review
 
-The gate is the plan's **active (unstruck) criteria** — the `(design)` and `(added)`
-items. Struck items (`(deferred)` / `(dropped)`) are recorded in the ledger but **not
-verified here**; they belong to a later plan or are intentionally out of scope. Do not
-skip silently over them — the strike is the record.
+The per-task pauses are gone, so the whole batch gets **one** real human review here. Do
+not rubber-stamp "all green" — this is the moment to evaluate whether the work is _right_,
+not just whether the checks passed.
 
-1. **Prompt** - Ask user: "All tasks complete. Run acceptance criteria before completing
-   phase?"
-2. **Wait for confirmation** - User must confirm to proceed
-3. **For each active (unstruck) checklist item:**
-   - Present the item
-   - Verify with user (pass/fail)
-   - If pass: Mark `[x]` in implementation plan
-   - If fail: Fix the issue, log deviation in Build Log, re-verify
-4. **All active items must pass** before proceeding to Phase Complete
+**1. Present the batch once** over `<base>..HEAD`:
+
+- The **diff** and the **commit list** (`git log --stat <base>..HEAD` and
+  `git diff <base>..HEAD`).
+- **Deviations first** — lead with what diverged from the plan (pulled from the commit
+  bodies), not the clean tasks.
+- **`(manual)` items separately** — list every `manual: true` `done_when` that was noted
+  but not machine-verified, so they don't hide inside the green.
+- **Verified vs. just-compiled, per task** — mark which checks actually proved behavior
+  and which only proved the file parses/compiles ("compiles, behavior unverified").
+- **Test-file diffs surfaced explicitly** — call out any changes to test files so a
+  weakened or deleted test can't pass unnoticed.
+
+**2. Acceptance-criteria gate.** The gate is the plan's **active (unstruck) criteria** —
+the `(design)` and `(added)` items. Struck items (`(deferred)` / `(dropped)`) are recorded
+in the ledger but **not verified here**; they belong to a later plan or are intentionally
+out of scope. Do not skip silently over them — the strike is the record.
+
+- **Active executable criteria** — **run them automatically** and report pass/fail with
+  output. No "Run acceptance criteria?" prompt.
+- **Active `(manual)` criteria** — present each to the user for a verdict; they cannot be
+  machine-checked.
+- **Marking `[x]`** — `/build` is the **sole authority** for setting checkbox state. Mark
+  `[x]` only for criteria that genuinely passed (executable: exit 0; manual: user
+  confirmed). The AC carry-forward ledger mechanism is preserved unchanged.
+- A failing active criterion is an exception: fix (within the three-attempt cap) or
+  escalate. All active items must pass before Phase Complete.
 
 ---
 
