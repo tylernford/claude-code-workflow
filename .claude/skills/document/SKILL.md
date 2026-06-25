@@ -1,6 +1,6 @@
 ---
 disable-model-invocation: true
-allowed-tools: Read, Grep, Glob
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash
 ---
 
 # /document
@@ -39,9 +39,15 @@ Every response must begin with:
 
 ### Step 1: Load and Summarize
 
+The build history lives in **git**, not a Build Log. Source it from the commits.
+
 - Read the implementation plan
 - Read **Type** and **Overview** from the implementation plan header
-- Review the Build Log entries in the implementation plan
+- Read the build's commits with `git log <base>..HEAD` and `git log --stat <base>..HEAD`,
+  including the **commit bodies** — that's where deviation rationale was recorded. Here
+  `<base>` is the commit the build session started from (the parent of this feature's
+  first commit; if unsure, use the merge-base with the main branch). The commit list gives
+  the narrative, `--stat` gives the files, and the bodies give the deviations.
 - Summarize what was built and any deviations noted
 - Confirm this is the correct feature to document
 
@@ -62,8 +68,6 @@ Update the implementation plan:
    - Summary of what was actually built
    - Deviations from original plan
 
-3. **Review Build Log** - Ensure it captures the full build history
-
 ### Step 3: Update Changelog
 
 Read the design spec path from the implementation plan's `**Design Spec:**` header field.
@@ -76,7 +80,9 @@ Append an entry to `docs/changelog.md`:
 Brief description of what was built.
 
 **Design:** [design spec path from implementation plan header] **Plan:** [link to
-implementation plan] **Key files:** list of main files created/modified
+implementation plan] **Key files:** main files created/modified, from `git log --stat
+
+<base>..HEAD`
 ```
 
 ### Step 4: Update README (if applicable)
@@ -91,8 +97,8 @@ Skip this step if the feature doesn't affect the README.
 
 ### Step 5: Final Notes
 
-Ask user: "Anything to note? (discoveries, surprises, or context not captured in the Build
-Log)"
+Ask user: "Anything to note? (discoveries, surprises, or context not captured in the
+commit history)"
 
 Incorporate any final notes into the implementation plan's Completion section.
 
@@ -117,8 +123,9 @@ If the Type doesn't match these, use best judgment or default to `feat:`.
 
 **Description content:**
 
-- Summary: 2-3 sentences based on the implementation plan's **Overview** and Build Log
-- Changes: Key files/areas from the implementation plan's Build Log
+- Summary: 2-3 sentences based on the implementation plan's **Overview** and the commit
+  history (`git log <base>..HEAD`)
+- Changes: key files/areas from `git log --stat <base>..HEAD`
 - Documentation: Paths to design spec (from implementation plan header) and implementation
   plan
 
@@ -146,10 +153,10 @@ Documentation updated:
 
 **Description:**
 ## Summary
-[2-3 sentences based on Overview and Build Log]
+[2-3 sentences based on Overview and the commit history]
 
 ## Changes
-- [key files/areas from Build Log]
+- [key files/areas from `git log --stat <base>..HEAD`]
 
 ## Documentation
 - Design: [path to design spec]
@@ -170,8 +177,11 @@ Feature complete! The workflow cycle is finished.
 3. **Complete the loop** - Don't skip this phase; documentation is part of done
 4. **Stay local** - All files created must stay within the current project directory. No
    system-level or global configuration changes.
-5. **No git operations** - Never run git commands (commit, add, push, etc.). User handles
-   all version control manually.
+5. **Git: read only, never commit** - May read git (`git status`, `git diff`, `git log`,
+   `git rev-parse`) to source the narrative, files, and deviation rationale, but **never
+   commits, stages, or writes git state**. Forbidden: commit, add, push, force-push,
+   rebase, reset, branch creation/switching/deletion, tag, and any remote operation. The
+   user commits the documentation updates.
 6. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. This
    is the final phase, but the rule applies if restarting the workflow.
 7. **One phase per session** - Complete this phase, then end the session. The workflow

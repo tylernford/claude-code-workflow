@@ -41,4 +41,4 @@ implementation workflow that follows is a three-phase arc.
 - **User drives** — Claude proposes, user approves. No auto-advancing.
 - **One phase per session** — End session after each phase. Docs are the handoff.
 - **Slash commands only** — Phase transitions require explicit `/command`.
-- **Preserve the mess** — Note deviations in Build Log, don't rewrite plans.
+- **Preserve the mess** — Record deviations in the commit body, don't rewrite plans.
