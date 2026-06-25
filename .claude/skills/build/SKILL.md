@@ -36,16 +36,40 @@ Every response must begin with:
 
 ### For Each Task:
 
-1. **Announce** - State which task you're starting
-2. **Implement** - Write the code / create the files
-3. **Verify** - Confirm "done when" criteria are met
-4. **Report** - Show what was created/modified
-5. **Log** - Add **one Build Log row for this task** to the implementation plan. `Files` =
-   key files created/modified; `Notes` = deviations or discoveries, or `—` if none.
-   (Canonical column schema lives in the plan template's Build Log.)
-6. **Commit** - Use the commit message from the plan (user handles git)
-7. **Pause** - Ask user: "Anything to note? (discoveries, surprises, context for later)"
-   Then wait for confirmation before next task.
+The default is **proceed** — you run the whole task and move to the next without pausing.
+Stop only by exception (see "Approve by exception" below).
+
+1. **Announce** - State which task you're starting.
+2. **Resolve check** - Read the task's `done_when`. For each item with an `intent` +
+   candidate `command`, **resolve the intent into a real command against this repo** —
+   find the actual test/build/grep target, file path, or symbol. **Never lift the
+   candidate command verbatim**; it's a guess the plan author made, and your job is to
+   re-resolve it against reality. Items marked `manual: true` have no command — note them
+   for the end-of-batch review.
+3. **Implement** - Write the code / create the files.
+4. **Run resolved command** - Run the resolved command(s). **Exit 0 is the gate.** If the
+   task deviated mid-implementation so the resolved command no longer fits, **re-resolve**
+   it before running. When the command is only a shallow proxy for the intent (e.g. it
+   proves the file parses or compiles but not that behavior is correct), record the result
+   as **"compiles, behavior unverified."** `manual: true` intents are **noted, not counted
+   as done** — they are surfaced in the end-of-batch review, never silently passed.
+5. **Commit** - Commit the task on the current branch, staging the files this task changed
+   by **explicit path** (never `git add -A`). Use the plan's commit message; if the task
+   deviated, record the why in the **commit body** (see "Handling Deviations").
+6. **Proceed** - Move to the next task. No pause.
+
+**Three-attempt cap:** if a task's check fails, fix and re-run — but bound this at **three
+attempts** per check. On the **third consecutive failure**, stop and **escalate** to the
+user with the failing command output. Do not grind past the cap.
+
+**Approve by exception:** the default is proceed. Stop and escalate to the user only when:
+
+- (a) a check is **still failing after the three-attempt cap**,
+- (b) there is a **genuine plan ambiguity** you cannot resolve from the plan and repo, or
+- (c) the task requires an **irreversible or out-of-scope action** (a branch/remote op, a
+  destructive change, work the plan didn't authorize).
+
+Anything outside (a)–(c) — proceed.
 
 ### After All Tasks: Acceptance Criteria
 
@@ -105,20 +129,23 @@ Run `/document` to begin Phase 3: Document.
 
 ## Rules
 
-1. **One task at a time** - Complete fully before moving to next
+1. **Sequential execution** - Complete each task fully before moving to the next.
+   Sequential order is not a per-task approval gate — proceed by default; do not wait for
+   confirmation between tasks.
 2. **Follow the plan** - Don't add unplanned work
 3. **Preserve the mess** - Note deviations, don't rewrite history
-4. **User confirms** - Wait for approval between tasks
-5. **Update Build Log** - Keep implementation plan current as you go
-6. **Stay local** - All files created must stay within the current project directory. No
+4. **Approve by exception** - Proceed by default; stop and escalate only on the exception
+   cases (check failing after the three-attempt cap, genuine plan ambiguity, or an
+   irreversible/out-of-scope action).
+5. **Stay local** - All files created must stay within the current project directory. No
    system-level or global configuration changes.
-7. **Git: read + commit only, on the current branch** - May read git (`git status`,
+6. **Git: read + commit only, on the current branch** - May read git (`git status`,
    `git diff`, `git log`, `git rev-parse`) freely, and may commit a completed task on the
    **current branch only**, staging the files that task **actually changed** by **explicit
    path** (never `git add -A`, never `git add .`). Forbidden: push, force-push, rebase,
    reset, branch creation/switching/deletion, tag, and any remote operation. If the work
    needs a branch change or a remote op, escalate to the user.
-8. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never
+7. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never
    auto-advance based on natural language like "let's move to documentation."
-9. **One phase per session** - Complete this phase, then end the session. Next phase
+8. **One phase per session** - Complete this phase, then end the session. Next phase
    starts fresh with docs as the handoff.

@@ -391,9 +391,10 @@ doc, not a normal code commit. **Files:**
 
 _Filled in during `/build` phase_
 
-| Date       | Task   | Files                                                           | Notes |
-| ---------- | ------ | --------------------------------------------------------------- | ----- |
-| 2026-06-25 | Task 1 | .claude/skills/build/SKILL.md, .claude/skills/document/SKILL.md | —     |
+| Date       | Task   | Files                                                           | Notes                                                  |
+| ---------- | ------ | --------------------------------------------------------------- | ------------------------------------------------------ |
+| 2026-06-25 | Task 1 | .claude/skills/build/SKILL.md, .claude/skills/document/SKILL.md | —                                                      |
+| 2026-06-25 | Task 2 | .claude/skills/build/SKILL.md                                   | Renumbered Rules 6–8 after removing "Update Build Log" |
 
 ---
 
