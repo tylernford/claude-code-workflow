@@ -406,11 +406,40 @@ _Filled in during `/build` phase_
 
 ## Completion
 
-**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-06-25 **Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** Reworked the single-agent `/build` phase along four lines, with matching
+edits to `/document` and the plan template. §0 made `allowed-tools` honest (added
+`Write, Edit, Bash`) and narrowed the git rule (build commits current-branch /
+explicit-path only; document reads git only). §1/§2 replaced the per-task approval gate
+with approve-by-exception, folded in build-time `done_when` resolution (locked `intent` +
+re-resolved `command`), made `(manual)` first-class, added "compiles, behavior unverified"
+labeling, and bounded the verify→fix cycle at three attempts. §3 added the `<base>`
+session-start snapshot, one loaded-in end-of-batch review over `<base>..HEAD`, and an
+auto-running AC gate. §4 deleted the hand-maintained Build Log everywhere, routing
+deviation rationale to commit bodies and repointing `/document` at `git log`. A validation
+run exercised the new `/build` end-to-end on a throwaway plan; the harvest confirmed all
+Move 1 behaviors on a clean path. All 12 acceptance criteria met.
 
-**Deviations from Plan:** [Any significant changes from original design]
+**Deviations from Plan:**
+
+- Task 2 — renumbered Rules 6–8 after removing the "Update Build Log" rule.
+- Task 3 — placed the `<base>` definition after the Prerequisite section and renamed
+  "After All Tasks" to "End-of-Batch Review."
+- Task 4 — the candidate `done_when` grep over-matched explanatory "Build Log" prose; it
+  was re-resolved to check the table header + Phase Complete line instead (an expected
+  build-time re-resolution).
+- Task 6 — also cleaned stale Build Log references in Step 5 and the Phase Complete
+  PR-draft template, beyond the Step 1 / 2.3 scope, for consistency.
+- Task 7 — the validation run was executed in a **separate session** on branch
+  `feat/build-phase-move-1-harvest` (a `/build` cannot nest or fabricate its own harvest).
+  The run exercised every Move 1 behavior on a clean path, but two gaps remain unobserved
+  and are carried forward as Move 1.5 design input: (i) failure-path / round-cap behavior
+  (no task failed, so the cap never fired) and (ii) un-telegraphed drift detection by a
+  lone self-grading agent (the validation plan's candidates were flagged as imperfect, so
+  the re-resolution was prompted rather than discovered). The §1 escalation triggers were
+  left unchanged — tuning from this run would be tuning from absence; a second stress-test
+  run is recommended.
 
 ---
 

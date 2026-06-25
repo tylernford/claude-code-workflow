@@ -4,6 +4,46 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-06-25: Build Phase — Move 1: Approve-by-Exception + Executable `done_when`
+
+Reworked the single-agent `/build` phase so it stops pausing after every task and instead
+runs to completion, escalating only by exception. Four changes land together. **§0** makes
+`allowed-tools` honest — `/build` can now actually write files and run `Bash`/`git`
+without re-prompting — and narrows the git rule so `/build` commits only on the current
+branch with explicit-path staging (never `git add -A`, never a remote or history op) while
+`/document` reads git but never commits. **§1/§2** replace the per-task approval gate with
+approve-by-exception (default proceed; escalate only on a check still failing after the
+cap, a genuine plan ambiguity, or an irreversible/out-of-scope action) and make per-task
+`Done when:` an `intent` (locked in the plan) plus a `command` that `/build` re-resolves
+against the real repo at build time — never lifted verbatim — with `(manual)` as a
+first-class option and a "compiles, behavior unverified" label for shallow checks. The
+verify→fix cycle is bounded at three attempts, then escalates with the failing output.
+**§3** snapshots `<base>` at session start and replaces the interactive acceptance loop
+with one loaded-in end-of-batch review over `<base>..HEAD` (deviations first, `(manual)`
+items separate, verified-vs-just-compiled per task, test-file diffs surfaced) plus an AC
+gate that auto-runs the active executable criteria and presents the manual ones. **§4**
+deletes the hand-maintained Build Log everywhere — deviation rationale moves to commit
+bodies, and `/document` now sources its narrative, file list, and deviations from
+`git log` / `git log --stat`. The plan template's `Done when:` and the Build Log table
+were updated to match. A validation run exercised the new `/build` end-to-end on a
+throwaway plan; the harvest confirmed every behavior on a clean path and flagged
+failure-path/cap behavior and un-telegraphed drift detection as the two gaps for Move 1.5.
+Scope was single-agent only — the orchestrator, honesty-gate, and write-lockout are
+deferred to Move 1.5.
+
+**Design:**
+[docs/design-specs/2026-06-25-1438-build-phase-move-1.md](design-specs/2026-06-25-1438-build-phase-move-1.md)
+**Plan:**
+[docs/implementation-plans/2026-06-25-1453-build-phase-move-1.md](implementation-plans/2026-06-25-1453-build-phase-move-1.md)
+**Key files:**
+
+- `.claude/skills/build/SKILL.md`
+- `.claude/skills/document/SKILL.md`
+- `.claude/skills/plan/templates/implementation-plan.md`
+- `docs/research/workflow-upgrade/2026-06-25-move-1-validation-harvest.md`
+
+---
+
 ## 2026-06-24: Acceptance-Criteria Carry-Forward
 
 Acceptance criteria could silently disappear between phases. `/design` writes them and
