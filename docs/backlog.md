@@ -198,6 +198,27 @@ assignment is **not**. Dispatching the builder at a cheap tier and the verifier 
 expensive one is a tunable left for after the loop is shown to converge — the role split,
 not the model IDs, is what's proven.
 
+**5. Parallel-task worktree isolation.** This cut keeps the loop **sequential** — one task
+fully through `done` before the next starts. The deferred move is running independent
+tasks concurrently, each builder/verifier pair in its own git worktree so parallel edits
+can't collide. Out of scope here because sequential is simpler to spec and prove; worktree
+isolation is the natural enabler once the single-task loop is trusted.
+
+**6. Crash / stale-state recovery.** Move 1.5's only recovery story is "re-derive `done`
+from the git commit + `done_when`" — a task's commit exists iff it passed, so a crashed
+session re-reads state from git. Anything richer (resuming a half-built task mid-loop,
+recovering an in-flight subagent, a durable state file) is deferred. Adequate for now
+because the commit-as-proof model degrades gracefully; revisit if mid-loop crashes prove
+costly.
+
+**7. ed3d procedure gate (zero-Minor-or-bust).** Move 1.5 ships the **outcome gate** (exit
+on `done_when` pass + review clean, scoped to the task contract), not the stricter
+procedure gate that blocks on zero issues in every category including Minor. Per Design
+Decision 3 this was a deliberate fork with a **revisit trigger**: if the first real
+orchestrator runs ship Minor-grade rot that the end-of-batch review keeps catching,
+escalate toward a _scoped_ procedure gate (still off the human). Recorded so the fork
+stays revisitable rather than settling silently.
+
 **Origin:** Recorded at the close of the Move 1.5 build (plan
 [`2026-06-25-1735-build-phase-move-1.5-orchestrator.md`](implementation-plans/2026-06-25-1735-build-phase-move-1.5-orchestrator.md),
 Task 7). See the design spec's "Out of Scope" and "Residual Risks" sections for the full
