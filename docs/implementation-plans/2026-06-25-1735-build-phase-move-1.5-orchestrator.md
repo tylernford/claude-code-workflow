@@ -507,11 +507,42 @@ result — the only way the behavioral criteria A1–A11 become observable.
 
 ## Completion
 
-**Completed:** [Date] **Final Status:** [Complete | Partial | Abandoned]
+**Completed:** 2026-06-25 **Final Status:** Complete
 
-**Summary:** [Brief description of what was actually built]
+**Summary:** `/build` was converted from a single self-grading agent into a per-task
+orchestrator. Two subagent role prompts were authored (`prompts/builder.md`,
+`prompts/verifier.md`) with honest-trust tool scopes — neither touches git or `Task`. The
+SKILL.md heart was reworked: `Task` added to frontmatter (keeping
+`disable-model-invocation: true`), the role reframed to orchestrator, and the single-agent
+loop replaced with a `todo → building → built → reviewing → done` state machine whose
+dispatch+review loop has the verifier author/resolve the check (red→green for new
+behavior) **before** the builder runs, then diff the builder's change and render the gate
+— exit only on `done_when` exit 0 **and** no in-contract findings. A round cap of 3 (then
+escalate), a verbatim carried-issue list (silence ≠ fixed, chunk-don't-skip on overflow),
+and a Guard 4 tamper-diff hard-fail were added. Transparency (print every report, name the
+task, name the escalation trigger) and sole-committer discipline (one commit per verified
+task, explicit-path staging incl. the check file, builder/verifier never touch git) were
+pinned. The retained end-of-batch review was re-scoped to cross-task/integration coherence
+(not a second per-task pass), still surfacing `(manual)` and "compiles, behavior
+unverified" separately. A throwaway 6-task validation plan and the backlog deferrals were
+recorded.
 
-**Deviations from Plan:** [Any significant changes from original design]
+The Validation Run was executed in a separate window (throwaway branch
+`feat/build-phase-move-1.5-harvest`, `sandbox/move-1.5/`) and **fed back to this paused
+build session**: all eleven behavioral criteria A1–A11 were observed (not inferred) —
+including the A10 falsification (per-task green both ways; integration red→green only when
+the Celsius/Fahrenheit unit mismatch is removed) — and A1–A16 are all marked `[x]`.
+
+**Deviations from Plan:** None — all seven build tasks and the fed-back Validation Run
+executed as planned. (`sync-skills.sh` staying untouched was predicted in the plan's
+Discrepancies; the orchestrator's run-commits living off-branch is the plan's named
+"Inherent trade." Neither is a departure.)
+
+**Additions beyond plan (not deviations):** One extra backlog commit (`cbcd974`) beyond
+Task 7. Task 7 / A16 named four deferrals; a post-build spec-vs-backlog completeness check
+found the design spec's "Out of Scope" section had deferred three more that went
+unrecorded — parallel-task worktree isolation, crash/stale-state recovery, and the ed3d
+zero-Minor procedure gate. Added so the backlog carries the spec's full deferral list.
 
 ---
 

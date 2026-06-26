@@ -1,6 +1,7 @@
 # Build Phase Move 1.5 — `/build` as Orchestrator (dispatch + review loop)
 
-**Created:** 2026-06-25 **Implementation Plan:** _(pending — created by `/plan`)_
+**Created:** 2026-06-25 **Implementation Plan:**
+docs/implementation-plans/2026-06-25-1735-build-phase-move-1.5-orchestrator.md
 
 ---
 

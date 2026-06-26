@@ -4,6 +4,52 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-06-25: Build Phase — Move 1.5: `/build` as Orchestrator
+
+Turned `/build` from a single self-grading agent into a per-task **orchestrator** that
+dispatches two subagents — a **builder** (doer) and a **separate verifier** (judge) — and
+loops them against an executable check until each task is verifiably done, then commits
+one clean commit per verified task as the sole committer. Two new role prompts
+(`prompts/builder.md`, `prompts/verifier.md`) carry honest-trust tool scopes; neither
+touches git or the `Task` tool. The SKILL.md heart was reworked: `Task` added to
+frontmatter (keeping `disable-model-invocation: true`), the role reframed to orchestrator,
+and the old single-agent loop replaced with a `todo → building → built → reviewing → done`
+state machine. In the loop the verifier authors/resolves the check (red→green for
+new-behavior tasks) **before** the builder runs, then diffs the builder's change and
+renders the gate; a task exits only when `done_when` exits 0 **and** the verifier reports
+no in-contract findings. A round cap of 3-then-escalate, a verbatim carried-issue list
+(silence ≠ fixed, chunk-don't-skip on context overflow), and a **Guard 4 tamper-diff**
+(weakened assert / `exit(0)` stub / edited check = hard fail) make non-convergence an
+escalation and the check-authoring boundary checkable. A transparency mandate (print every
+subagent report in full, name the task each round, name the escalation trigger) and
+sole-committer discipline (explicit-path staging incl. the verifier-authored check file)
+make the subagent-mediated work auditable. The retained end-of-batch review was re-scoped
+to **cross-task / integration coherence** — the job a single-task verifier structurally
+cannot do — and still surfaces `(manual)` and "compiles, behavior unverified" items
+separately. A throwaway 6-task validation plan and the named deferrals (reviewer
+multiplicity, stakes routing, mechanical write-lockout, model tiering, plus worktree
+isolation, crash recovery, and the ed3d procedure gate) were recorded. A Validation Run in
+a separate window exercised the new orchestrator end-to-end on a throwaway branch and was
+fed back to the paused build session: all eleven behavioral criteria A1–A11 were observed
+(not inferred) — including the A10 cross-task catch falsification — confirming the
+orchestrator end-to-end. Scope is the minimal provable cut; the deferred items are the
+additive next moves.
+
+**Design:**
+[docs/design-specs/2026-06-25-1654-build-phase-move-1.5-orchestrator.md](design-specs/2026-06-25-1654-build-phase-move-1.5-orchestrator.md)
+**Plan:**
+[docs/implementation-plans/2026-06-25-1735-build-phase-move-1.5-orchestrator.md](implementation-plans/2026-06-25-1735-build-phase-move-1.5-orchestrator.md)
+**Key files:**
+
+- `.claude/skills/build/SKILL.md`
+- `.claude/skills/build/prompts/builder.md`
+- `.claude/skills/build/prompts/verifier.md`
+- `docs/research/workflow-upgrade/2026-06-25-move-1.5-validation-plan.md`
+- `docs/research/workflow-upgrade/2026-06-25-move-1.5-validation-harvest.md`
+- `docs/backlog.md`
+
+---
+
 ## 2026-06-25: Build Phase — Move 1: Approve-by-Exception + Executable `done_when`
 
 Reworked the single-agent `/build` phase so it stops pausing after every task and instead
