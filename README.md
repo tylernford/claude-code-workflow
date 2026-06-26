@@ -48,7 +48,8 @@ claude-code-insights/      # Claude Code usage analysis reports
 docs/
 ├── design-specs/          # Design documents
 ├── implementation-plans/  # Task breakdowns
-├── learning/              # Learning logs from /learn-by-doing
+├── issues/                # Post-mortems / bug write-ups
+├── research/              # Research notes and explorations
 ├── changelog.md           # Completed feature history
 └── backlog.md             # Future improvements
 CLAUDE.md                  # Project instructions for Claude Code
