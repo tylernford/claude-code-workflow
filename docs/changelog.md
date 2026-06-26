@@ -409,7 +409,7 @@ gravitating to Phase Complete. The new structure places "After All Tasks: Accept
 Criteria" alongside "For Each Task" within Workflow.
 
 **Design:**
-[docs/design-plans/2026-02-04-0917-acceptance-criteria-restructure.md](design-plans/2026-02-04-0917-acceptance-criteria-restructure.md)
+[docs/design-specs/2026-02-04-0917-acceptance-criteria-restructure.md](design-specs/2026-02-04-0917-acceptance-criteria-restructure.md)
 **Plan:**
 [docs/implementation-plans/2026-02-04-0926-acceptance-criteria-restructure.md](implementation-plans/2026-02-04-0926-acceptance-criteria-restructure.md)
 **Key files:**
@@ -427,7 +427,7 @@ and core principles—eliminating the need for Claude to read multiple files to 
 the project.
 
 **Design:**
-[docs/design-plans/2026-02-03-2241-add-claude-md.md](design-plans/2026-02-03-2241-add-claude-md.md)
+[docs/design-specs/2026-02-03-2241-add-claude-md.md](design-specs/2026-02-03-2241-add-claude-md.md)
 **Plan:**
 [docs/implementation-plans/2026-02-03-2243-add-claude-md.md](implementation-plans/2026-02-03-2243-add-claude-md.md)
 **Key files:**
@@ -444,7 +444,7 @@ to remove directory references that triggered the search behavior, matching `/do
 working pattern.
 
 **Design:**
-[docs/design-plans/2026-02-03-2142-fix-doc-path-asking.md](design-plans/2026-02-03-2142-fix-doc-path-asking.md)
+[docs/design-specs/2026-02-03-2142-fix-doc-path-asking.md](design-specs/2026-02-03-2142-fix-doc-path-asking.md)
 **Plan:**
 [docs/implementation-plans/2026-02-03-2147-fix-doc-path-asking.md](implementation-plans/2026-02-03-2147-fix-doc-path-asking.md)
 **Key files:**
@@ -462,7 +462,7 @@ run `date +%Y-%m-%d-%H%M` to get the current timestamp." now appears immediately
 the file path templates in both commands.
 
 **Design:**
-[docs/design-plans/2026-02-03-2059-add-timestamp-verification-instructions.md](design-plans/2026-02-03-2059-add-timestamp-verification-instructions.md)
+[docs/design-specs/2026-02-03-2059-add-timestamp-verification-instructions.md](design-specs/2026-02-03-2059-add-timestamp-verification-instructions.md)
 **Plan:**
 [docs/implementation-plans/2026-02-03-2104-add-timestamp-verification-instructions.md](implementation-plans/2026-02-03-2104-add-timestamp-verification-instructions.md)
 **Key files:**
@@ -480,7 +480,7 @@ back into the design doc, and `/document` reads the link from the header instead
 searching.
 
 **Design:**
-[docs/design-plans/2026-01-28-1517-design-doc-link-to-plan.md](design-plans/2026-01-28-1517-design-doc-link-to-plan.md)
+[docs/design-specs/2026-01-28-1517-design-doc-link-to-plan.md](design-specs/2026-01-28-1517-design-doc-link-to-plan.md)
 **Plan:**
 [docs/implementation-plans/2026-01-28-1520-design-doc-link-to-plan.md](implementation-plans/2026-01-28-1520-design-doc-link-to-plan.md)
 **Key files:**
@@ -498,7 +498,7 @@ from `YYYY-MM-DD-feature-name.md` to `YYYY-MM-DD-HHMM-feature-name.md`. This ena
 chronological sorting when multiple documents are created on the same date.
 
 **Design:**
-[docs/design-plans/2026-01-28-1129-add-time-to-filename-dates.md](design-plans/2026-01-28-1129-add-time-to-filename-dates.md)
+[docs/design-specs/2026-01-28-1129-add-time-to-filename-dates.md](design-specs/2026-01-28-1129-add-time-to-filename-dates.md)
 **Plan:**
 [docs/implementation-plans/2026-01-28-1138-add-time-to-filename-dates.md](implementation-plans/2026-01-28-1138-add-time-to-filename-dates.md)
 **Key files:**
@@ -515,7 +515,7 @@ output with a conventional commit-style title, summary, key changes, and documen
 links—giving users copy/paste-ready content for PR creation.
 
 **Design:**
-[docs/design-plans/2026-01-28-add-pr-draft-to-document-phase.md](design-plans/2026-01-28-add-pr-draft-to-document-phase.md)
+[docs/design-specs/2026-01-28-add-pr-draft-to-document-phase.md](design-specs/2026-01-28-add-pr-draft-to-document-phase.md)
 **Plan:**
 [docs/implementation-plans/2026-01-28-add-pr-draft-to-document-phase.md](implementation-plans/2026-01-28-add-pr-draft-to-document-phase.md)
 **Key files:**
@@ -531,7 +531,7 @@ complete but before Phase Complete. This ensures features are actually verified 
 Build rather than retroactively assumed during Document.
 
 **Design:**
-[docs/design-plans/2026-01-28-build-verification-checklist.md](design-plans/2026-01-28-build-verification-checklist.md)
+[docs/design-specs/2026-01-28-build-verification-checklist.md](design-specs/2026-01-28-build-verification-checklist.md)
 **Plan:**
 [docs/implementation-plans/2026-01-28-build-verification-checklist.md](implementation-plans/2026-01-28-build-verification-checklist.md)
 **Key files:**
@@ -548,7 +548,7 @@ progression language, and updated `/plan` opening to frame it as the start of an
 Implementation Session with time-gap awareness.
 
 **Design:**
-[docs/design-plans/2026-01-16-decouple-design-from-implementation.md](design-plans/2026-01-16-decouple-design-from-implementation.md)
+[docs/design-specs/2026-01-16-decouple-design-from-implementation.md](design-specs/2026-01-16-decouple-design-from-implementation.md)
 **Plan:**
 [docs/implementation-plans/2026-01-16-decouple-design-from-implementation.md](implementation-plans/2026-01-16-decouple-design-from-implementation.md)
 **Key files:**
@@ -565,7 +565,7 @@ directories and listing files. Matches the existing `/document` pattern and redu
 usage.
 
 **Design:**
-[docs/design-plans/2026-01-15-simplify-doc-path-input.md](design-plans/2026-01-15-simplify-doc-path-input.md)
+[docs/design-specs/2026-01-15-simplify-doc-path-input.md](design-specs/2026-01-15-simplify-doc-path-input.md)
 **Plan:**
 [docs/implementation-plans/2026-01-15-simplify-doc-path-input.md](implementation-plans/2026-01-15-simplify-doc-path-input.md)
 **Key files:**
@@ -583,7 +583,7 @@ prompts to `/build` and `/document`, and restructured `/document` with a Load an
 Summarize step.
 
 **Design:**
-[docs/design-plans/2026-01-15-workflow-phase-improvements.md](design-plans/2026-01-15-workflow-phase-improvements.md)
+[docs/design-specs/2026-01-15-workflow-phase-improvements.md](design-specs/2026-01-15-workflow-phase-improvements.md)
 **Plan:**
 [docs/implementation-plans/2026-01-15-workflow-phase-improvements.md](implementation-plans/2026-01-15-workflow-phase-improvements.md)
 **Key files:**
@@ -601,7 +601,7 @@ Implemented a phase-based workflow for building features with Claude Code. Four 
 commands guide development through Design, Plan, Build, and Document phases.
 
 **Design:**
-[docs/design-plans/2026-01-15-claude-development-workflow.md](design-plans/2026-01-15-claude-development-workflow.md)
+[docs/design-specs/2026-01-15-claude-development-workflow.md](design-specs/2026-01-15-claude-development-workflow.md)
 **Plan:** (this feature bootstrapped itself) **Key files:**
 
 - `.claude/commands/design.md`

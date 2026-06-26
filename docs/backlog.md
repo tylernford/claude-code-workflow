@@ -16,7 +16,7 @@ Open ideas and improvements for the Claude Development Workflow.
 picked up for implementation vs. still being refined.
 
 **Noted:** Noted 2026-01-16 in
-docs/design-plans/2026-01-16-decouple-design-from-implementation.md
+docs/design-specs/2026-01-16-decouple-design-from-implementation.md
 
 ---
 
@@ -60,12 +60,6 @@ It forces you to:
 3. **One design = one `/document`** — Complete the cycle before starting dependent work
 4. **Drift is inevitable; checkpoints catch it** — The longer between `/document` phases,
    the more drift accumulates
-
-### See Also
-
-- Design spec:
-  [2026-01-25-craft-nextjs-integration.md](../design-plans/2026-01-25-craft-nextjs-integration.md)
-  (Retrospective section)
 
 ---
 
