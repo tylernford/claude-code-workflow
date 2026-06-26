@@ -4,6 +4,20 @@ A record of features built using the Claude Development Workflow.
 
 ---
 
+## 2026-06-26: Skills Sync Auto-Discovery
+
+`scripts/sync-skills.sh` now auto-discovers every directory under `.claude/skills/`
+instead of iterating a hardcoded four-skill list, so `learn-by-doing`, `study-partner`,
+and any future skills sync without a script edit. Adds an empty-by-default `IGNORE_SKILLS`
+opt-out. Supersedes the "4 workflow skill directories" behavior from the 2026-02-20 Global
+Skills Sync entry.
+
+**Key files:**
+
+- `scripts/sync-skills.sh`
+
+---
+
 ## 2026-06-25: Build Phase — Move 1.5: `/build` as Orchestrator
 
 Turned `/build` from a single self-grading agent into a per-task **orchestrator** that
