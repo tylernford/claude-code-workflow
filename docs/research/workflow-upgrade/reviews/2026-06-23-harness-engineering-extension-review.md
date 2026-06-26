@@ -24,48 +24,6 @@ drift and are documented in `docs/issues/` and the backlog.
 
 ---
 
-## Bugs found on disk (fix regardless of which proposals are adopted)
-
-Cross-validated across agents, each citing specific files. These are current-state facts,
-not proposals:
-
-1. **`scripts/sync-skills.sh:4` is out of sync and breaks `learn-by-doing` globally.** The
-   script syncs 4 skills (`design plan build document`); `README.md:76` promises 5.
-   `learn-by-doing` is not synced — yet `learn-by-doing/SKILL.md:37` references an
-   absolute `~/.claude/skills/learn-by-doing/resources/PRINCIPLES.md` that won't exist for
-   anyone relying on the sync. This is the one workflow skill whose support file is
-   load-bearing at runtime. Minimum fix: add `learn-by-doing` to the array (or
-   auto-discover the dir).
-
-2. **12 dead links** in `docs/changelog.md` (273, 291, 308, 326, 344, 362, …) and
-   `docs/backlog.md` (19, 67) point at `design-plans/`. The directory is `design-specs/`.
-   Dead links into the system-of-record. Fix: `sed` `design-plans/` -> `design-specs/`.
-
-3. **`docs/learning/` is listed but absent.** `CLAUDE.md:14` and `README.md:51` show it;
-   it's created lazily by `learn-by-doing/SKILL.md:63`. Meanwhile `docs/issues/` and
-   `docs/research/` exist and are listed in neither structure block. The table-of-contents
-   describes a layout the disk doesn't have. Fix: reconcile the structure blocks to disk.
-
-4. **`allowed-tools: Read, Grep, Glob`** on every workflow skill's frontmatter (e.g.
-   `build/SKILL.md:3`) is wrong — the skills write files (specs, plans, learning logs) and
-   run Bash (`date`, `git branch --show-current`). Either it's unenforced (cosmetic and
-   misleading to the next editor) or strict enforcement would block `/design` from writing
-   its own spec. Decide whether `allowed-tools` should mean something, then make it
-   honest.
-
-5. **The relative-path convention has failed by drift twice.** Fixed in `design`/`plan`,
-   silently reintroduced in `learn-by-doing`/`study-partner`
-   (`docs/issues/2026-03-05-skill-relative-path-resolution.md`). A check was prototyped
-   (`scripts/check-skill-paths.sh`, still whitelisted in `.claude/settings.local.json:9`)
-   then demoted to backlog pending "where enforcement should live."
-
-6. **Exec-bit history:** `sync-skills.sh` was once committed `100644`, breaking the
-   `post-merge` hook with "Permission denied" on fresh pulls — "passed through all four
-   workflow phases uncaught"
-   (`docs/issues/2026-03-05-end-to-end-path-verification-gap.md`).
-
----
-
 ## Proposals (where the four lenses converged)
 
 ### P1 — Generate an `index.md` for the doc piles; have skills read it instead of asking for a path
@@ -86,16 +44,15 @@ templates). Worth it for solo.
 
 ### P2 — Cheap pre-commit lints, each backed by a failure that already happened
 
-`.githooks/pre-commit` currently runs only Prettier. Add: a markdown link-check (catches
-bug #2's class), a skill support-path lint (bug #5 — the script is already prototyped),
-and an exec-bit/shebang check (bug #6). Harness principle: _"We enforce this mechanically.
-Dedicated linters... validate that the knowledge base is up to date, cross-linked, and
-structured correctly"_ and _"we write the error messages to inject remediation
-instructions into agent context."_ These live in the gate the human already passes on
-every commit, so they need no CI. Highest cost/benefit ratio in the set — each one stops a
-recurring, documented failure rather than a hypothetical. Keep them warn-or-fast-fail,
-deterministic (markdown-structural, not type-checking — the insights evaluation already
-ruled type-checks out of this repo).
+`.githooks/pre-commit` currently runs only Prettier. Add: a markdown link-check and a
+skill support-path lint (the script was prototyped). Harness principle: _"We enforce this
+mechanically. Dedicated linters... validate that the knowledge base is up to date,
+cross-linked, and structured correctly"_ and _"we write the error messages to inject
+remediation instructions into agent context."_ These live in the gate the human already
+passes on every commit, so they need no CI. Highest cost/benefit ratio in the set — each
+one stops a recurring, documented failure rather than a hypothetical. Keep them
+warn-or-fast-fail, deterministic (markdown-structural, not type-checking — the insights
+evaluation already ruled type-checks out of this repo).
 
 ### P3 — Make acceptance criteria executable-where-cheap, attested-where-not
 
@@ -191,12 +148,11 @@ dismantle what the workflow is built to protect:
 
 ## Suggested sequence
 
-1. **Fix the disk bugs** (an afternoon; #1 and #2 are actively broken).
-2. **Pre-commit lints** (P2) — cheap, each stops a recurring documented failure.
-3. **Index + skills-read-index** (P1) — the daily-driver legibility win.
-4. **Criteria + gates** (P3, P4) — template/skill changes that benefit from indexing
+1. **Pre-commit lints** (P2) — cheap, each stops a recurring documented failure.
+2. **Index + skills-read-index** (P1) — the daily-driver legibility win.
+3. **Criteria + gates** (P3, P4) — template/skill changes that benefit from indexing
    first.
-5. **Meta-loop + `/review` skill** (P5, P6) — make the self-improvement durable.
+4. **Meta-loop + `/review` skill** (P5, P6) — make the self-improvement durable.
 
 ---
 
