@@ -489,18 +489,18 @@ result — the only way the behavioral criteria A1–A11 become observable.
 - [ ] **A11.** When the builder touches an undeclared **out-of-scope** file, the
       orchestrator escalates as approve-by-exception rather than silently staging it; an
       undeclared **in-scope** touch stages by path without escalating. `(design)`
-- [ ] **A12.** `build/SKILL.md` frontmatter lists
+- [x] **A12.** `build/SKILL.md` frontmatter lists
       `Read, Grep, Glob, Write, Edit, Bash,     Task` and retains
       `disable-model-invocation: true`. `(added)`
-- [ ] **A13.** `.claude/skills/build/prompts/builder.md` and `verifier.md` exist with the
+- [x] **A13.** `.claude/skills/build/prompts/builder.md` and `verifier.md` exist with the
       pinned tool scopes, both declaring **no git / no Task**; the builder is instructed
       off the check; the verifier has Write to author it; the scopes are labeled
       honest-trust, not a wall. `(added)`
-- [ ] **A14.** `build/SKILL.md` references the prompt files by absolute
+- [x] **A14.** `build/SKILL.md` references the prompt files by absolute
       `~/.claude/skills/build/…` path (not a relative link). `(added)`
-- [ ] **A15.** The throwaway validation plan exists with six tasks (0–5) collectively
+- [x] **A15.** The throwaway validation plan exists with six tasks (0–5) collectively
       referencing all of A1–A11, marked throwaway. `(added)`
-- [ ] **A16.** `docs/backlog.md` records the four deferrals (reviewer multiplicity, stakes
+- [x] **A16.** `docs/backlog.md` records the four deferrals (reviewer multiplicity, stakes
       routing, mechanical write-lockout, model tiering). `(added)`
 
 ---
