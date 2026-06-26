@@ -157,6 +157,36 @@ tool grants, so the tamper-diff — not tool scoping — is what makes the check
 boundary checkable. The mechanical write-lockout is a deferred next move, not part of this
 cut.
 
+### Transparency
+
+The orchestrator's work happens through subagents, so the human can only audit it if the
+orchestrator surfaces what those subagents did. Therefore:
+
+- **Print every subagent report in full** — the builder's diff/summary and the verifier's
+  check, findings, and gate call — **before acting on it.** Never act on a summary the
+  human cannot see.
+- **Name the task before each round** — print which task (number + name) is being
+  dispatched, every round, so the transcript shows where the loop is.
+- **Every escalation names its trigger** — when you stop and escalate, say **which** path
+  fired: the **round cap**, a **plan ambiguity**, or an **out-of-scope undeclared file**.
+  The human is never left to guess which exception you hit.
+
+### Commit discipline (sole committer)
+
+The orchestrator is the **sole committer**. Builder and verifier subagents never touch
+git.
+
+- **One commit per verified task** — commit only after the outcome gate passes, once per
+  task.
+- **Stage that task's declared files by explicit path** — never `git add -A`, never
+  `git add .`. **Include the verifier-authored check file** among the staged paths: the
+  check is part of the task's verified output.
+- **Undeclared files — verifier reports, orchestrator judges.** The verifier surfaces any
+  file the builder touched that the task did not declare (step 5). You judge its scope at
+  commit: **in-scope → stage it by explicit path** and record the file + why in the commit
+  body; **out-of-scope → escalate as an approve-by-exception event** (trigger named), do
+  **not** commit it. **No silent staging** of an undeclared file either way.
+
 ### After All Tasks: End-of-Batch Review
 
 The per-task pauses are gone, so the whole batch gets **one** real human review here. Do
@@ -203,13 +233,14 @@ the record now, not a hand-maintained Build Log.
    commit.
 3. **Continue** - Proceed with the adjusted approach.
 
-**Undeclared-file case.** If a deviation makes you touch a file the task **did not
-declare**:
+**Undeclared-file case.** When the builder touches a file the task **did not declare**,
+the **verifier surfaces it** in its diff pass and **you (the orchestrator) judge its
+scope** at commit — see "Commit discipline (sole committer)":
 
-- If the change is in-scope: stage that file by **explicit path** (never `git add -A`) and
-  record it in the commit body — name the file and the why.
-- If the touch is **out of scope** for the task: **escalate** to the user instead of
-  committing it.
+- If the change is **in-scope**: stage that file by **explicit path** (never `git add -A`)
+  and record it in the commit body — name the file and the why.
+- If the touch is **out of scope** for the task: **escalate** to the user as an
+  approve-by-exception event (trigger named) instead of committing it.
 
 Never leave a changed file as a silent dirty-tree drop, and never sweep it in with
 `git add -A`.
