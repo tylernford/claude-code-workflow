@@ -26,12 +26,12 @@ that follows is a three-phase arc.
 
 **Implementation**
 
-| Phase            | Skill             | What happens                                                        |
-| ---------------- | ----------------- | ------------------------------------------------------------------- |
-| **1 · Plan**     | `/plan`           | Break the design into executable tasks with done-when criteria      |
-| **2 · Build**    | `/build`          | Execute tasks in sequence, committing each, escalating by exception |
-|                  | `/learn-by-doing` | Same as `/build`, but user writes code while Claude tutors          |
-| **3 · Document** | `/document`       | Update changelog, generate PR description, close out the work       |
+| Phase            | Skill             | What happens                                                                                                   |
+| ---------------- | ----------------- | -------------------------------------------------------------------------------------------------------------- |
+| **1 · Plan**     | `/plan`           | Break the design into executable tasks with done-when criteria                                                 |
+| **2 · Build**    | `/build`          | Orchestrate a builder and a separate verifier per task, committing each verified task, escalating by exception |
+|                  | `/learn-by-doing` | Same as `/build`, but user writes code while Claude tutors                                                     |
+| **3 · Document** | `/document`       | Update changelog, generate PR description, close out the work                                                  |
 
 Core principles:
 

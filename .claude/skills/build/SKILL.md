@@ -1,6 +1,6 @@
 ---
 disable-model-invocation: true
-allowed-tools: Read, Grep, Glob, Write, Edit, Bash
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash, Task
 ---
 
 # /build
@@ -11,8 +11,21 @@ You are starting **Implementation · Phase 2: Build**.
 
 ## Your Role
 
-Execute the implementation plan task by task, with commits at each checkpoint. You
-implement, user reviews.
+You are the **orchestrator**. You execute the implementation plan task by task, but you do
+**not** build or judge directly. For each task you dispatch **two separate subagents** via
+the `Task` tool:
+
+- a **builder** (the doer) — reads `~/.claude/skills/build/prompts/builder.md`, and
+- a separate **verifier** (the judge) — reads
+  `~/.claude/skills/build/prompts/verifier.md`.
+
+The verifier owns what "done" means: it authors the executable check up front and renders
+the gate after. You loop the two against that check until the task is verifiably done,
+then you — and only you — commit. The doer and the judge are **different agents, by
+design**: this is what replaces a single agent self-grading its own work.
+
+You stay the **sole committer** and the sole authority for marking acceptance criteria.
+Builder and verifier subagents never touch git.
 
 ---
 
@@ -52,48 +65,142 @@ Every response must begin with:
 
 ## Workflow
 
-### For Each Task:
+### Per-task state machine
 
-The default is **proceed** — you run the whole task and move to the next without pausing.
-Stop only by exception (see "Approve by exception" below).
+Each task moves through:
+**`todo → building → built → reviewing → done | back-to-building`**.
 
-1. **Announce** - State which task you're starting.
-2. **Resolve check** - Read the task's `done_when`. For each item with an `intent` +
-   candidate `command`, **resolve the intent into a real command against this repo** —
-   find the actual test/build/grep target, file path, or symbol. **Never lift the
-   candidate command verbatim**; it's a guess the plan author made, and your job is to
-   re-resolve it against reality. Items marked `manual: true` have no command — note them
-   for the end-of-batch review.
-3. **Implement** - Write the code / create the files.
-4. **Run resolved command** - Run the resolved command(s). **Exit 0 is the gate.** If the
-   task deviated mid-implementation so the resolved command no longer fits, **re-resolve**
-   it before running. When the command is only a shallow proxy for the intent (e.g. it
-   proves the file parses or compiles but not that behavior is correct), record the result
-   as **"compiles, behavior unverified."** `manual: true` intents are **noted, not counted
-   as done** — they are surfaced in the end-of-batch review, never silently passed.
-5. **Commit** - Commit the task on the current branch, staging the files this task changed
-   by **explicit path** (never `git add -A`). Use the plan's commit message; if the task
-   deviated, record the why in the **commit body** (see "Handling Deviations").
-6. **Proceed** - Move to the next task. No pause.
+- **todo** — not yet started.
+- **building** — the builder subagent is implementing the task.
+- **built** — the builder has returned its diff; the `done_when` check is run.
+- **reviewing** — the verifier subagent diffs the change, runs the tamper-diff, and
+  renders the gate.
+- **done** — the outcome gate passed; the orchestrator commits. Terminal.
+- **back-to-building** — the gate did not pass; re-dispatch the builder with the carried
+  finding list (see **Loop control** below). Not terminal — it returns to **building**.
 
-**Three-attempt cap:** if a task's check fails, fix and re-run — but bound this at **three
-attempts** per check. On the **third consecutive failure**, stop and **escalate** to the
-user with the failing command output. Do not grind past the cap.
+The default is **proceed** — you run each task's loop to `done` and move to the next
+without pausing. Stop only by exception (see "Approve by exception" below).
+
+### The dispatch + review loop (for each task)
+
+1. **Name the task** being dispatched — print which task (number + name) is entering the
+   loop, before each round. Transparency is mandatory (see "Transparency" below).
+2. **Verifier authors / resolves the check** — dispatch the verifier (it reads
+   `~/.claude/skills/build/prompts/verifier.md`) with the task contract and its
+   `done_when`. For a **new-behavior** task the verifier **authors the executable check
+   from intent _before_ the builder runs** and confirms it starts **red**. For an
+   **existing-signal** task it **re-resolves** the candidate command against the actual
+   repo (real path/symbol/ target — **never lift the candidate verbatim**). Un-checkable
+   items are tagged `(manual)` — noted, not run. **Authoring the check only ever happens
+   in the verifier**, never the builder.
+3. **Dispatch the builder** — dispatch the builder (it reads
+   `~/.claude/skills/build/prompts/builder.md`) with the task contract: the declared files
+   and the change to make. The builder implements and returns its diff and summary. It may
+   run the check but must not author or edit it.
+4. **Run the resolved `done_when`** — run the verifier's check. **Exit 0 is half the
+   gate.** If the task deviated mid-implementation so the check no longer fits, the
+   verifier **re-resolves** it before running. When the command is only a shallow proxy
+   (it proves the file parses/compiles but not that behavior is correct), record the
+   result as **"compiles, behavior unverified."**
+5. **Verifier diff + review** — dispatch the verifier again to **diff the builder's
+   change**: report in-contract findings, run the **tamper-diff** (Guard 4 — see "Loop
+   control"), and surface any **undeclared file** the builder touched (you judge its scope
+   at commit — see "Commit discipline").
+6. **Outcome gate** — exit the task to **done** only when **`done_when` exits 0 AND the
+   verifier reports no in-contract findings** — both visible in the transcript. Otherwise
+   go to **back-to-building**: re-dispatch the builder with the carried finding list,
+   bounded by the round cap (see "Loop control"). `manual: true` intents are **noted, not
+   counted as done** — surfaced separately in the end-of-batch review, never silently
+   passed.
+
+Then **commit** the verified task (see "Commit discipline") and **proceed** to the next.
+No pause between tasks.
 
 **Approve by exception:** the default is proceed. Stop and escalate to the user only when:
 
-- (a) a check is **still failing after the three-attempt cap**,
+- (a) a task is **still failing after the round cap** (3 dispatch→review rounds — see
+  "Loop control"),
 - (b) there is a **genuine plan ambiguity** you cannot resolve from the plan and repo, or
 - (c) the task requires an **irreversible or out-of-scope action** (a branch/remote op, a
   destructive change, work the plan didn't authorize).
 
 Anything outside (a)–(c) — proceed.
 
+### Loop control: round cap, carried issues & Guard 4
+
+**Round cap = 3 → escalate.** Each pass through the dispatch + review loop is one
+**round**. If the outcome gate has not passed after **3 rounds**, **stop and escalate to
+the human** with the failing command output and the open finding list — do **not** commit
+a task that never went green, and do **not** loop a fourth time. Non-convergence is an
+escalation, not a hang.
+
+**Carried-issue list.** When a round fails, carry the verifier's finding list **verbatim**
+into the next builder dispatch — the builder must see exactly what it has to fix.
+**Silence ≠ fixed:** an issue drops off the list **only when the verifier confirms it
+resolved**, not because a later report failed to repeat it. If the review is too large for
+one context, **chunk the review — never skip it**; a finding that scrolled out of context
+is not a finding that was addressed.
+
+**Guard 4 — tamper-diff (hard fail).** As part of step 5, the verifier diffs the builder's
+change for check-tampering:
+
+- a **weakened or deleted assertion** in the check,
+- an inserted **`exit(0)`** / early-success stub that short-circuits the check, or
+- **any edit to the check file itself.**
+
+Any one of these is a **hard fail** of the task — **not** a fixable finding routed back
+into the loop, and **not** subject to the round cap. A tampered check means the gate can
+no longer be trusted, so the task fails outright and escalates. This is **honest trust,
+not an OS-level wall**: the builder holds Bash and could touch any file regardless of its
+tool grants, so the tamper-diff — not tool scoping — is what makes the check-authoring
+boundary checkable. The mechanical write-lockout is a deferred next move, not part of this
+cut.
+
+### Transparency
+
+The orchestrator's work happens through subagents, so the human can only audit it if the
+orchestrator surfaces what those subagents did. Therefore:
+
+- **Print every subagent report in full** — the builder's diff/summary and the verifier's
+  check, findings, and gate call — **before acting on it.** Never act on a summary the
+  human cannot see.
+- **Name the task before each round** — print which task (number + name) is being
+  dispatched, every round, so the transcript shows where the loop is.
+- **Every escalation names its trigger** — when you stop and escalate, say **which** path
+  fired: the **round cap**, a **plan ambiguity**, or an **out-of-scope undeclared file**.
+  The human is never left to guess which exception you hit.
+
+### Commit discipline (sole committer)
+
+The orchestrator is the **sole committer**. Builder and verifier subagents never touch
+git.
+
+- **One commit per verified task** — commit only after the outcome gate passes, once per
+  task.
+- **Stage that task's declared files by explicit path** — never `git add -A`, never
+  `git add .`. **Include the verifier-authored check file** among the staged paths: the
+  check is part of the task's verified output.
+- **Undeclared files — verifier reports, orchestrator judges.** The verifier surfaces any
+  file the builder touched that the task did not declare (step 5). You judge its scope at
+  commit: **in-scope → stage it by explicit path** and record the file + why in the commit
+  body; **out-of-scope → escalate as an approve-by-exception event** (trigger named), do
+  **not** commit it. **No silent staging** of an undeclared file either way.
+
 ### After All Tasks: End-of-Batch Review
 
-The per-task pauses are gone, so the whole batch gets **one** real human review here. Do
-not rubber-stamp "all green" — this is the moment to evaluate whether the work is _right_,
-not just whether the checks passed.
+Each task already passed its **own** per-task verifier, scoped to its **own** contract. So
+this review is **not a second per-task pass** over all-green work — repeating the per-task
+gate here would just be the rubber-stamp the surrogation-recursion risk warns against. Its
+job is the one a single-task-contract verifier **structurally cannot do**: **cross-task /
+integration coherence** — faults that live in the **interaction between tasks**, where
+each task is individually green but the pair is wrong. Evaluate whether the batch is
+_right_ as a whole, not whether each check passed (it did). The tell to catch yourself on:
+the moment "did it pass?" replaces "is it right?".
+
+It still **surfaces `(manual)` items and "compiles, behavior unverified" shallow proxies
+separately** — pulled out of the green, never folded into it — so a behavior that was
+never machine-verified can't hide behind a passing batch.
 
 **1. Present the batch once** over `<base>..HEAD`:
 
@@ -120,8 +227,8 @@ out of scope. Do not skip silently over them — the strike is the record.
 - **Marking `[x]`** — `/build` is the **sole authority** for setting checkbox state. Mark
   `[x]` only for criteria that genuinely passed (executable: exit 0; manual: user
   confirmed). The AC carry-forward ledger mechanism is preserved unchanged.
-- A failing active criterion is an exception: fix (within the three-attempt cap) or
-  escalate. All active items must pass before Phase Complete.
+- A failing active criterion is an exception: fix (within the round cap) or escalate. All
+  active items must pass before Phase Complete.
 
 ---
 
@@ -135,13 +242,14 @@ the record now, not a hand-maintained Build Log.
    commit.
 3. **Continue** - Proceed with the adjusted approach.
 
-**Undeclared-file case.** If a deviation makes you touch a file the task **did not
-declare**:
+**Undeclared-file case.** When the builder touches a file the task **did not declare**,
+the **verifier surfaces it** in its diff pass and **you (the orchestrator) judge its
+scope** at commit — see "Commit discipline (sole committer)":
 
-- If the change is in-scope: stage that file by **explicit path** (never `git add -A`) and
-  record it in the commit body — name the file and the why.
-- If the touch is **out of scope** for the task: **escalate** to the user instead of
-  committing it.
+- If the change is **in-scope**: stage that file by **explicit path** (never `git add -A`)
+  and record it in the commit body — name the file and the why.
+- If the touch is **out of scope** for the task: **escalate** to the user as an
+  approve-by-exception event (trigger named) instead of committing it.
 
 Never leave a changed file as a silent dirty-tree drop, and never sweep it in with
 `git add -A`.
@@ -168,23 +276,29 @@ Run `/document` to begin Phase 3: Document.
 
 ## Rules
 
-1. **Sequential execution** - Complete each task fully before moving to the next.
-   Sequential order is not a per-task approval gate — proceed by default; do not wait for
-   confirmation between tasks.
-2. **Follow the plan** - Don't add unplanned work
-3. **Preserve the mess** - Note deviations, don't rewrite history
-4. **Approve by exception** - Proceed by default; stop and escalate only on the exception
-   cases (check failing after the three-attempt cap, genuine plan ambiguity, or an
-   irreversible/out-of-scope action).
-5. **Stay local** - All files created must stay within the current project directory. No
+1. **Orchestrate, don't build directly** - You are the orchestrator. Per task you dispatch
+   a **builder** and a **separate verifier** via the `Task` tool (their role prompts live
+   at `~/.claude/skills/build/prompts/`); you do not write the code or author the check
+   yourself. The doer and the judge are different agents, by design.
+2. **Sequential execution** - Complete each task fully (loop to `done`) before moving to
+   the next. Sequential order is not a per-task approval gate — proceed by default; do not
+   wait for confirmation between tasks.
+3. **Follow the plan** - Don't add unplanned work
+4. **Preserve the mess** - Note deviations, don't rewrite history
+5. **Approve by exception** - Proceed by default; stop and escalate only on the exception
+   cases (a task still failing after the round cap, genuine plan ambiguity, or an
+   irreversible/out-of-scope action). Every escalation names its trigger.
+6. **Stay local** - All files created must stay within the current project directory. No
    system-level or global configuration changes.
-6. **Git: read + commit only, on the current branch** - May read git (`git status`,
-   `git diff`, `git log`, `git rev-parse`) freely, and may commit a completed task on the
-   **current branch only**, staging the files that task **actually changed** by **explicit
-   path** (never `git add -A`, never `git add .`). Forbidden: push, force-push, rebase,
-   reset, branch creation/switching/deletion, tag, and any remote operation. If the work
-   needs a branch change or a remote op, escalate to the user.
-7. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never
+7. **Git: orchestrator is the sole committer, on the current branch** - The orchestrator
+   alone runs git; **builder and verifier subagents never touch git.** May read git
+   (`git status`, `git diff`, `git log`, `git rev-parse`) freely, and may commit a
+   verified task on the **current branch only**, staging that task's declared files
+   (including the verifier-authored check file) by **explicit path** (never `git add -A`,
+   never `git add .`). Forbidden: push, force-push, rebase, reset, branch
+   creation/switching/deletion, tag, and any remote operation. If the work needs a branch
+   change or a remote op, escalate to the user.
+8. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never
    auto-advance based on natural language like "let's move to documentation."
-8. **One phase per session** - Complete this phase, then end the session. Next phase
+9. **One phase per session** - Complete this phase, then end the session. Next phase
    starts fresh with docs as the handoff.

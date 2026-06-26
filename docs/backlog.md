@@ -148,16 +148,78 @@ file (`resources/`, `templates/`, etc.) with a relative markdown link instead of
 absolute `~/.claude/skills/<skill>/...` path.
 
 **Why:** Relative links trigger the path-resolution bug documented in
-[2026-03-05-skill-relative-path-resolution.md](issues/2026-03-05-skill-relative-path-resolution.md) —
-when a skill runs globally, Claude resolves the link against the invoking project's
+[2026-03-05-skill-relative-path-resolution.md](issues/2026-03-05-skill-relative-path-resolution.md)
+— when a skill runs globally, Claude resolves the link against the invoking project's
 working directory, fails to find the file, and improvises. The fix has now been applied
-inconsistently twice (caught in `design`/`plan`, missed in `learn-by-doing`/`study-partner`
-until a later audit). A check would stop the pattern from being reintroduced.
+inconsistently twice (caught in `design`/`plan`, missed in
+`learn-by-doing`/`study-partner` until a later audit). A check would stop the pattern from
+being reintroduced.
 
-**Sketch:** A grep over `.claude/skills/**/SKILL.md` for `](resources/`,
-`](templates/`, etc. (links that start with a bare support-dir name rather than `~`).
-Could run standalone, be wired into `sync-skills.sh`, or fire from a pre-commit hook.
-Open question: enforcement point and whether to also verify linked files exist.
+**Sketch:** A grep over `.claude/skills/**/SKILL.md` for `](resources/`, `](templates/`,
+etc. (links that start with a bare support-dir name rather than `~`). Could run
+standalone, be wired into `sync-skills.sh`, or fire from a pre-commit hook. Open question:
+enforcement point and whether to also verify linked files exist.
 
 **Origin:** Built and removed during the 2026-06-21 fix for the inconsistent path
 workaround; demoted to backlog pending a decision on where enforcement should live.
+
+---
+
+## 2026-06-25: Move 1.5 orchestrator deferrals
+
+The minimal-provable-cut boundary of Move 1.5 (`/build` as orchestrator — design spec
+[`2026-06-25-1654-build-phase-move-1.5-orchestrator.md`](design-specs/2026-06-25-1654-build-phase-move-1.5-orchestrator.md)).
+Each item below was deliberately left out of that cut; all are **additive** next moves,
+recorded so the boundary is explicit rather than silent.
+
+**1. Reviewer multiplicity / adversarial panel.** Move 1.5 runs a **single** verifier per
+task that authors the check, judges it, and renders the gate — and nothing checks the
+verifier. A confidently-wrong or vacuous check (passes while proving nothing) would not be
+caught. The next move is a second lens — multiple verifiers (e.g. correctness + security)
+or an adversarial refute-pass — so the verifier is no longer the single unchecked
+authority. Named as a residual risk in the design spec.
+
+**2. Scale-to-stakes routing.** This cut runs the **full** dispatch+review loop on
+**every** task, including one-liners — ceremony-mismatch on trivial tasks is accepted for
+now. The deferred move is routing: let trivial/low-stakes tasks skip the verifier round
+(or run a lighter gate) while substantive tasks get the full loop. A tunable, not proven
+here.
+
+**3. Mechanical write-lockout for Guard 4.** Guard 4 (the check-authoring boundary) rests
+**entirely on the verifier's tamper-diff** — honest trust, zero enforcement: a builder
+holding Bash can touch any file regardless of its tool grants. The natural next move **if
+the tamper-diff proves insufficient** is a real mechanical lock — path-scoping the
+builder's writes or a pre-commit hook so the builder physically cannot touch the check.
+Deferred (not rejected) because the lock adds harness machinery, and a PreToolUse hook is
+itself shell-on-every-call risk.
+
+**4. Model tiering.** The role split (doer vs. judge) is load-bearing; the specific model
+assignment is **not**. Dispatching the builder at a cheap tier and the verifier at an
+expensive one is a tunable left for after the loop is shown to converge — the role split,
+not the model IDs, is what's proven.
+
+**5. Parallel-task worktree isolation.** This cut keeps the loop **sequential** — one task
+fully through `done` before the next starts. The deferred move is running independent
+tasks concurrently, each builder/verifier pair in its own git worktree so parallel edits
+can't collide. Out of scope here because sequential is simpler to spec and prove; worktree
+isolation is the natural enabler once the single-task loop is trusted.
+
+**6. Crash / stale-state recovery.** Move 1.5's only recovery story is "re-derive `done`
+from the git commit + `done_when`" — a task's commit exists iff it passed, so a crashed
+session re-reads state from git. Anything richer (resuming a half-built task mid-loop,
+recovering an in-flight subagent, a durable state file) is deferred. Adequate for now
+because the commit-as-proof model degrades gracefully; revisit if mid-loop crashes prove
+costly.
+
+**7. ed3d procedure gate (zero-Minor-or-bust).** Move 1.5 ships the **outcome gate** (exit
+on `done_when` pass + review clean, scoped to the task contract), not the stricter
+procedure gate that blocks on zero issues in every category including Minor. Per Design
+Decision 3 this was a deliberate fork with a **revisit trigger**: if the first real
+orchestrator runs ship Minor-grade rot that the end-of-batch review keeps catching,
+escalate toward a _scoped_ procedure gate (still off the human). Recorded so the fork
+stays revisitable rather than settling silently.
+
+**Origin:** Recorded at the close of the Move 1.5 build (plan
+[`2026-06-25-1735-build-phase-move-1.5-orchestrator.md`](implementation-plans/2026-06-25-1735-build-phase-move-1.5-orchestrator.md),
+Task 7). See the design spec's "Out of Scope" and "Residual Risks" sections for the full
+rationale.
