@@ -459,34 +459,34 @@ result — the only way the behavioral criteria A1–A11 become observable.
 > **not** reach Phase Complete until they are fed back and marked. The build session's own
 > active gate is **A12–A16** (machine/inspection-verifiable in-session).
 
-- [ ] **A1.** On a substantive task, `/build` dispatches a builder subagent and a
+- [x] **A1.** On a substantive task, `/build` dispatches a builder subagent and a
       _separate_ verifier subagent — observably not one agent self-grading. `(design)`
-- [ ] **A2.** The loop exits a task only when `done_when` exits 0 **and** the verifier
+- [x] **A2.** The loop exits a task only when `done_when` exits 0 **and** the verifier
       reports no in-contract findings; both conditions are visible in the transcript, and
       the positive/happy-path case is demonstrated (not only the failure case). `(design)`
-- [ ] **A3.** Every subagent report is printed in full before the orchestrator acts on it,
+- [x] **A3.** Every subagent report is printed in full before the orchestrator acts on it,
       the task is named before each round, and any escalation names its trigger (cap /
       ambiguity / out-of-scope file). `(design)`
-- [ ] **A4.** On a task whose check keeps failing, the loop re-dispatches with the carried
+- [x] **A4.** On a task whose check keeps failing, the loop re-dispatches with the carried
       finding list; after 3 failed rounds it stops and escalates to the human rather than
       hanging or committing. `(design)`
-- [ ] **A5.** For a new-behavior task, the verifier authors the check **before** the
+- [x] **A5.** For a new-behavior task, the verifier authors the check **before** the
       builder runs, and the check starts **red**. `(design)`
-- [ ] **A6.** The builder never authors/edits the check and never commits; the
+- [x] **A6.** The builder never authors/edits the check and never commits; the
       orchestrator commits exactly once per verified task, staging only that task's
       declared files — including the verifier-authored check file. `(design)`
-- [ ] **A7.** When check-tampering is present in the builder's diff (weakened assert,
+- [x] **A7.** When check-tampering is present in the builder's diff (weakened assert,
       `exit(0)` stub, edited check), the task **hard-fails** — not routed as a fixable
       finding. Validated by injection. `(design)`
-- [ ] **A8.** `(manual)` items and "compiles, behavior unverified" shallow proxies surface
+- [x] **A8.** `(manual)` items and "compiles, behavior unverified" shallow proxies surface
       _separately_ at end-of-batch — not folded into the green. `(design)`
-- [ ] **A9.** A task with genuine plan ambiguity trips approve-by-exception escalation,
+- [x] **A9.** A task with genuine plan ambiguity trips approve-by-exception escalation,
       and a non-ambiguous task does **not** — the human-by-exception path fires when it
       should and stays silent when it shouldn't. `(design)`
-- [ ] **A10.** The end-of-batch review catches a defect invisible at single-task scope — a
+- [x] **A10.** The end-of-batch review catches a defect invisible at single-task scope — a
       fault in the _interaction_ between two tasks, each of which passed its own per-task
       verifier. `(design)`
-- [ ] **A11.** When the builder touches an undeclared **out-of-scope** file, the
+- [x] **A11.** When the builder touches an undeclared **out-of-scope** file, the
       orchestrator escalates as approve-by-exception rather than silently staging it; an
       undeclared **in-scope** touch stages by path without escalating. `(design)`
 - [x] **A12.** `build/SKILL.md` frontmatter lists
