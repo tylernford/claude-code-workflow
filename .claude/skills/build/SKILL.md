@@ -189,9 +189,18 @@ git.
 
 ### After All Tasks: End-of-Batch Review
 
-The per-task pauses are gone, so the whole batch gets **one** real human review here. Do
-not rubber-stamp "all green" — this is the moment to evaluate whether the work is _right_,
-not just whether the checks passed.
+Each task already passed its **own** per-task verifier, scoped to its **own** contract. So
+this review is **not a second per-task pass** over all-green work — repeating the per-task
+gate here would just be the rubber-stamp the surrogation-recursion risk warns against. Its
+job is the one a single-task-contract verifier **structurally cannot do**: **cross-task /
+integration coherence** — faults that live in the **interaction between tasks**, where
+each task is individually green but the pair is wrong. Evaluate whether the batch is
+_right_ as a whole, not whether each check passed (it did). The tell to catch yourself on:
+the moment "did it pass?" replaces "is it right?".
+
+It still **surfaces `(manual)` items and "compiles, behavior unverified" shallow proxies
+separately** — pulled out of the green, never folded into it — so a behavior that was
+never machine-verified can't hide behind a passing batch.
 
 **1. Present the batch once** over `<base>..HEAD`:
 
@@ -218,8 +227,8 @@ out of scope. Do not skip silently over them — the strike is the record.
 - **Marking `[x]`** — `/build` is the **sole authority** for setting checkbox state. Mark
   `[x]` only for criteria that genuinely passed (executable: exit 0; manual: user
   confirmed). The AC carry-forward ledger mechanism is preserved unchanged.
-- A failing active criterion is an exception: fix (within the three-attempt cap) or
-  escalate. All active items must pass before Phase Complete.
+- A failing active criterion is an exception: fix (within the round cap) or escalate. All
+  active items must pass before Phase Complete.
 
 ---
 
@@ -267,23 +276,29 @@ Run `/document` to begin Phase 3: Document.
 
 ## Rules
 
-1. **Sequential execution** - Complete each task fully before moving to the next.
-   Sequential order is not a per-task approval gate — proceed by default; do not wait for
-   confirmation between tasks.
-2. **Follow the plan** - Don't add unplanned work
-3. **Preserve the mess** - Note deviations, don't rewrite history
-4. **Approve by exception** - Proceed by default; stop and escalate only on the exception
-   cases (check failing after the three-attempt cap, genuine plan ambiguity, or an
-   irreversible/out-of-scope action).
-5. **Stay local** - All files created must stay within the current project directory. No
+1. **Orchestrate, don't build directly** - You are the orchestrator. Per task you dispatch
+   a **builder** and a **separate verifier** via the `Task` tool (their role prompts live
+   at `~/.claude/skills/build/prompts/`); you do not write the code or author the check
+   yourself. The doer and the judge are different agents, by design.
+2. **Sequential execution** - Complete each task fully (loop to `done`) before moving to
+   the next. Sequential order is not a per-task approval gate — proceed by default; do not
+   wait for confirmation between tasks.
+3. **Follow the plan** - Don't add unplanned work
+4. **Preserve the mess** - Note deviations, don't rewrite history
+5. **Approve by exception** - Proceed by default; stop and escalate only on the exception
+   cases (a task still failing after the round cap, genuine plan ambiguity, or an
+   irreversible/out-of-scope action). Every escalation names its trigger.
+6. **Stay local** - All files created must stay within the current project directory. No
    system-level or global configuration changes.
-6. **Git: read + commit only, on the current branch** - May read git (`git status`,
-   `git diff`, `git log`, `git rev-parse`) freely, and may commit a completed task on the
-   **current branch only**, staging the files that task **actually changed** by **explicit
-   path** (never `git add -A`, never `git add .`). Forbidden: push, force-push, rebase,
-   reset, branch creation/switching/deletion, tag, and any remote operation. If the work
-   needs a branch change or a remote op, escalate to the user.
-7. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never
+7. **Git: orchestrator is the sole committer, on the current branch** - The orchestrator
+   alone runs git; **builder and verifier subagents never touch git.** May read git
+   (`git status`, `git diff`, `git log`, `git rev-parse`) freely, and may commit a
+   verified task on the **current branch only**, staging that task's declared files
+   (including the verifier-authored check file) by **explicit path** (never `git add -A`,
+   never `git add .`). Forbidden: push, force-push, rebase, reset, branch
+   creation/switching/deletion, tag, and any remote operation. If the work needs a branch
+   change or a remote op, escalate to the user.
+8. **Slash commands only** - Phase transitions happen ONLY via explicit `/command`. Never
    auto-advance based on natural language like "let's move to documentation."
-8. **One phase per session** - Complete this phase, then end the session. Next phase
+9. **One phase per session** - Complete this phase, then end the session. Next phase
    starts fresh with docs as the handoff.
