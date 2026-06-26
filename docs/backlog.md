@@ -148,16 +148,57 @@ file (`resources/`, `templates/`, etc.) with a relative markdown link instead of
 absolute `~/.claude/skills/<skill>/...` path.
 
 **Why:** Relative links trigger the path-resolution bug documented in
-[2026-03-05-skill-relative-path-resolution.md](issues/2026-03-05-skill-relative-path-resolution.md) —
-when a skill runs globally, Claude resolves the link against the invoking project's
+[2026-03-05-skill-relative-path-resolution.md](issues/2026-03-05-skill-relative-path-resolution.md)
+— when a skill runs globally, Claude resolves the link against the invoking project's
 working directory, fails to find the file, and improvises. The fix has now been applied
-inconsistently twice (caught in `design`/`plan`, missed in `learn-by-doing`/`study-partner`
-until a later audit). A check would stop the pattern from being reintroduced.
+inconsistently twice (caught in `design`/`plan`, missed in
+`learn-by-doing`/`study-partner` until a later audit). A check would stop the pattern from
+being reintroduced.
 
-**Sketch:** A grep over `.claude/skills/**/SKILL.md` for `](resources/`,
-`](templates/`, etc. (links that start with a bare support-dir name rather than `~`).
-Could run standalone, be wired into `sync-skills.sh`, or fire from a pre-commit hook.
-Open question: enforcement point and whether to also verify linked files exist.
+**Sketch:** A grep over `.claude/skills/**/SKILL.md` for `](resources/`, `](templates/`,
+etc. (links that start with a bare support-dir name rather than `~`). Could run
+standalone, be wired into `sync-skills.sh`, or fire from a pre-commit hook. Open question:
+enforcement point and whether to also verify linked files exist.
 
 **Origin:** Built and removed during the 2026-06-21 fix for the inconsistent path
 workaround; demoted to backlog pending a decision on where enforcement should live.
+
+---
+
+## 2026-06-25: Move 1.5 orchestrator deferrals
+
+The minimal-provable-cut boundary of Move 1.5 (`/build` as orchestrator — design spec
+[`2026-06-25-1654-build-phase-move-1.5-orchestrator.md`](design-specs/2026-06-25-1654-build-phase-move-1.5-orchestrator.md)).
+Each item below was deliberately left out of that cut; all are **additive** next moves,
+recorded so the boundary is explicit rather than silent.
+
+**1. Reviewer multiplicity / adversarial panel.** Move 1.5 runs a **single** verifier per
+task that authors the check, judges it, and renders the gate — and nothing checks the
+verifier. A confidently-wrong or vacuous check (passes while proving nothing) would not be
+caught. The next move is a second lens — multiple verifiers (e.g. correctness + security)
+or an adversarial refute-pass — so the verifier is no longer the single unchecked
+authority. Named as a residual risk in the design spec.
+
+**2. Scale-to-stakes routing.** This cut runs the **full** dispatch+review loop on
+**every** task, including one-liners — ceremony-mismatch on trivial tasks is accepted for
+now. The deferred move is routing: let trivial/low-stakes tasks skip the verifier round
+(or run a lighter gate) while substantive tasks get the full loop. A tunable, not proven
+here.
+
+**3. Mechanical write-lockout for Guard 4.** Guard 4 (the check-authoring boundary) rests
+**entirely on the verifier's tamper-diff** — honest trust, zero enforcement: a builder
+holding Bash can touch any file regardless of its tool grants. The natural next move **if
+the tamper-diff proves insufficient** is a real mechanical lock — path-scoping the
+builder's writes or a pre-commit hook so the builder physically cannot touch the check.
+Deferred (not rejected) because the lock adds harness machinery, and a PreToolUse hook is
+itself shell-on-every-call risk.
+
+**4. Model tiering.** The role split (doer vs. judge) is load-bearing; the specific model
+assignment is **not**. Dispatching the builder at a cheap tier and the verifier at an
+expensive one is a tunable left for after the loop is shown to converge — the role split,
+not the model IDs, is what's proven.
+
+**Origin:** Recorded at the close of the Move 1.5 build (plan
+[`2026-06-25-1735-build-phase-move-1.5-orchestrator.md`](implementation-plans/2026-06-25-1735-build-phase-move-1.5-orchestrator.md),
+Task 7). See the design spec's "Out of Scope" and "Residual Risks" sections for the full
+rationale.
