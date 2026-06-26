@@ -1,6 +1,6 @@
 ---
 disable-model-invocation: true
-allowed-tools: Read, Grep, Glob, Write, Edit, Bash
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash, Task
 ---
 
 # /build
@@ -11,8 +11,21 @@ You are starting **Implementation · Phase 2: Build**.
 
 ## Your Role
 
-Execute the implementation plan task by task, with commits at each checkpoint. You
-implement, user reviews.
+You are the **orchestrator**. You execute the implementation plan task by task, but you do
+**not** build or judge directly. For each task you dispatch **two separate subagents** via
+the `Task` tool:
+
+- a **builder** (the doer) — reads `~/.claude/skills/build/prompts/builder.md`, and
+- a separate **verifier** (the judge) — reads
+  `~/.claude/skills/build/prompts/verifier.md`.
+
+The verifier owns what "done" means: it authors the executable check up front and renders
+the gate after. You loop the two against that check until the task is verifiably done,
+then you — and only you — commit. The doer and the judge are **different agents, by
+design**: this is what replaces a single agent self-grading its own work.
+
+You stay the **sole committer** and the sole authority for marking acceptance criteria.
+Builder and verifier subagents never touch git.
 
 ---
 
@@ -52,33 +65,57 @@ Every response must begin with:
 
 ## Workflow
 
-### For Each Task:
+### Per-task state machine
 
-The default is **proceed** — you run the whole task and move to the next without pausing.
-Stop only by exception (see "Approve by exception" below).
+Each task moves through:
+**`todo → building → built → reviewing → done | back-to-building`**.
 
-1. **Announce** - State which task you're starting.
-2. **Resolve check** - Read the task's `done_when`. For each item with an `intent` +
-   candidate `command`, **resolve the intent into a real command against this repo** —
-   find the actual test/build/grep target, file path, or symbol. **Never lift the
-   candidate command verbatim**; it's a guess the plan author made, and your job is to
-   re-resolve it against reality. Items marked `manual: true` have no command — note them
-   for the end-of-batch review.
-3. **Implement** - Write the code / create the files.
-4. **Run resolved command** - Run the resolved command(s). **Exit 0 is the gate.** If the
-   task deviated mid-implementation so the resolved command no longer fits, **re-resolve**
-   it before running. When the command is only a shallow proxy for the intent (e.g. it
-   proves the file parses or compiles but not that behavior is correct), record the result
-   as **"compiles, behavior unverified."** `manual: true` intents are **noted, not counted
-   as done** — they are surfaced in the end-of-batch review, never silently passed.
-5. **Commit** - Commit the task on the current branch, staging the files this task changed
-   by **explicit path** (never `git add -A`). Use the plan's commit message; if the task
-   deviated, record the why in the **commit body** (see "Handling Deviations").
-6. **Proceed** - Move to the next task. No pause.
+- **todo** — not yet started.
+- **building** — the builder subagent is implementing the task.
+- **built** — the builder has returned its diff; the `done_when` check is run.
+- **reviewing** — the verifier subagent diffs the change, runs the tamper-diff, and
+  renders the gate.
+- **done** — the outcome gate passed; the orchestrator commits. Terminal.
+- **back-to-building** — the gate did not pass; re-dispatch the builder with the carried
+  finding list (see **Loop control** below). Not terminal — it returns to **building**.
 
-**Three-attempt cap:** if a task's check fails, fix and re-run — but bound this at **three
-attempts** per check. On the **third consecutive failure**, stop and **escalate** to the
-user with the failing command output. Do not grind past the cap.
+The default is **proceed** — you run each task's loop to `done` and move to the next
+without pausing. Stop only by exception (see "Approve by exception" below).
+
+### The dispatch + review loop (for each task)
+
+1. **Name the task** being dispatched — print which task (number + name) is entering the
+   loop, before each round. Transparency is mandatory (see "Transparency" below).
+2. **Verifier authors / resolves the check** — dispatch the verifier (it reads
+   `~/.claude/skills/build/prompts/verifier.md`) with the task contract and its
+   `done_when`. For a **new-behavior** task the verifier **authors the executable check
+   from intent _before_ the builder runs** and confirms it starts **red**. For an
+   **existing-signal** task it **re-resolves** the candidate command against the actual
+   repo (real path/symbol/ target — **never lift the candidate verbatim**). Un-checkable
+   items are tagged `(manual)` — noted, not run. **Authoring the check only ever happens
+   in the verifier**, never the builder.
+3. **Dispatch the builder** — dispatch the builder (it reads
+   `~/.claude/skills/build/prompts/builder.md`) with the task contract: the declared files
+   and the change to make. The builder implements and returns its diff and summary. It may
+   run the check but must not author or edit it.
+4. **Run the resolved `done_when`** — run the verifier's check. **Exit 0 is half the
+   gate.** If the task deviated mid-implementation so the check no longer fits, the
+   verifier **re-resolves** it before running. When the command is only a shallow proxy
+   (it proves the file parses/compiles but not that behavior is correct), record the
+   result as **"compiles, behavior unverified."**
+5. **Verifier diff + review** — dispatch the verifier again to **diff the builder's
+   change**: report in-contract findings, run the **tamper-diff** (Guard 4 — see "Loop
+   control"), and surface any **undeclared file** the builder touched (you judge its scope
+   at commit — see "Commit discipline").
+6. **Outcome gate** — exit the task to **done** only when **`done_when` exits 0 AND the
+   verifier reports no in-contract findings** — both visible in the transcript. Otherwise
+   go to **back-to-building**: re-dispatch the builder with the carried finding list,
+   bounded by the round cap (see "Loop control"). `manual: true` intents are **noted, not
+   counted as done** — surfaced separately in the end-of-batch review, never silently
+   passed.
+
+Then **commit** the verified task (see "Commit discipline") and **proceed** to the next.
+No pause between tasks.
 
 **Approve by exception:** the default is proceed. Stop and escalate to the user only when:
 
