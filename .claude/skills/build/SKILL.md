@@ -119,12 +119,43 @@ No pause between tasks.
 
 **Approve by exception:** the default is proceed. Stop and escalate to the user only when:
 
-- (a) a check is **still failing after the three-attempt cap**,
+- (a) a task is **still failing after the round cap** (3 dispatch→review rounds — see
+  "Loop control"),
 - (b) there is a **genuine plan ambiguity** you cannot resolve from the plan and repo, or
 - (c) the task requires an **irreversible or out-of-scope action** (a branch/remote op, a
   destructive change, work the plan didn't authorize).
 
 Anything outside (a)–(c) — proceed.
+
+### Loop control: round cap, carried issues & Guard 4
+
+**Round cap = 3 → escalate.** Each pass through the dispatch + review loop is one
+**round**. If the outcome gate has not passed after **3 rounds**, **stop and escalate to
+the human** with the failing command output and the open finding list — do **not** commit
+a task that never went green, and do **not** loop a fourth time. Non-convergence is an
+escalation, not a hang.
+
+**Carried-issue list.** When a round fails, carry the verifier's finding list **verbatim**
+into the next builder dispatch — the builder must see exactly what it has to fix.
+**Silence ≠ fixed:** an issue drops off the list **only when the verifier confirms it
+resolved**, not because a later report failed to repeat it. If the review is too large for
+one context, **chunk the review — never skip it**; a finding that scrolled out of context
+is not a finding that was addressed.
+
+**Guard 4 — tamper-diff (hard fail).** As part of step 5, the verifier diffs the builder's
+change for check-tampering:
+
+- a **weakened or deleted assertion** in the check,
+- an inserted **`exit(0)`** / early-success stub that short-circuits the check, or
+- **any edit to the check file itself.**
+
+Any one of these is a **hard fail** of the task — **not** a fixable finding routed back
+into the loop, and **not** subject to the round cap. A tampered check means the gate can
+no longer be trusted, so the task fails outright and escalates. This is **honest trust,
+not an OS-level wall**: the builder holds Bash and could touch any file regardless of its
+tool grants, so the tamper-diff — not tool scoping — is what makes the check-authoring
+boundary checkable. The mechanical write-lockout is a deferred next move, not part of this
+cut.
 
 ### After All Tasks: End-of-Batch Review
 
