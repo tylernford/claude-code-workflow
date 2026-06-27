@@ -1,74 +1,60 @@
 # Design-spec altitude — specify the contract, not the implementation
 
-**Date:** 2026-06-25 **Origin:** noticed while reviewing `2026-06-25-spine-validator.md` —
-it read cleaner than the usual specs, and the difference turned out to be _altitude_, not
-style. This is the principle that fell out.
+**Date:** 2026-06-25 **Origin:** `2026-06-25-spine-validator.md` read cleaner than usual
+specs. The difference was altitude, not style.
 
 ---
 
 ## The principle
 
-A design spec should specify the **contract** — what must be true and why — and stay loose
-about the **implementation** — how it gets built. Precise about the contract; loose about
-the how. The how is the build phase's job, resolved against the real repo.
+A spec specifies the **contract** — what must be true and why. It stays loose about the
+**implementation** — how it gets built. The how is build's job, resolved against the real
+repo.
 
-- **Contract (belongs in the spec):** the schema, the checks/behaviors, the decisions and
-  their reasons, the non-goals, the intent of each piece.
-- **Implementation (does NOT belong; push to plan/build):** code snippets, exact file
-  paths, the step-by-step mechanics.
+- **Contract (belongs):** schema, checks, decisions and their reasons, non-goals, the
+  intent of each piece.
+- **Implementation (push to plan/build):** code snippets, exact paths, step-by-step
+  mechanics.
 
-## Why code-heavy specs are a bug, not thoroughness
+## Code-heavy specs are a drift generator
 
-A prescriptive, code-heavy spec is a **drift generator.** It freezes the most _perishable_
-part of the work — the literal code and paths — into the most _durable_ artifact. By build
-time the codebase has moved and the spec's code is stale. That is the `done_when` drift
-finding (7/13 plans) one altitude up: the spec was right when written and wrong by the
-time it's used.
+They freeze the most _perishable_ part of the work — literal code and paths — into the
+most _durable_ artifact. By build time the codebase has moved and the spec's code is
+stale. That's the `done_when` drift finding (7/13 plans) one altitude up: right when
+written, wrong when used. A high-altitude spec has nothing to go stale, because it never
+pinned the perishable stuff.
 
-It also **collapses the altitude** — design does build's job prematurely, against a
-codebase that will have changed — which buries the durable _what/why_ under the perishable
-_how_, and over- constrains the builder, who should be resolving against reality.
+## Same insight, held elsewhere
 
-A high-altitude spec has _nothing to go stale_, because it never pinned the perishable
-stuff. ed3d institutionalizes this: design plans are "intentionally high-level… generate
-code fresh based on codebase investigation. Do NOT copy code from the design document,"
-and the _plan_ phase does the codebase investigation, not design. Design shouldn't know
-the file paths yet.
+This is the intent/command split promoted to the document level: durable intent lives in
+the spec; the command resolves fresh at build, by not-the-builder. ed3d says the same —
+design plans are "intentionally high-level… generate code fresh based on codebase
+investigation. Do NOT copy code from the design document." The _plan_ phase does that
+investigation; design shouldn't know the paths yet.
 
-## Same insight, already held elsewhere
-
-This is the **intent/command split promoted to the document level** — the durable intent
-lives in the spec; the command/code is resolved fresh at build by not-the-builder. It is
-also the PRD-vs-design-plan altitude (don't let _how_ leak up into _what_) and ed3d's
-high-level-design rule. Three threads, one principle: keep the perishable how out of the
-durable artifact.
-
-You already half-hold this. The spec template says of its file list: "_Non-binding
-starting point. `/plan` re-verifies these and owns the final paths._" The fix is to **take
-the template at its word** — right now the code examples and path lists still dominate the
-page and read as binding.
+You already half-hold this. The template calls its file list a "non-binding starting
+point" that `/plan` re-verifies and owns. Take it at its word — right now code and paths
+dominate the page and read as binding.
 
 ## The test
 
-For any line in a design spec, ask: **"Would this still be true if the codebase changed
-next week?"**
+For any line, ask: **"Would this still be true if the codebase changed next week?"**
 
-- **Yes** → a check, a decision, an intent, a schema field — it's contract, it belongs.
-- **No** → a code snippet, an exact path, a how — push it down to plan/build.
+- **Yes** → check, decision, intent, schema field. Contract. It belongs.
+- **No** → code snippet, exact path, a how. Push it down.
 
-That one question sorts contract from implementation cleanly.
+One question, clean sort.
 
-## The guardrail (don't over-rotate)
+## Guardrail — don't over-rotate
 
-**Less-prescriptive is NOT vague.** A good high-altitude spec is _ruthlessly precise_ —
-about the schema, the checks, the decisions. The skill is being exact about the _contract_
-and loose about the _implementation_, not loose about everything. Under-specifying the
-contract is the opposite failure and just as real. **High altitude, sharp edges.**
+**Less-prescriptive is NOT vague.** A good high-altitude spec is ruthlessly precise about
+the schema, the checks, the decisions. Be exact about the _contract_ and loose about the
+_implementation_ — not loose about everything. Under-specifying the contract is the
+opposite failure, and just as real. **High altitude, sharp edges.**
 
 ## So what
 
-When writing or reviewing a design spec: lead with contract (intent, decisions, checks,
-non-goals); demote code to clearly-illustrative-only (or cut it); mark file lists
-non-binding and mean it; run the "true next week?" test on anything that looks like code
-or a path. Let `/plan` and `/build` resolve the how against the real repo — that's where
-it belongs and where it stays current.
+Lead with contract (intent, decisions, checks, non-goals). Demote code to illustration or
+cut it. Mark file lists non-binding and mean it. Run the "true next week?" test on
+anything that looks like code or a path. Let `/plan` and `/build` resolve the how against
+the real repo.
